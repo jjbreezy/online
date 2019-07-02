@@ -1,5 +1,5 @@
 // test and reference
-console.log('hello canvas');
+//console.log('hello canvas');
 var canvas = document.querySelector('canvas');
 // console.log(canvas);
 
@@ -97,7 +97,7 @@ function Circle(x,y,dx,dy,cradius) {
 		this.draw();
 		// console.log('circle updated')
 	}
-	console.log('circle instantiated');
+	//console.log('circle instantiated');
 }
 
 
@@ -134,7 +134,7 @@ function animate() {
 		circleArray[i].update();
 	}
 
-	console.log('animation updating');
+	//console.log('animation updating');
 
 }
 
