@@ -1,5 +1,5 @@
 // test and reference
-//console.log('hello canvas');
+console.log('hello canvas');
 var canvas = document.querySelector('canvas');
 // console.log(canvas);
 
@@ -45,6 +45,51 @@ var c =canvas.getContext('2d');
 // 	c.stroke();
 // }
 
+// mouse var
+var mouse = {
+	x: undefined,
+	y: undefined
+}
+
+// how big and small can balloons get?
+var maxRadius = 90;
+var minRadius = 35;
+
+// what colors can the balloons be?
+var colorArray = [
+	'#E63946',
+	'#F1FAEE',
+	'#86BBD8',
+	'#457B9D',
+	'#1D3557',
+]
+
+// interactivity
+window.addEventListener('mousemove', 
+	function(event) {
+	mouse.x = event.x;
+	mouse.y =  event.y;
+})
+
+// //spawn another balloon
+window.addEventListener('click', 
+	function(event) {
+
+	var dx = (Math.random()-0.5)*6;
+	var dy = (Math.random()-0.5)*6
+	
+	console.log(mouse.x);
+	console.log(mouse.y);
+	console.log('clicky');
+	circleArray.push(new Circle(mouse.x, mouse.y, dx , dy, cradius));
+	console.log(circleArray)
+})
+
+//window resive event listener
+window.addEventListener('resize', function(event){
+	canvas.width = window.innerWidth;
+	canvas.height = window.innerHeight;
+})
 
 // object oriented JS
 function Circle(x,y,dx,dy,cradius) {
@@ -55,7 +100,7 @@ function Circle(x,y,dx,dy,cradius) {
 	this.cradius = cradius;
 
 
-	this.color = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6)
+	this.color = colorArray[Math.floor(Math.random() * colorArray.length)]
 
 	this.draw = function() {
 		// circle
@@ -78,7 +123,7 @@ function Circle(x,y,dx,dy,cradius) {
 		c.fillStyle = grd;
 		c.fill();
 	}
-	
+
 	this.drawhighlight = function() {
 		// gradient boy
 		var grd = c.createRadialGradient(this.x, this.y, cradius/6, this.x, this.y, cradius);
@@ -110,9 +155,19 @@ function Circle(x,y,dx,dy,cradius) {
 
 		this.drawshadow();
 		this.draw();
+		this.drawhighlight();
 		// console.log('circle updated')
+
+		// interaction
+		if (mouse.x - this.x <70 && mouse.x -this.x > -70 && mouse.y - this.y <70 && mouse.y -this.y > -70) {
+			if (this.cradius < maxRadius) {
+				this.cradius +=2;
+			}
+		} else if (this.cradius > minRadius) {
+			this.cradius -=1; 
+		}
 	}
-	//console.log('circle instantiated');
+	console.log('circle instantiated');
 }
 
 
@@ -120,15 +175,18 @@ function Circle(x,y,dx,dy,cradius) {
 // for loop to instantiate multiple circles
 var circleArray = [];
 
-for (var i = 0; i < 10; i++) {
+for (var i = 0; i < 20; i++) {
+	// spawn the balloons so they don't get stuck
+	var cradius = 45;
+
 	// variables
-	var x = Math.random()*innerWidth;
-	var y = Math.random()*innerHeight;
+	var x = Math.random()*(innerWidth - cradius*2) + cradius;
+	var y = Math.random()*(innerHeight - cradius*2) + cradius;
 
 	var dx = (Math.random()-0.5)*6;
 	var dy = (Math.random()-0.5)*6; 
 
-	var cradius = 45;
+	
 
 	// put everything into the array. 
 	circleArray.push(new Circle(x, y, dx, dy, cradius));
@@ -149,7 +207,7 @@ function animate() {
 		circleArray[i].update();
 	}
 
-	//console.log('animation updating');
+	console.log('animation updating');
 
 }
 
