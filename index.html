@@ -2,18 +2,45 @@
 <html>
 <head>
 	<title>Jordan Broihier's Personal Website</title>
-	<link rel="stylesheet" href="style.css">
-	<link rel="shortcut icon" href="favicon.ico">
 	<style type="text/css">
 		canvas {
-			border: 1px solid black;
+			height: 100%;
+			width: 100%;
+			background-color: white;
+			grid-row: 1;
+			grid-column: 1;
+			z-index: 0;
+		}
+		body {
+			background-color: rgb(255,255,255);
+			margin: 0;
+			padding: 0;
+			display: grid;
+			grid-template-rows: 100vh;
+			grid-template-columns: 100vw;
+		}
+		#text {
+			grid-row: 1;
+			grid-column: 1;
+			justify-self: center;
+			align-self: center;
+			font-size: 30px;
+			font-family: Comic Sans MS;
+			font-weight: bolder;
+			z-index: 1;
 		}
 	</style>
 </head>
 <body>
-	<div id="top-notice"><p class="p-notice">under construction</p></div>
-	<div id="bottom-notice"><p class="p-disclaimer">contact: himself@jordanbroihier.com</p></div>
+	<!-- header -->
+	<!-- <div id="top-notice"><p class="p-notice">under construction</p></div>
+	<div id="bottom-notice"><p class="p-disclaimer">contact: himself@jordanbroihier.com</p></div> -->
 <!-- HTML canvas part -->
 	<canvas id="maincanvas"></canvas>
+	<script src="canvas.js"></script>
+
+	<div id="text">
+		<p>Jordan's funky fun balloon zone</p>
+	</div>
 </body>
 </html>
