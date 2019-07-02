@@ -78,6 +78,21 @@ function Circle(x,y,dx,dy,cradius) {
 		c.fillStyle = grd;
 		c.fill();
 	}
+	
+	this.drawhighlight = function() {
+		// gradient boy
+		var grd = c.createRadialGradient(this.x, this.y, cradius/6, this.x, this.y, cradius);
+		grd.addColorStop(0, "rgba(255,255,255,0.001)");
+		grd.addColorStop(1, "white");
+		grd.addColorStop(0, "rgba(255,255,255,0.001)");
+
+
+		// circle
+		c.beginPath();
+		c.arc(this.x -15, this.y -15, this.cradius/3,0,Math.PI*2,false);
+		c.fillStyle = grd;
+		c.fill();
+	}
 
 	this.update=function() {
 		// collision
