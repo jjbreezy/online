@@ -11,40 +11,6 @@ canvas.height = window.innerHeight;
 // context variable
 var c =canvas.getContext('2d');
 
-// // rectangles
-// c.fillStyle = 'rgba(255,0,0,0.25)';
-// c.fillRect( 100, 100, 100, 100);
-// c.fillStyle = 'rgba(255,0,0,0.5)';
-// c.fillRect( 200, 200, 100, 100);
-// c.fillStyle = 'rgba(255,0,0,0.75)';
-// c.fillRect( 300, 300, 100, 100);
-// c.fillStyle = 'rgba(255,0,0,1)';
-// c.fillRect( 400, 400, 100, 100);
-
-// Lines
-// c.beginPath();
-// c.moveTo(100,400);
-// c.lineTo(300,200);
-// c.lineTo(400,300);
-// c.strokeStyle = 'rgba(255,0,0,0.5)';
-// c.stroke();
-
-// Arcs
-// c.beginPath();
-// c.arc(300,300,30,0,Math.PI*2,false)
-// c.strokeStyle = 'blue';
-// c.stroke();
-
-// creating multiple circles using a for loop
-// for (var i = 0; i < 5; i++) {
-// 	var x = Math.random()*window.innerWidth;
-// 	var y = Math.random()*window.innerHeight; 
-// 	c.beginPath();
-// 	c.arc(x,y,30,0,Math.PI*2,false)
-// 	c.strokeStyle = 'green';
-// 	c.stroke();
-// }
-
 // mouse var
 var mouse = {
 	x: undefined,
@@ -57,11 +23,10 @@ var minRadius = 35;
 
 // what colors can the balloons be?
 var colorArray = [
-	'#E63946',
-	'#F1FAEE',
-	'#86BBD8',
-	'#457B9D',
-	'#1D3557',
+	'#4285F4',
+	'#DB4437',
+	'#F4B400',
+	'#0F9D58',
 ]
 
 // interactivity
