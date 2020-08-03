@@ -140,7 +140,7 @@ function Circle(x,y,dx,dy,cradius) {
 // for loop to instantiate multiple circles
 var circleArray = [];
 
-for (var i = 0; i < 20; i++) {
+for (var i = 0; i < 10; i++) {
 	// spawn the balloons so they don't get stuck
 	var cradius = 45;
 
