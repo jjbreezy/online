@@ -12,11 +12,20 @@
     </script>
     <!-- google adsense -->
     <script data-ad-client="ca-pub-6238449652173707" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+    <!-- on page load behavior-->
     <script>
-        window.onload = pageLoadAlert() {
-            alert('Page is loaded');
-        }
+        window.onload = function() {
+            if (!('hasCodeRunBefore' in localStorage)) {
+                alert('Welcome to Blackout!');
+                localStorage.setItem('hasCodeRunBefore', true);
+            }
+            else {
+                alert('Back so soon?');
+            }
+        };
     </script>
+    
     <!-- see if there is a standard browser library I can use to detect device orientation-->
     
     <style type="text/css">
@@ -26,11 +35,16 @@
     #container {
         display: flex;
         align-content: center;
+        /* border: none !important; */
     }
     #title {
         display: flex;
         align-content: center;
         background-image: none;
+    }
+    div {
+        border: black 2px solid;
+        margin: auto;
     }
     </style>
     
@@ -38,7 +52,9 @@
     </head>
     
     <body>
+        <p>Body</p>
         <div id="container">
+            <p>Container</p>
             <div id="title">
                 <!--skippable fade in modal on first page load in session
                 need tap event listeners, also have the logo floating over the background and have it flex for rotation
