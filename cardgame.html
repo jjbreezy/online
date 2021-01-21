@@ -52,11 +52,55 @@
     <style type="text/css">
     body {
         overflow: hidden;
+        margin: 0%;
     }
     #container {
-        display: flex;
+        /* display: flex;
         align-content: center;
-        /* border: none !important; */
+        border: none !important; */
+        height: 100vh;
+        width: 100vw;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        align-items: center;
+    }
+    #card_container {
+        height: 95%;
+        width: 95%;
+        grid-row: 1;
+        justify-items: center;
+        align-items: center;
+        display: grid;
+        margin: 1%;
+        border: 2px solid black !important;
+        justify-content: center;
+        align-content: center;
+        text-align: center;
+    }
+    #card_display {
+        height: 16em;
+        width: 16em;
+        margin: 2%;
+    }
+    #dice_container {
+        height: 95%;
+        width: 95%;
+        grid-row: 2;
+        justify-items: center;
+        align-items: center;
+        display: grid;
+        margin: 1%;
+        border: 2px solid black !important;
+        justify-content: center;
+        align-content: center;
+        text-align: center;
+    }
+    #dice_display {
+        height: 16em;
+        width: 16em;
+        margin: 2%;
     }
     #title {
         display: flex;
@@ -64,8 +108,8 @@
         background-image: none;
     }
     div {
-        border: black 2px solid;
-        margin: auto;
+        border: black 1px dashed;
+        /* margin: auto; */
     }
     </style>
     
@@ -73,20 +117,9 @@
     </head>
     
     <body>
-        <p>Body</p>
+        
         <div id="container">
             <p>Container</p>
-            <div id="title">
-                <!--skippable fade in modal on first page load in session
-                need tap event listeners, also have the logo floating over the background and have it flex for rotation
-                -->
-                <p>Blackout!: The Card Game</p>
-            </div>
-            <div id="rules">
-                <p>Rules</p>
-                <!--button for pull up rules modal needed-->
-            </div>
-
             <div id="card_container">
                 <p>Card Container</p>
                 <div id="card_display">
@@ -105,8 +138,8 @@
             </div>
             <div id="dice_container">
                 <p>Dice Container</p>
-                <div id="dice">
-                    <p>Dice</p>
+                <div id="dice_display">
+                    <p>Dice Display</p>
                     <!--need to figure out how to do random dice, and maybe animate them in light 3d JS...-->
                     <!--store previous dice roll in local storage?-->
                 </div>
