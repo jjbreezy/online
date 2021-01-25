@@ -1,0 +1,3 @@
+https://blog.mounirmesselmeni.de/2012/11/20/reading-csv-file-with-javascript-and-html5-file-api/
+https://www.youtube.com/watch?v=ZZncFax8yNY&ab_channel=KristinGoodman
+https://www.youtube.com/watch?v=xEXNvRxJYt8&ab_channel=Reecry

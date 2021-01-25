@@ -14,116 +14,21 @@
     <script data-ad-client="ca-pub-6238449652173707" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     
     <!-- functionality javascript-->
-    <script>
-        /*ensures everything happens AFTER page load*/
-        window.onload = function() {
-            console.log('page loaded');
-
-            /*first time page load message*/
-            if (!('hasCodeRunBefore' in localStorage)) {
-                alert('Welcome to Blackout! Please drink responsibly.');
-                localStorage.setItem('hasCodeRunBefore', true);
-                console.log('first time user welcomed')
-            }
-            else {
-                alert('Back so soon? Please drink responsibly.');
-                console.log('repeat user');
-            }
-            /*button click for new card*/
-            document.getElementById('newCardButton').addEventListener('click', cardFunction);
-            /*new card draw function*/
-            function cardFunction() {
-                alert('NEW CARD');
-                console.log('new card dispensed');
-            }
-
-            /*button click for roll dice*/
-            document.getElementById('rollDiceButton').addEventListener('click', rollDice);
-            /*roll dice function*/
-            function rollDice() {
-                alert('DICE ROLL');
-                console.log('dice rolled');
-            }
-        };
-    </script>
+    <script src="cardgamejs.js"></script>
     
     <!-- see if there is a standard browser library I can use to detect device orientation-->
-    
-    <style type="text/css">
-    body {
-        overflow: hidden;
-        margin: 0%;
-    }
-    #container {
-        /* display: flex;
-        align-content: center;
-        border: none !important; */
-        height: 100vh;
-        width: 100vw;
-        display: grid;
-        grid-template-rows: 1fr 1fr;
-        grid-template-columns: 1fr;
-        justify-items: center;
-        align-items: center;
-    }
-    #card_container {
-        height: 95%;
-        width: 95%;
-        grid-row: 1;
-        justify-items: center;
-        align-items: center;
-        display: grid;
-        margin: 1%;
-        border: 2px solid black !important;
-        justify-content: center;
-        align-content: center;
-        text-align: center;
-    }
-    #card_display {
-        height: 16em;
-        width: 16em;
-        margin: 2%;
-    }
-    #dice_container {
-        height: 95%;
-        width: 95%;
-        grid-row: 2;
-        justify-items: center;
-        align-items: center;
-        display: grid;
-        margin: 1%;
-        border: 2px solid black !important;
-        justify-content: center;
-        align-content: center;
-        text-align: center;
-    }
-    #dice_display {
-        height: 16em;
-        width: 16em;
-        margin: 2%;
-    }
-    #title {
-        display: flex;
-        align-content: center;
-        background-image: none;
-    }
-    div {
-        border: black 1px dashed;
-        /* margin: auto; */
-    }
-    </style>
+    <link rel="stylesheet" href="cardgamecss.css">
     
     <title>Blackout!: The Game</title>
+    <input type="file" id="csvFileInput" onchange="handleFiles(this.files)" accept=".csv">
     </head>
-    
     <body>
-        
         <div id="container">
             <p>Container</p>
             <div id="card_container">
                 <p>Card Container</p>
                 <div id="card_display">
-                    <p>Card Display</p>
+                    <p>Card Display: No Cards Yet Drawn</p>
                     <!--needs animation in,
                     needs to source to a csv,
                     needs to have randomness and
@@ -139,7 +44,7 @@
             <div id="dice_container">
                 <p>Dice Container</p>
                 <div id="dice_display">
-                    <p>Dice Display</p>
+                    <p>Dice Display: Dice Unrolled</p>
                     <!--need to figure out how to do random dice, and maybe animate them in light 3d JS...-->
                     <!--store previous dice roll in local storage?-->
                 </div>
