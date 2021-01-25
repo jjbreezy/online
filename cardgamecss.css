@@ -31,6 +31,9 @@ body {
     height: 16em;
     width: 16em;
     margin: 2%;
+    background-color: rgb(198, 150, 243);
+    font-weight: bolder;
+    color: white;
 }
 #dice_container {
     height: 95%;
@@ -49,6 +52,9 @@ body {
     height: 16em;
     width: 16em;
     margin: 2%;
+    background-color: rgb(198, 150, 243);
+    font-weight: bolder;
+    color: white;
 }
 #title {
     display: flex;
