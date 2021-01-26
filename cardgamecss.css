@@ -65,3 +65,16 @@ div {
     border: black 1px dashed;
     /* margin: auto; */
 }
+#settings {
+    display: inline-flexbox;
+    grid-row: 3;
+    grid-column: 1;
+    justify-self: right;
+}
+#rules {
+    display: inline-flexbox;
+    grid-row: 3;
+    grid-column: 1;
+    margin: 1%;
+    justify-self: left;
+}
