@@ -23,9 +23,16 @@
     <script src="cardgamejs.js"></script>
     
     <!-- see if there is a standard browser library I can use to detect device orientation-->
+    
     <link rel="stylesheet" href="cardgamecss.css">
     
+    <!--site info and basic housekeeping-->
     <title>Blackout!: The Game</title>
+    <meta name="description" content="Blackout!: The Game">
+    <meta name="author" content="Jordan Broihier">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    
     <!-- <input type="file" id="csvFileInput" onchange="handleFiles(this.files)" accept=".csv"> -->
     </head>
     <body>
@@ -61,13 +68,16 @@
             </div>
             <div id="rules">
                 <p>rules button goes here</p>
+                <div class="modal" id="rulesmodal">
+
+                </div>
             </div>
             <div id="settings">
                 <p>settings button goes here</p>
+                <div class="modal" id="settingsmodal">
+
+                </div>
             </div>
         </div>
-        <script defer>
-            
-        </script>
     </body>
 </html>
