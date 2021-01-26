@@ -1,6 +1,7 @@
 body {
     overflow: hidden;
     margin: 0%;
+    cursor: default;
 }
 #container {
     /* display: flex;
@@ -35,6 +36,9 @@ body {
     font-weight: bolder;
     color: white;
 }
+#card_button button {
+    cursor: pointer;
+}
 #dice_container {
     height: 95%;
     width: 95%;
@@ -56,6 +60,9 @@ body {
     font-weight: bolder;
     color: white;
 }
+#roll_dice_button button {
+    cursor: pointer;
+}
 #title {
     display: flex;
     align-content: center;
@@ -69,6 +76,7 @@ div {
     display: inline-flexbox;
     grid-row: 3;
     grid-column: 1;
+    margin: 1%;
     justify-self: right;
 }
 #rules {
