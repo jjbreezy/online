@@ -86,3 +86,12 @@ div {
     margin: 1%;
     justify-self: left;
 }
+.modal {
+    display: none;
+}
+#rulesmodal {
+    display: none;
+}
+#settingsmodal {
+    display: none;
+}
