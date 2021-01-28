@@ -52,7 +52,7 @@
                     <p>Card Button</p>
                     <button id="newCardButton">Get a card</button>
                     <!-- submit input button to get card content from csv 
-                    oh shit, idea: timer for each card? maybe a minute? IDK... or have some cards be timed and some not? add that to the rules.-->
+                    some cards are timed-->
                 </div>
             </div>
             <div id="dice_container">
@@ -60,54 +60,79 @@
                 <div id="dice_display">
                     <p>Dice Display: Dice Unrolled</p>
                     <!--need to figure out how to do random dice, and maybe animate them in light 3d JS...-->
-                    <!--store previous dice roll in local storage?-->
+                    <!--store previous dice roll in local storage and display-->
                 </div>
                 <div id="roll_dice_button">
                     <p>Roll Dice Button</p>
                     <button id="rollDiceButton">Roll the fuckin dice</button>
                 </div>
             </div>
-            <div id="rules">
-                <p>rules button goes here</p>
+            <div id="rules"> <!-- honestly the size of the rules makes me think this should be a separate page.-->
+                <p>rules button goes here</p> 
                 <div class="modal" id="rulesmodal">
                     <h1>Blackout!: The Card Game</h1>
                     <h2>RULES</h2>
                     <p>Blackout is, at its core, a simple game. 
-                        Your team's objective is to get all of your players across the board to the opposing planet as quickly as possible. 
+                        Your team's objective is to get all of your crewmates across the board to the opposing planet as quickly as possible.
+                        All crewmates must land on the opposite planet in order to secure a win. No crewmate left behind.  
                         To do this, you roll a dice and proceed the number of spaces that the dice indicates. 
                         You then draw a card, and if you dare, respond to what is written on it. 
                         Every turn, a player will pour some of their drink into the black hole cup in the center of the board.
-                        If your pour is the one that causes the drink to spill, then you must sacrifice yourself for your crew and finish the black hole. 
+                        If your pour is the one that causes the drink to spill, then you must sacrifice yourself for your crew and finish the black hole cup. 
                         If you land on one of these spaces (image insert here) then you have gotten sucked into the black hole and must finish the drink. 
                         However, your voyage down the rabbit hole is not completely fruitless. 
-                        Upon completion of the black hole cup, you may travel to the next closest wormhole to your goal planet.
+                        Upon completion of the black hole cup, you may travel to the next closest wormhole to your goal planet. <!--this should have an image-->
                         This is a game meant to be played with friends, old and new alike. 
-                        As such, among friends, a player may skip a card they do not feel comfortable to perform if they so wish by skipping their turn, and leaving their piece unmoved.
+                        As such, any player may skip a card they are not comfortable with if they wish by skipping their turn, leaving their piece unmoved. 
+                        (with the exception of movement cards, which are not skippable)
+                        There is no limit to the number of skips a player may use, but one should keep in mind that skipping your turn puts your crew at a disadvantage.  
                         If any player vomits, the game is over immediately.
                         Have fun, and may the best crew win.  
                     </p>
                     <p>PLEASE DRINK RESPONSIBLY</p>
                     <h3>CARDS</h3>
                     <p>
-                        CARD TYPES:
+                        CARD TYPES: <!-- would be good to have card images here and examples as well
+                        honestly the more and more i look at it the more it seems like this would be best as a separate page...-->
+                        <ul>
+                            <li>Spill: a confession of fact.</li>
+                            <li>Dare: a dare to do an action.</li> <!-- alternative name: venture-->
+                            <li>Group: a question to the whole group.</li> <!-- alternative name: beacon-->
+                            <li>Movement: how a player's piece will move. These cards are not skippable</li> <!-- maybe change name to spaceflight or something-->
+                            <li>Game: a game to be played with other players.</li> <!-- alternative name: challenge-->
+                            <li>Blackout: A blind vote where those in the minority will drink</li> <!-- unsure about this category, or rather it being a separate category-->
+                        </ul>
+                        TIMED CARDS: some cards have a time limit associated with them. This limit will be clearly displayed and count down on the dealer's phone. 
+                        Failure to complete the card in the allotted time will result in the player finishing their drink. 
                     </p>
                     <h2>DISCLAIMER</h2>
                     <p>
-                        BLACKOUT IS NOT A FAMILY GAME AND CONTAINS EXPLICIT ADULT CONTENT THAT PERSONS UNDER 18 SHOULD NOT CONSUME. <br>
+                        BLACKOUT IS NOT A FAMILY GAME AND CONTAINS EXPLICIT ADULT CONTENT INAPPROPRIATE FOR PERSONS UNDER 18.<br>
                         PLEASE DRINK RESPONSIBLY <br>
-                        IN THE UNITED STATES OF AMERICA, THE LEGAL DRINKING AGE IS 21 YEARS OLD. ANYONE UNDER THE AGE OF 21 SHOULD NOT PLAY THIS GAME UNLESS THEY
-                        WISH TO BECOME EXTREMELY WELL HYDRATED. <br>
-                        THE CREATOR OF THE GAME IS NOT RESPONSIBLE FOR ANY DAMAGES, INJURY, OR OTHER ISSUES INCURRED WHILE THE GAME IS BEING PLAYED <br>
+                        IN THE UNITED STATES OF AMERICA, THE LEGAL DRINKING AGE IS 21 YEARS OLD.<br>
+                        THE CREATOR OF THE GAME IS NOT RESPONSIBLE FOR ANY DAMAGES, INJURY, OR OTHER ISSUES INCURRED AS A RESULT OF THE USE OF THIS GAME, WEBSITE, 
+                        OR ANY OTHER ASSOCIATED MATERIALS.<br>
                         THE OPINIONS EXPRESSED WITHIN ARE NOT THE OPINIONS OF THE CREATOR OF THIS GAME <br>
                         IT IS RECOMMENDED THAT THIS GAME BE PLAYED FOR MULTIPLE ROUNDS ONLY WITH A BEVERAGE OF LESS THAN 5% ABV. <br>
                         IT IS RECOMMENDED THAT EACH PLAYER DRINK A FULL GLASS OF WATER OVER THE COURSE OF A SINGLE GAME. <br>
+                        PLEASE DRINK RESPONSIBLY
                     </p>
                 </div>
             </div>
             <div id="settings">
                 <p>settings button goes here</p>
                 <div class="modal" id="settingsmodal">
-
+                    <div><p>Explicit Content Filter</p></div> <!-- needs also an explanation of what the explict content is-->
+                    <div><p>Include original cards</p></div>
+                    <div><p>Include Expansion 1 Cards</p></div>
+                    <div><p>Include Expansion 2 Cards</p></div>
+                    <div><p>Include Expansion 3 Cards</p></div>
+                    <div><p>Include Timed Cards</p></div>
+                    <div><p>Include Custom Cards</p></div> <!-- custom csv upload support needed, more advanced version that would probably require a server is accounts with
+                    custom cards tied to a user account, maybe even card sharing. Could also do card creation in localstorage, but it wouldn't be persistent between
+                    user sessions if localstorage was cleared-->
+                    <div><p>Number of Sides on Dice</p></div> <!-- given that the original game board was much larger, perhaps a 4 sided dice would be better than a 6 sided for
+                    a smaller board, but larger number of sides ensures a faster game.-->             
                 </div>
             </div>
         </div>
