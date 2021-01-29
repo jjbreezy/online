@@ -52,6 +52,14 @@
                 console.log('number returned = ' + result);
             }
             
+            getCard();
+            async function getCard() {
+                const response = await fetch('test_cards.csv');
+                const card = await response.text();
+                console.log(card); 
+            }
         }
         //};
 
+    
+        
