@@ -22,10 +22,10 @@
             /*new card draw function*/
             function cardFunction() {
                 //alert('NEW CARD');
-                console.log('new card button pressed');
+                console.log('card function triggered');
             }
 
-            // global variable to display the number of cards drawn
+            // non function variable to display the number of cards drawn
             var cardsdrawn = 0;
 
             NCB.addEventListener('click', drawCard);
