@@ -52,8 +52,8 @@
                 console.log('number returned = ' + result);
             }
             //var data;
-            const cardsfilepath = 'test_cards.csv'
-            
+            const cardsfilepath = '/test_cards.csv'
+
             Papa.parse(cardsfilepath, {
                 delimiter:"",
                 newline:"",
