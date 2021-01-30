@@ -51,13 +51,19 @@
                 document.getElementById('dice_display').textContent = result;
                 console.log('number returned = ' + result);
             }
+            //var data;
+            const cardsfilepath = 'test_cards.csv'
             
-            getCard();
-            async function getCard() {
-                const response = await fetch('test_cards.csv');
-                const card = await response.text();
-                console.log(card); 
-            }
+            Papa.parse(cardsfilepath, {
+                delimiter:"",
+                newline:"",
+                header: true,
+                download: false,
+                complete: function(results, file) {
+                    console.log(results);
+                    data = results.data;
+                }
+            });
         }
         //};
 
