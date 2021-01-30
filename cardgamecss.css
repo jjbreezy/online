@@ -4,6 +4,7 @@ body {
     cursor: default;
     color: white;
     background-color: blueviolet;
+    font-family: 'Space Mono', monospace;
 }
 #container {
     /* display: flex;
