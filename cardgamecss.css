@@ -6,6 +6,12 @@ body {
     background-color: blueviolet;
     font-family: 'Space Mono', monospace;
 }
+#logo {
+    height: auto;
+    width: 80vw;
+    /* border: 5px solid red; */
+    margin: 0.2em;
+}
 #container {
     /* display: flex;
     align-content: center;
@@ -64,6 +70,7 @@ body {
     justify-content: center;
     align-content: center;
     text-align: center;
+    
 }
 #dice_display {
     height: 16em;
@@ -99,6 +106,7 @@ div {
     grid-column: 1;
     margin: 1%;
     justify-self: right;
+    font-size: 15px;
 }
 #rules {
     display: inline-flexbox;
@@ -106,6 +114,7 @@ div {
     grid-column: 1;
     margin: 1%;
     justify-self: left;
+    font-size: 15px;
 }
 .modal {
     display: none;
