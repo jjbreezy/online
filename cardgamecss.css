@@ -40,6 +40,7 @@ body {
     font-weight: bolder;
     color: white;
     border-radius: 1em;
+    /* font-size: 20px; any font size changes break the page :/ */
 }
 #card_button button {
     cursor: pointer;
