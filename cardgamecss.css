@@ -2,6 +2,7 @@ body {
     overflow: hidden;
     margin: 0%;
     cursor: default;
+    color: white;
 }
 #container {
     /* display: flex;
@@ -14,6 +15,7 @@ body {
     grid-template-columns: 1fr;
     justify-items: center;
     align-items: center;
+    background-color: black;
 }
 #card_container {
     height: 95%;
@@ -23,7 +25,7 @@ body {
     align-items: center;
     display: grid;
     margin: 1%;
-    border: 2px solid black !important;
+    border: 2px solid white !important;
     justify-content: center;
     align-content: center;
     text-align: center;
@@ -32,7 +34,7 @@ body {
     height: 16em;
     width: 16em;
     margin: 2%;
-    background-color: rgb(198, 150, 243);
+    background-color: black;
     font-weight: bolder;
     color: white;
 }
@@ -54,7 +56,7 @@ body {
     align-items: center;
     display: grid;
     margin: 1%;
-    border: 2px solid black !important;
+    border: 2px solid white !important;
     justify-content: center;
     align-content: center;
     text-align: center;
@@ -63,7 +65,7 @@ body {
     height: 16em;
     width: 16em;
     margin: 2%;
-    background-color: rgb(198, 150, 243);
+    background-color: black;
     font-weight: bolder;
     color: white;
 }
@@ -83,7 +85,7 @@ body {
     background-image: none;
 }
 div {
-    border: black 1px dashed;
+    border: white 1px dashed;
     /* margin: auto; */
 }
 #settings {
