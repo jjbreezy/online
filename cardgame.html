@@ -46,16 +46,21 @@
                 <div id="card_display">
                     <p>Card Display: No Cards Yet Drawn</p>
                     <!--needs animation in,
-                    needs to source to a csv,
+                    needs to source to a csv (or maybe just a big array in javascript that I could possibly make in a separate js file,
+                    or a JSON file if I figure out how to do that easily),
                     needs to have randomness and
                     a large enough database.
                     also, coloring cards by class like dares, games, questions, etc would be good-->
+                    
                 </div>
                 <div id="card_button">
                     <p>Card Button</p>
                     <button id="newCardButton">Get a card</button>
                     <!-- submit input button to get card content from csv 
                     some cards are timed-->
+                    <div id="drawn_counter">
+                        <p>0 drawn</p>
+                    </div>
                 </div>
             </div>
             <div id="dice_container">
@@ -68,6 +73,9 @@
                 <div id="roll_dice_button">
                     <p>Roll Dice Button</p>
                     <button id="rollDiceButton">Roll the fuckin dice</button>
+                    <div id="rolled_counter">
+                        <p>0 rolled</p>
+                    </div>
                 </div>
             </div>
             <div id="rules"> <!-- honestly the size of the rules makes me think this should be a separate page.-->

@@ -35,14 +35,14 @@
             //card object would be nice, to populate more easily but for right now I think I will just use three separate arrays
             let card1 = ['Do a silly dance','G','Original','Dare',true];
             let card2 = ['Pick up your phone','PG-13','Expansion 1','Group', false];
-            let card3 = ['Move your piece two spaces','PG-13','Expansion 2','Movement', false];
-            let card4 = ['4'];
-            let card5 = ['5'];
-            let card6 = ['6'];
-            let card7 = ['7'];
-            let card8 = ['8'];
-            let card9 = ['9'];
-            let card10 = ['10'];
+            let card3 = ['Move your piece two spaces','R','Expansion 2','Movement', false];
+            let card4 = ['card 4'];
+            let card5 = ['card 5'];
+            let card6 = ['card 6'];
+            let card7 = ['card 7'];
+            let card8 = ['card 8'];
+            let card9 = ['card 9'];
+            let card10 = ['card 10'];
 
             //pretend deck array, solves a little more of my problem so I could just populate a card from this array. 
             let deck = [card1,card2,card3,card4,card5,card6,card7,card8,card9,card10];
@@ -56,7 +56,11 @@
                 cardsdrawn = cardsdrawn + 1
                 //document.getElementById("card_display").textContent = cardsdrawn + " card drawn";
                 console.log('card drawn successfully ' + cardsdrawn);
+                document.getElementById("drawn_counter").textContent = cardsdrawn + " drawn";
             }
+
+            //var for number of times rolled
+            var dicerolled = 0;
 
             /*button click for roll dice*/
             RDB.addEventListener('click', rollDice);
@@ -64,6 +68,8 @@
             function rollDice() {
                 //alert('DICE ROLL');
                 console.log('dice roll button pressed');
+                dicerolled = dicerolled + 1;
+                document.getElementById("rolled_counter").textContent = dicerolled + " rolled";
             }
             
             //displays the number rolled by the simple dice. first fully functional game element on my site... kinda proud

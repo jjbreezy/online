@@ -39,6 +39,13 @@ body {
 #card_button button {
     cursor: pointer;
 }
+#drawn_counter {
+    display: inline-flex;
+    height: auto;
+    width: auto;
+    justify-items: center;
+    align-items: center;
+}
 #dice_container {
     height: 95%;
     width: 95%;
@@ -62,6 +69,13 @@ body {
 }
 #roll_dice_button button {
     cursor: pointer;
+}
+#rolled_counter {
+    display: inline-flex;
+    height: auto;
+    width: auto;
+    justify-items: center;
+    align-items: center;
 }
 #title {
     display: flex;
