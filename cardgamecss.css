@@ -3,6 +3,7 @@ body {
     margin: 0%;
     cursor: default;
     color: white;
+    background-color: blueviolet;
 }
 #container {
     /* display: flex;
@@ -37,6 +38,7 @@ body {
     background-color: black;
     font-weight: bolder;
     color: white;
+    border-radius: 1em;
 }
 #card_button button {
     cursor: pointer;
@@ -68,6 +70,7 @@ body {
     background-color: black;
     font-weight: bolder;
     color: white;
+    border-radius: 1em;
 }
 #roll_dice_button button {
     cursor: pointer;
