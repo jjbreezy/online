@@ -1,6 +1,11 @@
 body {
     /* overflow: hidden; */
     margin: 0%;
+    padding: 0%;
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    max-height: 100%;
     cursor: default;
     color: white;
     background-color: black;
@@ -18,6 +23,10 @@ body {
     border: none !important; */
     /* height: 100vh;
     width: 100vw; */
+    height: 99vh;
+    width: 99vw;
+    margin: 0;
+    padding: 0;
     display: grid;
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr;
@@ -26,8 +35,8 @@ body {
     background-color: black;
 }
 #card_container {
-    height: 95%;
-    width: 95%;
+    height: auto;
+    width: 90%;
     grid-row: 1;
     justify-items: center;
     align-items: center;
@@ -39,8 +48,8 @@ body {
     text-align: center;
 }
 #card_display {
-    height: 16em;
-    width: 16em;
+    height: 5em;
+    width: 80%;
     margin: 2%;
     background-color: black;
     font-weight: bolder;
@@ -59,8 +68,8 @@ body {
     align-items: center;
 }
 #dice_container {
-    height: 95%;
-    width: 95%;
+    height: auto;
+    width: 90%;
     grid-row: 2;
     justify-items: center;
     align-items: center;
@@ -73,8 +82,8 @@ body {
     
 }
 #dice_display {
-    height: 16em;
-    width: 16em;
+    height: 5em;
+    width: 80%;
     margin: 2%;
     background-color: black;
     font-weight: bolder;
