@@ -55,7 +55,10 @@
                 .then(response => response.json())
                 .then(data => {
                     console.log(data)
+                    var jsontestdeck = data
                 })
+
+            console.log(jsontestdeck);
             // var jsontestdeck = JSON.parse('test_cards.json');
             // console.log(jsontestdeck);
             
