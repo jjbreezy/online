@@ -55,8 +55,9 @@
             fetch("test_cards.json")
                 .then(response => response.json())
                 .then(data => {
-                    // console.log(data)
-                    jsontestdeck = data
+                    console.log(data + "fetch function");
+                    jsontestdeck = data;
+
                 })
             
             console.log(jsontestdeck);
