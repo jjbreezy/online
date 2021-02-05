@@ -1,10 +1,10 @@
 Card Contents,Rating,Expansion,Type,explicit content filter
-Do a silly dance,G,Original,Dare,Y
+Do a silly dance,G,Original,Dare,TRUE
 Pick someone to do a silly dance,PG-13,Original,Game,
-Move your piece back one space,R,Original,Movement,Y
+Move your piece back one space,R,Original,Movement,TRUE
 Two silly dances,G,Expansion 1,Spill,
-Pick up your phone,PG-13,Expansion 1,Group,Y
+Pick up your phone,PG-13,Expansion 1,Group,TRUE
 do the silliest dance,R,Expansion 1,Dare,
-play a silly game,G,Expansion 2,Game,Y
+play a silly game,G,Expansion 2,Game,TRUE
 Move your piece two spaces,PG-13,Expansion 2,Movement,
-tell us about your silly dance,R,Expansion 2,Spill,Y
+tell us about your silly dance,R,Expansion 2,Spill,TRUE
