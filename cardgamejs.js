@@ -59,7 +59,7 @@
                     console.log(jsontestdeck);
                 });
             
-            console.log(jsontestdeck[1] + "testing of global");
+            console.log(jsontestdeck[1] + " testing of global with array of length" + jsontestdeck.length);
             
             NCB.addEventListener('click', drawCard);
             //increases the number of cards drawn by one per each card drawn.
@@ -69,7 +69,7 @@
                 console.log('card drawn successfully ' + cardsdrawn);
                 document.getElementById("drawn_counter").textContent = cardsdrawn + " drawn";
                 //try to get the iteration
-                console.log(jsontestdeck[1] + " jsontestdeck");
+                console.log(jsontestdeck[] + " jsontestdeck");
             }
 
             //var for number of times rolled
