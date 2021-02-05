@@ -50,6 +50,15 @@
             //variable to display the number of cards drawn
             var cardsdrawn = 0;
 
+            //JSON testing
+            fetch("test_cards.json")
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+                })
+            // var jsontestdeck = JSON.parse('test_cards.json');
+            // console.log(jsontestdeck);
+            
             NCB.addEventListener('click', drawCard);
             //increases the number of cards drawn by one per each card drawn.
             function drawCard() {
