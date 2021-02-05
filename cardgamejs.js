@@ -93,20 +93,20 @@
                 console.log('number returned = ' + result);
             }
             
-            const cardsfilepath = '/test_cards.csv'
+            // const cardsfilepath = '/test_cards.csv'
             //attempt at using papaparse... it returns as the function should per the documentation, but 
             //is not registering the actual contents of the test CSV or any other CSV I test it on. 
             //I should probably do this with JSON and populate an array or something
-            Papa.parse(cardsfilepath, {
-                delimiter:"",
-                newline:"",
-                header: true,
-                download: false,
-                complete: function(results, file) {
-                    console.log(results);
-                    data = results.data;
-                }
-            });
+            // Papa.parse(cardsfilepath, {
+            //     delimiter:"",
+            //     newline:"",
+            //     header: true,
+            //     download: false,
+            //     complete: function(results, file) {
+            //         console.log(results);
+            //         data = results.data;
+            //     }
+            // });
         }
         //};
 
