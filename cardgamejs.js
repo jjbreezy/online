@@ -55,14 +55,11 @@
             fetch("test_cards.json")
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data + "fetch function");
                     jsontestdeck = data;
                     console.log(jsontestdeck);
                 });
             
-            console.log(jsontestdeck[1]);
-            // var jsontestdeck = JSON.parse('test_cards.json');
-            // console.log(jsontestdeck);
+            console.log(jsontestdeck[1] + "testing of global");
             
             NCB.addEventListener('click', drawCard);
             //increases the number of cards drawn by one per each card drawn.
