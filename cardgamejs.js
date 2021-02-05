@@ -50,14 +50,15 @@
             //variable to display the number of cards drawn
             var cardsdrawn = 0;
 
+            var jsontestdeck = [];
             //JSON testing
             fetch("test_cards.json")
                 .then(response => response.json())
                 .then(data => {
                     // console.log(data)
-                    var jsontestdeck = data
+                    jsontestdeck = data
                 })
-
+            
             console.log(jsontestdeck);
             // var jsontestdeck = JSON.parse('test_cards.json');
             // console.log(jsontestdeck);
