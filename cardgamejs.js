@@ -57,8 +57,7 @@
                 .then(data => {
                     console.log(data + "fetch function");
                     jsontestdeck = data;
-
-                })
+                });
             
             console.log(jsontestdeck);
             // var jsontestdeck = JSON.parse('test_cards.json');
