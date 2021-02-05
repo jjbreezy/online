@@ -59,7 +59,7 @@
                     jsontestdeck = data;
                 })
             
-            console.log(jsontestdeck);
+            console.log(jsontestdeck[0]);
             // var jsontestdeck = JSON.parse('test_cards.json');
             // console.log(jsontestdeck);
             
