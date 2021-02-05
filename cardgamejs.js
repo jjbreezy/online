@@ -56,10 +56,10 @@
                 .then(response => response.json())
                 .then(data => {
                     // console.log(data)
-                    jsontestdeck = data;
+                    jsontestdeck = data
                 })
             
-            console.log(jsontestdeck[0]);
+            console.log(jsontestdeck);
             // var jsontestdeck = JSON.parse('test_cards.json');
             // console.log(jsontestdeck);
             
@@ -70,6 +70,8 @@
                 //document.getElementById("card_display").textContent = cardsdrawn + " card drawn";
                 console.log('card drawn successfully ' + cardsdrawn);
                 document.getElementById("drawn_counter").textContent = cardsdrawn + " drawn";
+                //try to get the iteration
+                console.log(jsontestdeck[1] + " jsontestdeck");
             }
 
             //var for number of times rolled
