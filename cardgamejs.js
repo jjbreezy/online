@@ -56,7 +56,7 @@
                 .then(response => response.json())
                 .then(data => {
                     // console.log(data)
-                    jsontestdeck = data
+                    jsontestdeck = data;
                 })
             
             console.log(jsontestdeck);
