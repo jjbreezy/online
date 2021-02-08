@@ -50,16 +50,16 @@
             //variable to display the number of cards drawn
             var cardsdrawn = 0;
 
-            var jsontestdeck = [];
-            //JSON testing
-            fetch("test_cards.json")
-                .then(response => response.json())
-                .then(data => {
-                    jsontestdeck = data;
-                    console.log(jsontestdeck);
-                });
+            // var jsontestdeck = [];
+            // //JSON testing
+            // fetch("test_cards.json")
+            //     .then(response => response.json())
+            //     .then(data => {
+            //         jsontestdeck = data;
+            //         console.log(jsontestdeck);
+            //     });
             
-            console.log(jsontestdeck[1] + " testing of global with array of length" + jsontestdeck.length);
+            // console.log(jsontestdeck[1] + " testing of global with array of length" + jsontestdeck.length);
             
             NCB.addEventListener('click', drawCard);
             //increases the number of cards drawn by one per each card drawn.
@@ -69,7 +69,7 @@
                 console.log('card drawn successfully ' + cardsdrawn);
                 document.getElementById("drawn_counter").textContent = cardsdrawn + " drawn";
                 //try to get the iteration
-                console.log(jsontestdeck[] + " jsontestdeck");
+                console.log(jsontestdeck[any] + " jsontestdeck");
             }
 
             //var for number of times rolled
