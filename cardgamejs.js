@@ -50,16 +50,16 @@
             //variable to display the number of cards drawn
             var cardsdrawn = 0;
 
-            // var jsontestdeck = [];
-            // //JSON testing
-            // fetch("test_cards.json")
-            //     .then(response => response.json())
-            //     .then(data => {
-            //         jsontestdeck = data;
-            //         console.log(jsontestdeck);
-            //     });
+            var jsontestdeck = [];
+            //JSON testing
+            fetch("test_cards.json")
+                .then(response => response.json())
+                .then(data => {
+                    jsontestdeck = data;
+                    console.log(jsontestdeck);
+                });
             
-            // console.log(jsontestdeck[1] + " testing of global with array of length" + jsontestdeck.length);
+            console.log(jsontestdeck[1] + " testing of global with array of length" + jsontestdeck.length);
             
             NCB.addEventListener('click', drawCard);
             
@@ -69,7 +69,7 @@
                 console.log('card drawn successfully ' + cardsdrawn);
                 document.getElementById("drawn_counter").textContent = cardsdrawn + " drawn";
                 //try to get the iteration
-                console.log(jsontestdeck[any] + " jsontestdeck");
+                console.log(JSON.stringify(jsontestdeck[1]) + " jsontestdeck");
             }
 
             //var for number of times rolled
@@ -93,7 +93,6 @@
                 document.getElementById('dice_display').textContent = result;
                 console.log('number returned = ' + result);
             }
-            
         }
 
     
