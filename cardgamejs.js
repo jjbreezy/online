@@ -68,8 +68,8 @@
                 cardsdrawn = cardsdrawn + 1
                 console.log('card drawn successfully ' + cardsdrawn);
                 document.getElementById("drawn_counter").textContent = cardsdrawn + " drawn";
-                //try to get the iteration
-                console.log(JSON.stringify(jsontestdeck[1]) + " jsontestdeck");
+                //returns the card contents
+                console.log(JSON.stringify(jsontestdeck[1].cardcontents) + " jsontestdeck");
             }
 
             //var for number of times rolled

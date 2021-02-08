@@ -7,7 +7,7 @@
     "explicit content filter": true
   },
   {
-    "Card Contents": "Pick someone to do a silly dance",
+    "cardcontents": "Pick someone to do a silly dance",
     "Rating": "PG-13",
     "Expansion": "Original",
     "Type": "Game",
