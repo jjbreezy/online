@@ -6,7 +6,7 @@
 
             /*first time page load message*/
             if (!('hasCodeRunBefore' in localStorage)) {
-                alert('Welcome to Blackout! Please drink responsibly.');
+                alert('Welcome to Blackout! This game contains explicit content inappropriate for those under the age of 18. The minimum legal drinking age in the United States is 21 years. Please drink responsibly.');
                 localStorage.setItem('hasCodeRunBefore', true);
                 console.log('first time user welcomed')
             }
@@ -73,5 +73,3 @@
             }
         }
 
-    
-        

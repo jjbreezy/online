@@ -49,12 +49,13 @@ body {
 }
 #card_display {
     height: 5em;
-    width: 80%;
+    width: 15em;
     margin: 2%;
     background-color: black;
     font-weight: bolder;
     color: white;
     border-radius: 1em;
+    font-size: 20px;
     /* font-size: 20px; any font size changes break the page :/ */
 }
 #card_button button {
@@ -64,6 +65,15 @@ body {
     display: inline-flex;
     height: auto;
     width: auto;
+    justify-items: center;
+    align-items: center;
+}
+#counter_holder {
+    display: inline-flex;
+    height: auto;
+    width: auto;
+    padding-left: 10px;
+    padding-right: 10px;
     justify-items: center;
     align-items: center;
 }
@@ -82,13 +92,14 @@ body {
     
 }
 #dice_display {
-    height: 5em;
+    height: 10vh;
     width: 80%;
     margin: 2%;
     background-color: black;
     font-weight: bolder;
     color: white;
     border-radius: 1em;
+    font-size: 40px;
     /* background-image: 'cardgame_favicons/android-chrome-512x512.png' !important; I can't get any background image divs to work :(*/
 }
 #roll_dice_button button {
