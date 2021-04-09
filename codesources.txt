@@ -6,3 +6,4 @@ https://cssgradient.io/
 https://fonts.google.com/specimen/Space+Mono?sidebar.open=true&selection.family=Space+Mono:wght@400;700
 https://developers.google.com/fonts/docs/getting_started
 https://favicon.io/favicon-converter/
+https://github.com/fireship-io/224-animated-css-grid/tree/master/public
