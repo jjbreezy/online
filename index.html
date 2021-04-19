@@ -17,62 +17,20 @@
 	<title>Jordan Broihier's Personal Website</title>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
 	<style type="text/css">
-		canvas {
-			height: 100%;
-			width: 100%;
-			/* background: rgb(173,173,173);
-			background: linear-gradient(277deg, rgba(173,173,173,1) 0%, rgba(255,255,255,1) 29%); */
-			grid-row: 1;
-			grid-column: 1;
-			z-index: 0;
-		}
-		body {
-			background: rgb(173,173,173);
-			background: linear-gradient(277deg, rgba(173,173,173,1) 0%, rgba(255,255,255,1) 29%);
-			margin: 0;
-			padding: 0;
-			display: grid;
-			grid-template-rows: 100vh;
-			grid-template-columns: 100vw;
-			overflow: hidden;
-		}
-		#text {
-			/* margin-left: 1em; */
-			grid-row: 1;
-			grid-column: 1;
-			justify-self: center;
-			align-self: center;
-			font-size: 25px;
-			font-family: 'Montserrat', sans-serif;
-			font-weight: bolder;
-			z-index: 1;
-		}
-		#codeblock {
-			width: fit-content;
-			font-size: 20px;
-			font-family: 'Courier New', Courier, monospace;
-			background-color: #262626;
-			color:lightgoldenrodyellow;
-			padding: 20px;
-			border: 1px solid lightslategrey;
-			border-radius: 10px;
-		}
-		code a {
-			color: #4285F4;
-		}
-		code b {
-			color: #0F9D58;
-		}
+		@import url('/index.css');
 	</style>
 </head>
 <body>
-	<!-- header -->
-	<!-- <div id="top-notice"><p class="p-notice">under construction</p></div>
-	<div id="bottom-notice"><p class="p-disclaimer">contact: himself@jordanbroihier.com</p></div> -->
-<!-- HTML canvas part -->
+	<div id="header">
+		<p>vbvavadsf doifklasdfl dsajhkfh</p>
+		<ul>
+			<li>Test</li>
+			<li>Test</li>
+		</ul>
+	</div>
+
 	<canvas id="maincanvas"></canvas>
 	<script src="canvas.js"></script>
-
 	<div id="text">
 		<p style="font-size: 50px;">Welcome to Jordan's balloon land/personal website.</p>
 		<p>Please have some fun with the balloons. <br>Click to create a new balloon at mouse location.
