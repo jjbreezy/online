@@ -1,0 +1,35 @@
+#bar {
+    display: grid;
+}
+    /* Bar top */
+    #bartop {
+        display: grid;
+        background-image: url("/portfolio-images/7x7concept_angle_wider.jpg");
+    }
+        #profimg {
+            background-color: blueviolet;
+        }
+        #bartitle {
+            font-size: 2em;
+        }
+        
+    /* Bar content */
+    #barcontent {
+        display: flexbox;
+    }
+        .room {
+            background-color: lightcyan;
+            height: 90%;
+        }
+        .closed {
+            background-color: lightcoral !important;
+        }
+        .membersection {
+            display: grid;
+        }
+        .jesse {
+            background-image: unset;
+        }
+        .jesse::before {
+            content: "Jesse Bartola";
+        }
