@@ -1,31 +1,85 @@
+/* div {
+    border: 0.5px solid black;
+} */
+body {
+    font-family: Roboto;
+}
 #bar {
     display: grid;
+    border-radius: 40px;
+    width: 90%;
+    background-clip: content-box;
+    box-shadow: 10px 10px 1px slategray;
 }
     /* Bar top */
     #bartop {
+        color: white;
         display: grid;
-        background-image: url("/portfolio-images/7x7concept_angle_wider.jpg");
+        background-image: url("/misc/nyc.png");
+        background-position: center;
+        background-size: cover;
+        background-clip: border-box;
+        border-radius: 40px 40px 0px 0px;
+        padding: 10px;
     }
         #profimg {
             background-color: blueviolet;
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            text-align: center;
+            text-justify: center;
+        }
+        #profimg::before{
+            content: "NYC";
         }
         #bartitle {
             font-size: 2em;
         }
+        #bartags {
+            text-align: left;
+        }
+        #bartags li::before{
+            content: "tags";
+        }
+        .tags {
+            display: inline-flex;
+            flex-direction: row;
+            border-radius: 20%;
+            padding: 10px;
+            background-color: teal;
+            font-weight: bolder;
+            color: white;
+        }
         
     /* Bar content */
     #barcontent {
-        display: flexbox;
+        background-color: whitesmoke;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        border-radius: 0px 0px 40px 40px;
+        /* background-clip: content-box; */
+        justify-content: space-evenly;
+        padding: 20px;
+    }
+    #barcontent div {
+        margin: 10px;
     }
         .room {
-            background-color: lightcyan;
-            height: 90%;
+            background-color: lavender;
+            width: 33%;
+            height: auto;
+            background-clip: inherit;
         }
         .closed {
-            background-color: lightcoral !important;
+            background-color: rgb(250, 208, 208) !important;
+            background-clip: inherit;
         }
-        .membersection {
-            display: grid;
+        .members {
+            /* display: grid; */
+            width: 33%;
+            background-clip: inherit;
         }
         .jesse {
             background-image: unset;
