@@ -45,6 +45,14 @@ body {
             font-size: 2em;
             grid-column: 2;
             grid-row: 1;
+            font-weight: bolder;
+            font-size: 4em;
+            padding: 0;
+            margin: 0;
+        }
+        #bartitle p {
+            padding: 0;
+            margin: 0;
         }
         #bardescription {
             grid-column: 2;
