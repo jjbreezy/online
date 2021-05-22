@@ -5,16 +5,18 @@ body {
     font-family: Roboto;
 }
 #bar {
-    display: grid;
     border-radius: 40px;
-    width: 90%;
     background-clip: content-box;
-    box-shadow: 10px 10px 1px slategray;
+    box-shadow: 5px 5px 1px slategray;
 }
     /* Bar top */
     #bartop {
         color: white;
+        
         display: grid;
+        grid-template-columns: 0.5fr 2fr;
+        grid-auto-columns: min-content;
+        
         background-image: url("/misc/nyc.png");
         background-position: center;
         background-size: cover;
@@ -24,20 +26,40 @@ body {
     }
         #profimg {
             background-color: blueviolet;
-            height: 100px;
-            width: 100px;
             border-radius: 50%;
             text-align: center;
             text-justify: center;
+
+            grid-column: 1;
+            grid-row: 1 / span 3;
+            margin: 10px;
+            height: 300px;
+            width: 300px;
+            min-height: 200px;
+            min-width: 200px;
         }
         #profimg::before{
             content: "NYC";
         }
         #bartitle {
             font-size: 2em;
+            grid-column: 2;
+            grid-row: 1;
+        }
+        #bardescription {
+            grid-column: 2;
+            grid-row: 2;
+        }
+        #barsettings {
+            position: absolute;
+            right: 0;
+            margin: 10px;
+            height: fit-content;
         }
         #bartags {
             text-align: left;
+            grid-column: 2;
+            grid-row: 3;
         }
         #bartags li::before{
             content: "tags";
@@ -46,7 +68,8 @@ body {
             display: inline-flex;
             flex-direction: row;
             border-radius: 20%;
-            padding: 10px;
+            margin: 5px;
+            padding: 5px;
             background-color: teal;
             font-weight: bolder;
             color: white;
@@ -71,6 +94,7 @@ body {
             width: 33%;
             height: auto;
             background-clip: inherit;
+            border-radius: 20px;
         }
         .closed {
             background-color: rgb(250, 208, 208) !important;
@@ -80,6 +104,9 @@ body {
             /* display: grid; */
             width: 33%;
             background-clip: inherit;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            height: 300px;
         }
         .jesse {
             background-image: unset;
