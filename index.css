@@ -35,8 +35,8 @@ body {
     justify-self: center;
     align-self: center;
     font-size: 25px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bolder;
+    font-family: 'Rubik', sans-serif;
+    /* font-weight: bolder; */
     z-index: 1;
 }
 #codeblock {
