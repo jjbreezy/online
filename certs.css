@@ -1,0 +1,22 @@
+#griddle {
+    display: grid;
+    position: relative;
+    column-gap: 10px;
+    row-gap: 10px;
+    justify-content: center;
+    align-content: center;
+}
+.cert {
+    font-size: 25px;
+    font-family: 'Rubik', sans-serif;
+    /* display: grid; */
+    align-self: center;
+    border: 1px solid black;
+    padding: 10px;
+    align-content: center;
+}
+p {
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
