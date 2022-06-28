@@ -9,6 +9,13 @@ body {
     color: white; 
     font-family: 'Rubik', sans-serif;
 }
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 95vh;
+    max-width: 95vh;
+}
 div {
     position: relative;
     transform: skewY(-15deg);
