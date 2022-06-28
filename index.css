@@ -78,11 +78,13 @@ code b {
 /* why isn't this in??? */
 /* spin from here: https://codepen.io/Rafu/pen/VJYRyY */
 #spin {
-    color:black;
+    color:white;
+    background-color: #262626;
+    position: fixed;
   }
 #spin:after {
     content:"";
-    animation: spin 2s linear infinite;
+    animation: spin 13s linear infinite;
 }
 @keyframes spin {
     0% { content:"personal website.";}
