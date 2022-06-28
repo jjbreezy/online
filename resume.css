@@ -37,6 +37,11 @@ div::after {
     transform-origin: top;
     transform: skewY(-45deg);
 }
+h2 {
+    background-color: rgba(0, 0, 0, 0.226);
+    padding: 10px;
+    font-weight: bolder;
+}
 /* #experience {
     background-color: green;
 }
