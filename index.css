@@ -57,6 +57,7 @@ body {
     font-family: 'Rubik', sans-serif;
     /* font-weight: bolder; */
     z-index: 1;
+    color: white;
 }
 #codeblock {
     width: fit-content;
@@ -73,4 +74,25 @@ code a {
 }
 code b {
     color: #0F9D58;
+}
+
+/* spin from here: https://codepen.io/Rafu/pen/VJYRyY */
+#spin {
+    color:black;
+  }
+#spin:after {
+    content:"";
+    animation: spin 2s linear infinite;
+}
+@keyframes spin {
+    0% { content:"personal website.";}
+    10% { content:"portfolio.";}
+    20% { content:"resume.";}
+    30% { content:"certifications.";}
+    40% { content:"funky fun balloon zone.";}
+    50% { content: "project.";}
+    60% { content: "misadventures in web development.";}
+    70% { content: "Github pages site.";}
+    80% { content: "innermost thoughts.";}
+    90% { content: "testbed.";}
 }
