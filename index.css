@@ -19,14 +19,30 @@ canvas {
     z-index: 0;
 }
 body {
-    background: rgb(173,173,173);
-    background: linear-gradient(277deg, rgba(173,173,173,1) 0%, rgba(255,255,255,1) 29%);
+    /* background: rgb(173,173,173);
+    background: linear-gradient(277deg, rgba(173,173,173,1) 0%, rgba(255,255,255,1) 29%); */
+    /* testing an animated gradient bg using the four balloon colors!!! */
+    background: linear-gradient(-45deg, #0F9D58, #F4B400, #DB4437, #4285F4);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+
     margin: 0;
     padding: 0;
     display: grid;
     grid-template-rows: 100vh;
     grid-template-columns: 100vw;
     overflow: hidden;
+}
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 #text {
     /* margin-left: 1em; */
