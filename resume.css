@@ -12,7 +12,7 @@ body {
 div {
     position: relative;
     transform: skewY(-15deg);
-    background-color: #595959
+    background-color: #595959;
     padding: 15px;
 }
 div::before {
