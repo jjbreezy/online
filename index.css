@@ -75,12 +75,13 @@ code a {
 code b {
     color: #0F9D58;
 }
-/* why isn't this in??? */
+
 /* spin from here: https://codepen.io/Rafu/pen/VJYRyY */
 #spin {
     color:white;
     background-color: #262626;
     position: fixed;
+    white-space: pre;
   }
 #spin:after {
     content:"";
