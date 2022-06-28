@@ -21,6 +21,7 @@ div {
     transform: skewY(-15deg);
     background-color: #595959;
     padding: 15px;
+    margin-left: 50px;
 }
 div::before {
     content: '';
