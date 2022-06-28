@@ -1,28 +1,42 @@
+/* inspired by https://www.youtube.com/watch?v=MmdKeypSxE8 */
 body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
     background: rgb(2,0,36);
     background: linear-gradient(344deg, rgba(2,0,36,1) 0%, rgba(125,125,125,1) 35%, rgba(230,251,255,1) 100%);
 }
-#experience {
-    display: block;
+div {
+    position: relative;
     transform: skewY(-15deg);
+}
+div::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 100px;
+    background: darkgreen;
+    top: 0;
+    left: -40px;
+    transform-origin: right;
+    transform: skewY(45deg);
+}
+#experience {
+    background-color: green;
 }
 #education {
-    display: block;
-    transform: skewY(-15deg);
+    background-color: green;
 }
 #skills {
-    display: block;
-    transform: skewY(-15deg);
+    background-color: green;
 }
 #athletics {
-    display: block;
-    transform: skewY(-15deg);
+    background-color: green;
 }
 #certifications {
-    display: block;
-    transform: skewY(-15deg);
+    background-color: green;
 }
 #personal {
-    display: block;
-    transform: skewY(-15deg);
+    background-color: green;
 }
