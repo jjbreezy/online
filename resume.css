@@ -46,7 +46,12 @@ div::before {
 } */
 h2 {
     background-color: rgba(0, 0, 0, 0.226);
-    padding: 10px;
+    padding: 15px;
+    font-weight: bolder;
+}
+h3 {
+    background-color: rgba(0, 0, 0, 0.103);
+    padding: 5px;
     font-weight: bolder;
 }
 /* #experience {
