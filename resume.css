@@ -7,24 +7,37 @@ body {
     background: rgb(2,0,36);
     background: linear-gradient(344deg, rgba(2,0,36,1) 0%, rgba(125,125,125,1) 35%, rgba(230,251,255,1) 100%);
     color: white; 
+    font-family: 'Rubik', sans-serif;
 }
 div {
     position: relative;
     transform: skewY(-15deg);
-    background-color: black;
+    background-color: #595959
+    padding: 15px;
 }
 div::before {
     content: '';
     position: absolute;
     width: 40px;
-    height: 100px;
-    background: darkgreen;
+    height: 100%;
+    background: #404040;
     top: 0;
     left: -40px;
     transform-origin: right;
     transform: skewY(45deg);
 }
-#experience {
+div::after {
+    background: #262626;
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 100%;
+    top: 0;
+    left: -40px;
+    transform-origin: top;
+    transform: skewY(-45deg);
+}
+/* #experience {
     background-color: green;
 }
 #education {
@@ -41,4 +54,4 @@ div::before {
 }
 #personal {
     background-color: green;
-}
+} */
