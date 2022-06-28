@@ -10,6 +10,20 @@ body {
     font-family: 'Rubik', sans-serif;
     overflow: hidden;
 }
+@media only screen and (max-width: 600px) {
+    body {
+        display: block;
+        overflow: visible;
+    }
+    #container {
+        display: block;
+        padding: 50px;
+    }
+    div {
+        margin-left: auto;
+        margin-top: 50px;
+    }
+  }
 #container {
     display: flex;
     justify-content: center;
