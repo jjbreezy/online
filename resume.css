@@ -1,0 +1,28 @@
+body {
+    background: rgb(2,0,36);
+    background: linear-gradient(344deg, rgba(2,0,36,1) 0%, rgba(125,125,125,1) 35%, rgba(230,251,255,1) 100%);
+}
+#experience {
+    display: block;
+    transform: skewY(-15deg);
+}
+#education {
+    display: block;
+    transform: skewY(-15deg);
+}
+#skills {
+    display: block;
+    transform: skewY(-15deg);
+}
+#athletics {
+    display: block;
+    transform: skewY(-15deg);
+}
+#certifications {
+    display: block;
+    transform: skewY(-15deg);
+}
+#personal {
+    display: block;
+    transform: skewY(-15deg);
+}
