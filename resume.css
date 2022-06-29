@@ -14,15 +14,16 @@ body {
 /* baby's first media query */
 @media (max-width: 1300px) {
     body {
-        display: block;
+        display: revert;
         overflow: visible;
+        color: red;
     }
     #container {
-        display: block;
+        display: revert;
         padding: 50px;
     }
     div {
-        margin-left: auto;
+        display: revert;
         margin-top: 50px;
     }
   }
