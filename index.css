@@ -34,7 +34,17 @@ body {
     grid-template-columns: 100vw;
     overflow: hidden;
 }
-/* makes the animation work */
+/* baby's second media query */
+@media only screen and (max-width: 600px) {
+    #headline {
+        content: 'Welcome';
+    }
+    #spin {
+        display: none;
+    }
+}
+
+/* makes the background animation work */
 @keyframes gradient {
     0% {
         background-position: 0% 50%;

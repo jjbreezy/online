@@ -10,6 +10,8 @@ body {
     font-family: 'Rubik', sans-serif;
     overflow: hidden;
 }
+
+/* baby's first media query */
 @media only screen and (max-width: 600px) {
     body {
         display: block;
