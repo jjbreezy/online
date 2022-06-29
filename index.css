@@ -35,7 +35,7 @@ body {
     overflow: hidden;
 }
 /* baby's second media query */
-@media (max-width: 600px) {
+@media (max-width: 1300px) {
     #headline {
         content: 'Welcome';
     }

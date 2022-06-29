@@ -12,7 +12,7 @@ body {
 }
 
 /* baby's first media query */
-@media (max-width: 600px) {
+@media (max-width: 1300px) {
     body {
         display: block;
         overflow: visible;
