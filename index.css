@@ -91,22 +91,24 @@ code b {
     color:white;
     background-color: #262626;
     position: fixed;
-    white-space: pre;
+    /* white-space: pre; */
+    justify-self: center;
+    align-self: center;
   }
 #spin:after {
     content:"";
     animation: spin 13s linear infinite;
 }
 @keyframes spin {
-    0% { content:"personal website \1F4F0;.";}
-    10% { content:"portfolio \1F5BC;.";}
-    20% { content:"resume \1F4BC;.";}
-    30% { content:"certifications \1F4C3;.";}
-    40% { content:"funky fun balloon zone \1F388;.";}
-    50% { content:"project \1F527;.";}
-    60% { content:"misadventures in web development \1F468;.";}
-    70% { content:"Github pages site \2705;.";}
-    80% { content:"innermost thoughts \1F4AD;.";}
-    90% { content:"testbed \1F9EA;.";}
-    100% { content:"is this thing on \2753;."}
+    0% { content:"personal website \1F4F0.";}
+    10% { content:"portfolio \1F5BC.";}
+    20% { content:"resume \1F4BC.";}
+    30% { content:"certifications \1F4C3.";}
+    40% { content:"funky fun balloon zone \1F388.";}
+    50% { content:"project \1F527.";}
+    60% { content:"misadventures in web development \1F468.";}
+    70% { content:"Github pages site \2705.";}
+    80% { content:"innermost thoughts \1F4AD.";}
+    90% { content:"testbed \1F9EA.";}
+    100% { content:"is this thing on \2753."}
 }
