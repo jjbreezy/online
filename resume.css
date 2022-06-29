@@ -19,7 +19,7 @@ body {
         color: red;
     }
     #container {
-        display: revert;
+        display: block;
         padding: 50px;
     }
     div {
