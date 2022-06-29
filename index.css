@@ -112,3 +112,9 @@ code b {
     90% { content:"testbed \1F9EA.";}
     100% { content:"is this thing on \2753."}
 }
+
+#headline {
+    align-items: center;
+    justify-items: center;
+    margin: 10px;
+}
