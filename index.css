@@ -98,15 +98,15 @@ code b {
     animation: spin 13s linear infinite;
 }
 @keyframes spin {
-    0% { content:"personal website &U+1F4F0.";}
-    10% { content:"portfolio &U+1F5BC.";}
-    20% { content:"resume &U+1F4BC.";}
-    30% { content:"certifications &U+1F4C3.";}
-    40% { content:"funky fun balloon zone &U+1F388.";}
-    50% { content:"project &U+1F527.";}
-    60% { content:"misadventures in web development &U+1F468.";}
-    70% { content:"Github pages site &U+2705.";}
-    80% { content:"innermost thoughts &U+1F4AD.";}
-    90% { content:"testbed &U+1F9EA.";}
-    100% { content:"is this thing on U+2753";}
+    0% { content:"personal website &#U+1F4F0;.";}
+    10% { content:"portfolio &#U+1F5BC;.";}
+    20% { content:"resume &#U+1F4BC;.";}
+    30% { content:"certifications &#U+1F4C3;.";}
+    40% { content:"funky fun balloon zone &#U+1F388;.";}
+    50% { content:"project &#U+1F527;.";}
+    60% { content:"misadventures in web development &#U+1F468;.";}
+    70% { content:"Github pages site &#U+2705;.";}
+    80% { content:"innermost thoughts &#U+1F4AD;.";}
+    90% { content:"testbed &#U+1F9EA;.";}
+    100% { content:"is this thing on &#U+2753;."}
 }
