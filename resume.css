@@ -16,7 +16,6 @@ body {
     body {
         display: revert;
         overflow: visible;
-        color: red;
     }
     #container {
         display: block;
@@ -25,15 +24,17 @@ body {
     div {
         display: revert;
         margin-top: 50px;
+        transform: none;
     }
   }
 #container {
-    display: unset;
+    display: flex;
     justify-content: center;
     align-items: center;
     margin: 10px;
     /* max-height: 95vh; */
     /* max-width: 95vh; */
+    min-width: 400px;
 }
 div {
     position: relative;
