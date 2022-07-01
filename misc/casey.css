@@ -1,0 +1,94 @@
+body {
+    background-color: #edecea;
+}
+main {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    font-family: circularbody;
+    grid-gap: 50px;
+}
+nav {
+    text-decoration: none; 
+    color: white;
+    /* background-color: white; */
+    border: 2px solid black;
+    border-radius: 2em;
+    padding: 10px;
+    /* justify-content: center;
+    align-content: center;
+    align-items: center;
+    justify-items: center; */
+    display: flex;
+    flex-direction: row;
+    font-size: 48px;
+}
+a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+}
+a img {
+    max-width: 500px;
+    max-height: auto;
+    /* margin-top: 30px;
+    margin-bottom: 30px; */
+}
+nav .material-symbols-outlined {
+    font-size: 50px !important;
+}
+header {
+    background-color: #ff674d;
+    font-family: circularhead;
+    padding: 1em;
+    /* border-radius: 2em; */
+    color: white;
+    display: block;
+    width: 100%;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+h2 {
+    color: #ff674d;
+    font-size: 20pt;
+    margin-top: 10px;
+}
+section {
+    background-color: white;
+    padding: 1em;
+    margin-bottom: 50px;
+    border-radius: 2em;
+    width: fit-content;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+section p {
+    max-width: 500px;
+}
+section p a {
+    display: unset;
+    color: #ff674d;
+}
+footer {
+    position: sticky;
+    bottom: 30px;
+    left: 30px;
+    background-color: #ff674d;
+    font-family: circularhead;
+    padding: 1em;
+    border-radius: 2em;
+    color: white;
+    width: 300px;
+    font-size: medium !important;
+    display: block;
+}
+@font-face {
+    font-family: circularhead;
+    src: url(/fonts/CircularStd-Black.otf);
+}
+@font-face {
+    font-family: circularbody;
+    src: url(/fonts/CircularStd-Medium.otf);
+}
