@@ -5,11 +5,20 @@ html {
     font-weight: lighter;
 }
 body {
-    background-color: white;
+    background-image: url(/misc/minecraft/images/centerline.png);
+    background-repeat: repeat-y;
+    background-position: center;
     display: grid;
     justify-items: center;
     align-items: center;
     grid-template-columns: 3;
+}
+h1 {
+    background-color: white;
+}
+p {
+    background-color: white;
+    text-align: center;
 }
 img {
     /* padding-top: -50px;
@@ -24,11 +33,13 @@ img:hover {
 }
 section {
     cursor: pointer;
+    text-align: center;
 }
 section p {
     grid-column: 2;
     z-index: 1;
     margin: 0;
+    padding: 10px;
 }
 #item {
     grid-column: 2;
