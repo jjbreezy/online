@@ -1,0 +1,27 @@
+User-agent: *
+Disallow: /
+
+# Optional: explicitly disallow crawling for known bots
+User-agent: Googlebot
+Disallow: /
+
+User-agent: Bingbot
+Disallow: /
+
+User-agent: Slurp
+Disallow: /
+
+User-agent: DuckDuckBot
+Disallow: /
+
+User-agent: Baiduspider
+Disallow: /
+
+User-agent: Yandex
+Disallow: /
+
+User-agent: Applebot
+Disallow: /
+
+User-agent: Teoma
+Disallow: /

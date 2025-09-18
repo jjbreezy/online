@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jordan’s Christmas List 2025 🎄</title>
+    <!-- Block search engine indexing, archiving, and caching -->
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex">
+    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex">
+    <meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="slurp" content="noindex, nofollow, noarchive, nosnippet, noimageindex"> <!-- Yahoo -->
+    <meta name="duckduckbot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="baiduspider" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="yandex" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="applebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="teoma" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="description" content="Mobile‑friendly, responsive Christmas list with sizes, shipping info, and price‑range gift ideas." />
+  <style>
+    /* === Christmas design tokens === */
+    :root {
+      --bg: #08130b;             /* deep evergreen */
+      --panel: #0e2414;          /* darker green panel */
+      --text: #f7faf7;           /* near-white */
+      --muted: #cfe3d3;          /* minty muted */
+      --brand: #e11d48;          /* holly red */
+      --accent: #fbbf24;         /* warm gold */
+      --card: #12311d;           /* evergreen card */
+      --border: #1f3b29;         /* forest border */
+      --link: #9ae6b4;           /* mint link */
+      --shadow: 0 10px 28px rgba(0,0,0,.35);
+      --radius: 16px;
+      --radius-sm: 10px;
+      --gutter: 18px;
+      --maxw: 1000px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font: 16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    /* subtle snowflake pattern using emoji */
+    body::before{
+      content:""; position: fixed; inset:0; pointer-events:none; opacity:.08; z-index:-1;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><text x='20' y='26' text-anchor='middle' font-size='18'>❄️</text></svg>");
+      background-size: 40px 40px; background-repeat: repeat; animation: snowdrift 50s linear infinite;
+    }
+    @keyframes snowdrift { from { transform: translateY(0);} to { transform: translateY(40px);} }
+
+    /* festive background glows */
+    .bg-glow{ position: fixed; inset: -20vh -20vw auto -20vw; height: 60vh; background:
+        radial-gradient(600px 300px at 10% -10%, rgba(236,72,153,.12), transparent 40%),
+        radial-gradient(400px 200px at 110% 0%, rgba(251,191,36,.12), transparent 40%);
+      z-index:-2; }
+
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: var(--maxw); margin: 0 auto; padding: 32px; padding-left: max(32px, env(safe-area-inset-left)); padding-right: max(32px, env(safe-area-inset-right)); }
+
+    /* Header */
+    header.hero {
+      margin: 24px auto 28px; background: linear-gradient(145deg, var(--panel), transparent 70%);
+      border: 1px solid var(--border); border-radius: var(--radius); padding: clamp(24px, 6vw, 44px);
+      box-shadow: var(--shadow); overflow: hidden;
+    }
+    header.hero h1 { margin: 0 0 6px; font-size: clamp(1.6rem, 4.4vw, 2.4rem); letter-spacing: .3px; }
+
+    /* Christmas lights title animation */
+    .lights-title { display: inline-block; font-weight: 900; letter-spacing: .5px; }
+    .lights-title span { display: inline-block; filter: saturate(1.2); animation: twinkle 2.5s linear infinite; }
+    .lights-title span:nth-child(3n+1){ text-shadow: 0 0 6px rgba(225,29,72,.85); color: #ffdee5; }
+    .lights-title span:nth-child(3n+2){ text-shadow: 0 0 6px rgba(251,191,36,.85); color: #fff3d4; }
+    .lights-title span:nth-child(3n){ text-shadow: 0 0 6px rgba(34,197,94,.85); color: #dbffe6; }
+    @keyframes twinkle { 0%, 80% { transform: translateY(0) scale(1); opacity: 1;} 85% { opacity: .6;} 90% { transform: translateY(-1px) scale(1.02);} 95% { opacity: .85;} 100% { transform: translateY(0) scale(1);} }
+
+    header.hero p { margin: 0; color: var(--muted); }
+    .badge { display: inline-flex; align-items: center; gap: 8px; background: var(--card); border: 1px solid var(--border); padding: 6px 10px; border-radius: 999px; font-size: .9rem; margin-top: 10px; }
+    .badge .dot { width: 8px; height: 8px; background: var(--brand); border-radius: 50%; display: inline-block; }
+
+    /* Instruction banner for accordions */
+    .hint-banner { margin-top: 12px; background: #0c2e19; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 10px 12px; color: var(--muted); }
+    .hint-banner strong { color: var(--accent); }
+
+    /* Quick info */
+    .quick-info { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 14px; }
+    .quick-info .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px; }
+    .quick-info h3 { margin: 0 0 6px; font-size: 1rem; }
+    .quick-info p { margin: 0; color: var(--muted); }
+    @media (min-width: 720px) { .quick-info { grid-template-columns: repeat(3, 1fr); } }
+
+    /* Sections */
+    section { margin: 28px 0; }
+    section > h2 { margin: 0 0 10px; font-size: clamp(1.1rem, 2.6vw, 1.4rem); }
+    section > p.lead { margin-top: 0; color: var(--muted); }
+
+    /* Accordions */
+    details.accordion { border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--panel); box-shadow: var(--shadow); }
+    details.accordion + details.accordion { margin-top: 12px; }
+    details.accordion summary { cursor: pointer; list-style: none; padding: 18px; font-weight: 800; display: flex; align-items: center; gap: 10px; background: linear-gradient(0deg, rgba(251,191,36,.12), rgba(251,191,36,.12)), var(--panel); border-radius: var(--radius-sm); border-bottom: 1px solid transparent; }
+    details.accordion summary::-webkit-details-marker { display: none; }
+    details.accordion summary .tap { margin-left: auto; font-weight: 700; color: var(--accent); font-size: .95rem; }
+    details.accordion summary::before { content: "▸"; display: inline-block; transform-origin: center; transition: transform .2s ease; color: var(--accent); font-size: 1.1rem; }
+    details.accordion[open] summary::before { transform: rotate(90deg); }
+    details.accordion[open] summary { border-bottom: 1px solid var(--border); }
+    details.accordion .content { padding: 14px 16px; color: var(--muted); }
+
+    /* Grid & cards */
+    .grid { display: grid; gap: var(--gutter); grid-template-columns: 1fr; }
+    @media (min-width: 520px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 900px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .item { position: relative; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); display: flex; flex-direction: column;
+      transform: translateY(6px); opacity: 0; }
+    .item figure { margin: 0; aspect-ratio: 4 / 3; background: repeating-conic-gradient(from 45deg, rgba(255,255,255,.05) 0 12deg, transparent 12deg 24deg); display: grid; place-items: center; color: var(--muted); font-size: .9rem; }
+    .item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .item .body { padding: 14px; display: flex; flex-direction: column; gap: 8px; }
+    .item .title { font-weight: 700; }
+    .item .meta { color: var(--muted); font-size: .92rem; }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+    .tag { font-size: .75rem; background: rgba(248,113,113,.15); color: var(--text); border: 1px solid var(--border); padding: 4px 8px; border-radius: 999px; }
+
+    .controls { display: flex; gap: 10px; align-items: center; margin-top: 6px; flex-wrap: wrap; }
+    .btn { border: 1px solid var(--border); background: #173e25; padding: 8px 10px; border-radius: 10px; font-size: .9rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+    .btn:hover { filter: brightness(1.05); }
+
+    /* Motion: card fade-up on view */
+    @keyframes fadeUp { to { transform: translateY(0); opacity: 1; } }
+    @media (prefers-reduced-motion: no-preference) {
+      .item { animation: fadeUp .6s ease forwards; }
+      .item:nth-child(3n+1){ animation-delay: .05s;}
+      .item:nth-child(3n+2){ animation-delay: .12s;}
+      .item:nth-child(3n){ animation-delay: .18s;}
+      .item:hover { transform: translateY(-2px); transition: transform .2s ease; }
+    }
+
+    .muted { color: var(--muted); }
+    footer { margin: 40px 0 16px; color: var(--muted); text-align: center; font-size: .92rem; }
+
+    @media print {
+      header.hero, .badge, .controls .btn, details.accordion summary .tap { display: none !important; }
+      body { background: #fff; color: #000; }
+      .item { border: 1px solid #ccc; box-shadow: none; }
+      .item figure { display: none; }
+      .grid { grid-template-columns: repeat(2, 1fr) !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-glow" aria-hidden="true"></div>
+  <header class="hero container" role="banner">
+    <div class="badge" aria-label="List status"><span class="dot" aria-hidden="true"></span> Christmas List · 2025</div>
+    <h1 aria-label="Jordan’s Christmas List" class="lights-title">J<span>o</span>r<span>d</span>a<span>n</span>’<span>s</span> <span>C</span>h<span>r</span>i<span>s</span>t<span>m</span>a<span>s</span> <span>L</span>i<span>s</span>t</h1>
+    <p>Hi friends &amp; family! Thanks for looking. Priorities are at the top. I’ll keep this updated as we get closer to December. <strong>Tip:</strong> <span aria-hidden="true">👉</span> <em>Tap the green bars labeled “Tap to open” to reveal details.</em> 🎁</p>
+    <div class="hint-banner" role="note">👉 <strong>On phones &amp; tablets:</strong> tap any bar that says <em>Tap to open</em> to expand price ranges and details. ✨</div>
+
+    <div class="quick-info" aria-label="Quick info">
+      <div class="card">
+        <h3>Sizes 📏</h3>
+        <p>Men’s tops M, bottoms 31×32, running shoes US 10.5; gloves M.</p>
+      </div>
+      <div class="card">
+        <h3>Colors &amp; style 🎨</h3>
+        <p>Neutrals, navy, forest, charcoal. Techy, minimal, durable.</p>
+      </div>
+      <div class="card">
+        <h3>Shipping 📦</h3>
+        <p>NYC · <em>Address on request</em> · Please include gift receipt when possible.</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" id="content">
+    <section aria-labelledby="priority-title">
+      <h2 id="priority-title">Top priorities 🎯</h2>
+      <p class="lead">A few high‑priority picks for this year. New items first.</p>
+      <div class="grid">
+        <article class="item" aria-label="Grid fleece midlayer">
+          <figure><div>Image placeholder</div></figure>
+          <div class="body">
+            <div class="title">Grid fleece midlayer</div>
+            <div class="meta">Warm, breathable layer for winter runs or hikes.</div>
+            <div class="tags"><span class="tag">New 2025</span><span class="tag">Size M</span></div>
+            <div class="controls"><a class="btn" href="#" target="_blank" rel="noopener">🔗 View</a></div>
+          </div>
+        </article>
+
+        <article class="item" aria-label="Trail running vest">
+          <figure><div>Image placeholder</div></figure>
+          <div class="body">
+            <div class="title">Trail running vest (soft‑flask)</div>
+            <div class="meta">For long runs; 1–2L capacity, phone pocket.</div>
+            <div class="tags"><span class="tag">New 2025</span><span class="tag">Unisex</span></div>
+            <div class="controls"><a class="btn" href="#" target="_blank" rel="noopener">🔗 View</a></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="prices-title">
+      <h2 id="prices-title">Price ranges 💸</h2>
+      <p class="lead">Browse by budget. Tap to open.</p>
+
+      <details class="accordion" open>
+        <summary>Stocking stuffers ($0–$25) 🧦 <span class="tap">Tap to open</span></summary>
+        <div class="content">
+          <div class="grid">
+            <article class="item">
+              <figure><div>Image placeholder</div></figure>
+              <div class="body">
+                <div class="title">Chocolate oranges & treats</div>
+                <div class="meta">Simple joys that always land.</div>
+                <div class="controls"><a class="btn" href="#" target="_blank" rel="noopener">🔗 View</a></div>
+              </div>
+            </article>
+            <article class="item">
+              <figure><div>Image placeholder</div></figure>
+              <div class="body">
+                <div class="title">Merino socks (crew)</div>
+                <div class="meta">Cozy upgrades for winter runs.</div>
+                <div class="controls"><a class="btn" href="#" target="_blank" rel="noopener">🔗 View</a></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </details>
+
+      <details class="accordion">
+        <summary>$25–$50 🎁 <span class="tap">Tap to open</span></summary>
+        <div class="content">
+          <div class="grid">
+            <article class="item">
+              <figure><div>Image placeholder</div></figure>
+              <div class="body">
+                <div class="title">Foam roller (firm)</div>
+                <div class="meta">12–18″; apartment‑friendly.</div>
+                <div class="controls"><a class="btn" href="#" target="_blank" rel="noopener">🔗 View</a></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </details>
+
+      <details class="accordion">
+        <summary>$50–$100 🎄 <span class="tap">Tap to open</span></summary>
+        <div class="content">
+          <div class="grid">
+            <article class="item">
+              <figure><div>Image placeholder</div></figure>
+              <div class="body">
+                <div class="title">Chef’s knife (8″)</div>
+                <div class="meta">Simple handle; durable steel.</div>
+                <div class="controls"><a class="btn" href="#" target="_blank" rel="noopener">🔗 View</a></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </details>
+
+      <details class="accordion">
+        <summary>$100–$250 ✨ <span class="tap">Tap to open</span></summary>
+        <div class="content">
+          <div class="grid">
+            <article class="item">
+              <figure><div>Image placeholder</div></figure>
+              <div class="body">
+                <div class="title">Trail running vest</div>
+                <div class="meta">1–2L; phone pocket.</div>
+                <div class="controls"><a class="btn" href="#" target="_blank" rel="noopener">🔗 View</a></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </details>
+
+      <details class="accordion">
+        <summary>$250+ 🎅 <span class="tap">Tap to open</span></summary>
+        <div class="content">
+          <div class="grid">
+            <article class="item">
+              <figure><div>Image placeholder</div></figure>
+              <div class="body">
+                <div class="title">Grid fleece midlayer (premium)</div>
+                <div class="meta">Warm, breathable performance.</div>
+                <div class="controls"><a class="btn" href="#" target="_blank" rel="noopener">🔗 View</a></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <section aria-labelledby="notes-title">
+      <h2 id="notes-title">Notes 📝</h2>
+      <details class="accordion" open>
+        <summary>General preferences ✨ <span class="tap">Tap to open</span></summary>
+        <div class="content">
+          <ul>
+            <li>Quality over quantity; fewer, better things. 🌟</li>
+            <li>Gift receipts appreciated; no fast fashion. 🧾</li>
+            <li>Experiences welcome (museum, sauna, classes). 🎟️</li>
+          </ul>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Not needed this year 🚫 <span class="tap">Tap to open</span></summary>
+        <div class="content">
+          <p>In the spirit of less waste and more joy, here are things <strong>I don’t need this year</strong> (carried over from last year’s guide):</p>
+          <ul>
+            <li>Wall decor — I’m set for now. 🖼️</li>
+            <li>Bedding &amp; textiles (pillowcases, blankets, rugs, pillows). 🛏️</li>
+            <li>Cosmetics or skincare (sensitive skin, I’ll source my own). 🧴</li>
+            <li>Small desk figurines/knick‑knacks — storage is tight. 🗄️</li>
+            <li>Books — reading backlog is real. 📚</li>
+            <li>Extra T‑shirts, sweaters, baseball caps, gloves — already stocked. 🧤</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+  </main>
+
+  <footer aria-label="Site footer">
+    <p>Last updated: <time datetime="2025-09-17">Sept 17, 2025</time> · Built with HTML & CSS · <span class="muted">No tracking, no scripts</span></p>
+  </footer>
+</body>
+</html>
