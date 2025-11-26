@@ -258,6 +258,10 @@
       margin: 28px 0;
     }
 
+    section:first-child {
+      margin-top: 0;
+    }
+
     section>h2 {
       margin: 0 0 10px;
       font-size: clamp(1.1rem, 2.6vw, 1.4rem);
@@ -316,6 +320,21 @@
       font-weight: 700;
       color: var(--accent);
       font-size: .95rem;
+      animation: pulse-text 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse-text {
+
+      0%,
+      100% {
+        opacity: 0.7;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.05);
+      }
     }
 
     details.accordion summary::before {
@@ -580,8 +599,10 @@
       J<span>o</span>r<span>d</span>a<span>n</span>’<span>s</span>
       <span>C</span>h<span>r</span>i<span>s</span>t<span>m</span>a<span>s</span> <span>L</span>i<span>s</span>t
     </h1>
-    <p>Hi friends &amp; family! This is my Christmas 2025 list, grouped by price point.<br><strong>Please review the <a
-          href="#not-needed" style="color: var(--brand); text-decoration: underline;">what not to get</a> section before
+    <p>Hi friends &amp; family! This is my Christmas 2025 list, grouped by price point. Struggling with ideas? Gift
+      cards and cash are always great (<a href="#retailers" style="color: var(--link); text-decoration: underline;">see
+        retailers</a>)!<br><strong>Please review the <a href="#not-needed"
+          style="color: var(--brand); text-decoration: underline;">what not to get</a> section before
         shopping!</strong>
     </p>
     <div class="hint-banner" role="note">👉 <strong>On phones &amp; tablets:</strong> tap any bar that says <em>Tap to
@@ -590,12 +611,12 @@
 
       <div class="card">
         <h3>Shipping 📦</h3>
-        <p>NYC · <em>Address on request</em> · Please include gift receipt when possible.</p>
+        <p>NYC · <em>Address on request</em></p>
       </div>
     </div>
   </header>
-
   <main class="container" id="content">
+    <!--
     <section aria-labelledby="priority-title">
       <h2 id="priority-title">Top priorities 🎯</h2>
       <p class="lead">A few high‑priority picks for this year. New items first.</p>
@@ -607,41 +628,54 @@
           <div class="body">
             <div class="title">Trail running vest (soft‑flask)</div>
             <div class="meta">For long runs; 1–2L capacity, phone pocket.</div>
-            <div class="tags"><span class="tag">New 2025</span><span class="tag">Unisex</span></div>
             <div class="controls"><a class="btn" href="#" target="_blank" rel="noopener">🔗 View</a></div>
           </div>
         </article>
       </div>
     </section>
+    -->
 
     <section aria-labelledby="prices-title">
       <h2 id="prices-title">Price ranges 💸</h2>
       <p class="lead">Browse by budget. Tap to open.</p>
 
-      <details class="accordion" open>
-        <summary><span class="price-tag">$0–$25</span><span class="tap">Tap to open</span>
+      <details class="accordion">
+        <summary><span class="price-tag">$0–$25</span>Stocking Stuffers<span class="tap">Tap to open</span>
         </summary>
         <div class="content">
           <div class="grid">
             <article class="item placeholder">
               <div class="body">
-                <div class="title">Gift Idea Placeholder</div>
-                <div class="meta">Description of the gift idea goes here.</div>
-                <div class="controls"><a class="btn" href="#" target="_blank" rel="nofollow">🔗 Link</a></div>
+                <div class="title">Chocolate oranges</div>
+                <div class="meta">Classic holiday treat.</div>
+                <div class="controls"><a class="btn" href="https://www.terryschocolate.com" target="_blank"
+                    rel="nofollow">🔗 Link</a></div>
               </div>
             </article>
             <article class="item placeholder">
               <div class="body">
-                <div class="title">Gift Idea Placeholder</div>
-                <div class="meta">Description of the gift idea goes here.</div>
-                <div class="controls"><a class="btn" href="#" target="_blank" rel="nofollow">🔗 Link</a></div>
+                <div class="title">Epic Provisions</div>
+                <div class="meta">Any flavor/type is great. The salmon ones are extra great.</div>
+                <div class="controls"><a class="btn" href="https://epicprovisions.com" target="_blank" rel="nofollow">🔗
+                    Link</a></div>
               </div>
             </article>
             <article class="item placeholder">
               <div class="body">
-                <div class="title">Gift Idea Placeholder</div>
-                <div class="meta">Description of the gift idea goes here.</div>
-                <div class="controls"><a class="btn" href="#" target="_blank" rel="nofollow">🔗 Link</a></div>
+                <div class="title">LEGO Botanicals Happy Plants</div>
+                <div class="meta">Plant shelf cuties.</div>
+                <div class="controls"><a class="btn"
+                    href="https://www.amazon.com/gp/product/B0DRW6C2RF/ref=ox_sc_saved_title_4?smid=ATVPDKIKX0DER&psc=1"
+                    target="_blank" rel="nofollow">🔗 Link</a></div>
+              </div>
+            </article>
+            <article class="item placeholder">
+              <div class="body">
+                <div class="title">Mouse Skates</div>
+                <div class="meta">PTFE Glide.</div>
+                <div class="controls"><a class="btn"
+                    href="https://www.amazon.com/gp/product/B0FMXS3SF9/ref=ox_sc_saved_title_10?smid=A1K965OHNO5J12&th=1"
+                    target="_blank" rel="nofollow">🔗 Link</a></div>
               </div>
             </article>
           </div>
@@ -649,28 +683,46 @@
       </details>
 
       <details class="accordion">
-        <summary><span class="price-tag">$25–$50</span><span class="tap">Tap to open</span></summary>
+        <summary><span class="price-tag">$25–$50</span>Festive Finds<span class="tap">Tap to open</span></summary>
         <div class="content">
           <div class="grid">
             <article class="item placeholder">
               <div class="body">
-                <div class="title">Gift Idea Placeholder</div>
-                <div class="meta">Description of the gift idea goes here.</div>
-                <div class="controls"><a class="btn" href="#" target="_blank" rel="nofollow">🔗 Link</a></div>
+                <div class="title">Colorful Pepper Mill</div>
+                <div class="meta">A great table centerpiece - ideally wood, a bright red, and an interesting shape.
+                </div>
+                <div class="controls"><a class="btn"
+                    href="https://www.amazon.com/gp/product/B00HNP42AE/ref=ox_sc_saved_title_9?smid=A37ZYJGOIIGR57&th=1"
+                    target="_blank" rel="nofollow">🔗 Link</a></div>
+              </div>
+            </article>
+
+            <article class="item placeholder">
+              <div class="body">
+                <div class="title">Clear Building Bricks</div>
+                <div class="meta">DIY lamp projects abound.</div>
+                <div class="controls"><a class="btn"
+                    href="https://www.amazon.com/gp/product/B00ZQLE97I/ref=ox_sc_saved_title_1?smid=A1B7M9EQGNCLQA&th=1"
+                    target="_blank" rel="nofollow">🔗 Link</a></div>
               </div>
             </article>
             <article class="item placeholder">
               <div class="body">
-                <div class="title">Gift Idea Placeholder</div>
-                <div class="meta">Description of the gift idea goes here.</div>
-                <div class="controls"><a class="btn" href="#" target="_blank" rel="nofollow">🔗 Link</a></div>
+                <div class="title">Water Flosser</div>
+                <div class="meta">Pearly whites and healthy gums await.</div>
+                <div class="controls"><a class="btn"
+                    href="https://www.amazon.com/gp/product/B0CNTRVZPW/ref=ox_sc_saved_title_6?smid=ATVPDKIKX0DER&th=1"
+                    target="_blank" rel="nofollow">🔗 Link</a></div>
               </div>
             </article>
+
             <article class="item placeholder">
               <div class="body">
-                <div class="title">Gift Idea Placeholder</div>
-                <div class="meta">Description of the gift idea goes here.</div>
-                <div class="controls"><a class="btn" href="#" target="_blank" rel="nofollow">🔗 Link</a></div>
+                <div class="title">Philips Hue Smart Bulbs</div>
+                <div class="meta">You already knew it was coming.</div>
+                <div class="controls"><a class="btn"
+                    href="https://www.amazon.com/Philips-Hue-Bluetooth-Compatible-Assistant/dp/B095KV6RFY/ref=ast_sto_dp_puis?th=1"
+                    target="_blank" rel="nofollow">🔗 Link</a></div>
               </div>
             </article>
           </div>
@@ -678,88 +730,58 @@
       </details>
 
       <details class="accordion">
-        <summary><span class="price-tag">$50–$100</span><span class="tap">Tap to open</span></summary>
+        <summary><span class="price-tag">$50–$100</span>Winter Wonders<span class="tap">Tap to open</span></summary>
         <div class="content">
           <div class="grid">
             <article class="item placeholder">
               <div class="body">
-                <div class="title">Gift Idea Placeholder</div>
-                <div class="meta">Description of the gift idea goes here.</div>
-                <div class="controls"><a class="btn" href="#" target="_blank" rel="nofollow">🔗 Link</a></div>
+                <div class="title">LEGO Mona Lisa</div>
+                <div class="meta">Davinci's enigmatic masterpiece brought to life in brick form - sure to persist as
+                  plastic waste for generations to come.</div>
+                <div class="controls"><a class="btn"
+                    href="https://www.amazon.com/gp/product/B0CPQ6WWK6/ref=ox_sc_saved_title_6?smid=ATVPDKIKX0DER&psc=1"
+                    target="_blank" rel="nofollow">🔗 Link</a></div>
               </div>
             </article>
-            <article class="item placeholder">
-              <div class="body">
-                <div class="title">Gift Idea Placeholder</div>
-                <div class="meta">Description of the gift idea goes here.</div>
-                <div class="controls"><a class="btn" href="#" target="_blank" rel="nofollow">🔗 Link</a></div>
-              </div>
-            </article>
-            <article class="item placeholder">
-              <div class="body">
-                <div class="title">Gift Idea Placeholder</div>
-                <div class="meta">Description of the gift idea goes here.</div>
-                <div class="controls"><a class="btn" href="#" target="_blank" rel="nofollow">🔗 Link</a></div>
-              </div>
-            </article>
+
           </div>
         </div>
       </details>
 
       <details class="accordion">
-        <summary><span class="price-tag">$100–$250</span><span class="tap">Tap to open</span></summary>
+        <summary><span class="price-tag">$100+</span>Sleigh Selections<span class="tap">Tap to open</span></summary>
         <div class="content">
           <div class="grid">
-            <article class="item placeholder">
-              <div class="body">
-                <div class="title">Gift Idea Placeholder</div>
-                <div class="meta">Description of the gift idea goes here.</div>
-                <div class="controls"><a class="btn" href="#" target="_blank" rel="nofollow">🔗 Link</a></div>
-              </div>
-            </article>
-            <article class="item placeholder">
-              <div class="body">
-                <div class="title">Gift Idea Placeholder</div>
-                <div class="meta">Description of the gift idea goes here.</div>
-                <div class="controls"><a class="btn" href="#" target="_blank" rel="nofollow">🔗 Link</a></div>
-              </div>
-            </article>
-            <article class="item placeholder">
-              <div class="body">
-                <div class="title">Gift Idea Placeholder</div>
-                <div class="meta">Description of the gift idea goes here.</div>
-                <div class="controls"><a class="btn" href="#" target="_blank" rel="nofollow">🔗 Link</a></div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </details>
 
-      <details class="accordion">
-        <summary><span class="price-tag">$250+</span><span class="tap">Tap to open</span></summary>
-        <div class="content">
-          <div class="grid">
             <article class="item placeholder">
               <div class="body">
-                <div class="title">Gift Idea Placeholder</div>
-                <div class="meta">Description of the gift idea goes here.</div>
-                <div class="controls"><a class="btn" href="#" target="_blank" rel="nofollow">🔗 Link</a></div>
+                <div class="title">Logitech MX Creative Keys</div>
+                <div class="meta">Dials and buttons. Oh my.</div>
+                <div class="controls"><a class="btn"
+                    href="https://www.amazon.com/gp/product/B0DB7SRW2G/ref=ox_sc_saved_title_8?smid=ATVPDKIKX0DER&th=1"
+                    target="_blank" rel="nofollow">🔗 Link</a></div>
               </div>
             </article>
+
             <article class="item placeholder">
               <div class="body">
-                <div class="title">Gift Idea Placeholder</div>
-                <div class="meta">Description of the gift idea goes here.</div>
-                <div class="controls"><a class="btn" href="#" target="_blank" rel="nofollow">🔗 Link</a></div>
+                <div class="title">Red Light Therapy Lamp</div>
+                <div class="meta">Undoing the desk worker lifestyle one photon at a time.</div>
+                <div class="controls"><a class="btn"
+                    href="https://www.amazon.com/gp/product/B08CDBN5G3/ref=ox_sc_saved_title_8?smid=A1NY7DYKPATFNW&psc=1"
+                    target="_blank" rel="nofollow">🔗 Link</a></div>
               </div>
             </article>
+
             <article class="item placeholder">
               <div class="body">
-                <div class="title">Gift Idea Placeholder</div>
-                <div class="meta">Description of the gift idea goes here.</div>
-                <div class="controls"><a class="btn" href="#" target="_blank" rel="nofollow">🔗 Link</a></div>
+                <div class="title">ZeroMouse Blade</div>
+                <div class="meta">This is almost certainly sold out, but it's worth a shot.</div>
+                <div class="controls"><a class="btn" href="https://zeromouse.co/products/blade" target="_blank"
+                    rel="nofollow">🔗 Link</a></div>
               </div>
             </article>
+
           </div>
         </div>
       </details>
@@ -768,19 +790,35 @@
     <section aria-labelledby="notes-title">
       <h2 id="notes-title">Notes 📝</h2>
 
+      <details class="accordion" id="retailers">
+        <summary>Gift Card Retailers 💳 <span class="tap">Tap to open</span></summary>
+        <div class="content">
+          <ul>
+            <li>Amazon</li>
+            <li>J Crew</li>
+            <li>Buck Mason</li>
+            <li>Aesop</li>
+          </ul>
+        </div>
+      </details>
+
       <div class="accordion warning" id="not-needed">
-        <div class="summary-like">Not needed this year 🚫</div>
+        <div class="summary-like">The Naughty List: things not to get me this year 🚫</div>
         <div class="content">
           <p>In the spirit of less waste and more joy, here are things <strong>I don’t need this year</strong> (carried
             over from last year’s guide):</p>
           <ul>
-            <li>Extra T‑shirts, sweaters, baseball caps, gloves — already stocked. 🧤</li>
-            <li>Consumer electronics (gadgets, headphones, etc.) — I have what I need. 🔌</li>
-            <li>Wall decor — I’m set for now. 🖼️</li>
+            <li><strong>Clothes: </strong>Extra T‑shirts, sweaters, baseball caps, gloves — already stocked. If you feel
+              the need for apparel gifts, refer to the gift card section, or cash - is great.</strong> 🧤</li>
+            <li><strong>Books </strong>I read on Kindle exclusively now, so I don’t need paper books. My reading backlog
+              is also pretty long, so I don't need to add to the queue.</strong> 🧤</li>
+            <li>Consumer electronics (gadgets, headphones, chargers, cables, etc.) — apart from what's listed, I have
+              what I need. Want to reduce the amount of e-waste I create going forward. 🔌</li>
+            <li>Wall decor and art — we're set for now. 🖼️</li>
             <li>Bedding &amp; textiles (pillowcases, blankets, rugs, pillows). 🛏️</li>
-            <li>Cosmetics or skincare (sensitive skin, I’ll source my own). 🧴</li>
-            <li>Small desk figurines/knick‑knacks — storage is tight. 🗄️</li>
-            <li>Books — reading backlog is real. 📚</li>
+            <li>Cosmetics or skincare products. Sensitive skin, I’ll source my own. 🧴</li>
+            <li><strong>Knick-knacks</strong> we have plenty of decorations - some might say too much — storage is
+              tight. 🗄️</li>
           </ul>
         </div>
       </div>
