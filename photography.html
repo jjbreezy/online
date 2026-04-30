@@ -5,11 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Professional Photography Services | jjb.img</title>
-    <meta name="description" content="Book professional photography services including portraits, graduations, engagements, and city hall weddings. | jjb.img">
+    <meta name="description"
+        content="Book professional photography services including portraits, graduations, engagements, and city hall weddings. | jjb.img">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Space+Grotesk:wght@300;400;600;700&family=Overpass:wght@700;800;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Space+Grotesk:wght@300;400;600;700&family=Overpass:wght@700;800;900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="photography.css">
@@ -25,29 +28,80 @@
     <header class="glass-nav">
         <div class="nav-container">
             <div class="logo">jjb.img</div>
+            <div class="scroll-progress-container">
+                <div id="scroll-indicator"></div>
+            </div>
             <nav>
                 <a href="#about">About</a>
                 <a href="#portfolio">Work</a>
                 <a href="#rates">Rates</a>
-                <a href="/" class="home-link">Home</a>
+                <a href="#contact" class="nav-book-btn">Book Now</a>
             </nav>
         </div>
     </header>
+
+    <script>
+        // Scroll Progress logic
+        window.addEventListener('scroll', () => {
+            const indicator = document.getElementById('scroll-indicator');
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            indicator.style.width = scrolled + "%";
+        });
+
+        // Intersection Observer for Book Now button and Nav Background
+        document.addEventListener('DOMContentLoaded', () => {
+            const contactSection = document.getElementById('contact');
+            const aboutSection = document.getElementById('about');
+            const bookBtn = document.querySelector('.nav-book-btn');
+            const nav = document.querySelector('.glass-nav');
+
+            // Observer for Contact (Book Now button inversion)
+            const contactObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        bookBtn.classList.add('inverted');
+                        nav.classList.add('contact-view');
+                    } else {
+                        bookBtn.classList.remove('inverted');
+                        nav.classList.remove('contact-view');
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            // Observer for About (Nav background fade-in)
+            const navObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting || window.scrollY > aboutSection.offsetTop) {
+                        nav.classList.add('scrolled');
+                    } else {
+                        // Only remove if we are definitely above the about section
+                        if (window.scrollY < aboutSection.offsetTop) {
+                            nav.classList.remove('scrolled');
+                        }
+                    }
+                });
+            }, { threshold: 0, rootMargin: '-80px 0px 0px 0px' }); // Trigger just before section hits nav
+
+            if (contactSection) contactObserver.observe(contactSection);
+            if (aboutSection) navObserver.observe(aboutSection);
+        });
+    </script>
 
     <main>
         <!-- Hero Section -->
         <section id="hero" class="hero-section">
             <div class="hero-content">
-                <div class="badge-wrapper">
-                    <span class="status-badge">Available for booking</span>
-                </div>
                 <div class="hero-title">
-                    <div class="street-sign">your friendly neighborhood<br>photographer</div>
+                    <div class="street-sign rotate-left">your friendly neighborhood<br>photographer</div>
                 </div>
-                <p class="hero-subtitle">Photography services with a modern touch.</p>
-                <div class="hero-actions">
-                    <a href="#rates" class="btn btn-primary">View Rates</a>
-                    <a href="#portfolio" class="btn btn-secondary">See My Work</a>
+                <p class="hero-subtitle">High-quality, modern photography services offering excellent value. Locally
+                    based right here in New York City.</p>
+                <div class="hero-actions"
+                    style="display: flex; gap: 1.5rem; width: 100%; max-width: 600px; margin: 0 auto;">
+                    <a href="#rates" class="btn btn-secondary" style="flex: 1; text-align: center;">View Rates</a>
+                    <a href="#contact" class="btn btn-primary" style="flex: 3; text-align: center;">Book Now</a>
                 </div>
             </div>
         </section>
@@ -59,7 +113,8 @@
             </div>
             <div class="about-text">
                 <h2>Behind the Lens</h2>
-                <p>Hi, I'm Jordan. I try to tell a compelling story with every shot.</p>
+                <p>Hi, I'm Jordan. I try to tell a compelling story with every shot. I started out as a hobbyist
+                    photographer.</p>
                 <p>Whether it's a portrait session, an event, or a city hall wedding, my goal is to deliver timeless
                     images you'll love.</p>
             </div>
@@ -69,12 +124,6 @@
         <section id="portfolio" class="portfolio-section">
             <div class="section-header">
                 <h2>Featured Work</h2>
-                <div class="social-badge">
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="glass-pill">
-                        <span class="material-symbols-outlined">photo_camera</span>
-                        Follow on Instagram
-                    </a>
-                </div>
             </div>
             <div class="portfolio-grid">
                 <div class="portfolio-item glass-panel">
@@ -100,32 +149,261 @@
 
         <!-- Testimonials Section -->
         <section id="testimonials" class="testimonials-section">
-            <h2 class="section-title">Reviews</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-card glass-panel">
-                    <div class="quote-icon material-symbols-outlined">format_quote</div>
-                    <p class="quote-text">"Jordan made our engagement shoot so relaxed and fun. The photos look
-                        incredible, capturing exactly how we felt that day. Highly recommended!"</p>
-                    <div class="client-info">
-                        <div>
-                            <div class="client-name">A & H</div>
-                            <div class="client-role">2026</div>
-                        </div>
-                        <a href="#rates" class="package-badge">City Hall Wedding</a>
-                    </div>
+            <div class="testimonials-header" style="position: relative; margin-bottom: 3rem;">
+                <div class="reviews-stars-bg">
+                    <span class="material-symbols-outlined">star</span>
+                    <span class="material-symbols-outlined">star</span>
+                    <span class="material-symbols-outlined">star</span>
+                    <span class="material-symbols-outlined">star</span>
+                    <span class="material-symbols-outlined">star</span>
                 </div>
-                <div class="testimonial-card glass-panel">
-                    <div class="quote-icon material-symbols-outlined">format_quote</div>
-                    <p class="quote-text">"Great Linkedin headshot."</p>
-                    <div class="client-info">
-                        <div>
-                            <div class="client-name">XYZ</div>
-                            <div class="client-role">2026</div>
+                <h2 class="section-title text-center" style="margin-bottom: 0;">Reviews</h2>
+            </div>
+            <div class="testimonials-viewport">
+                <div class="testimonials-track" id="reviewsTrack">
+                    <div class="testimonial-card">
+                        <div class="quote-icon material-symbols-outlined">format_quote</div>
+                        <p class="quote-text">"Review Placeholder: Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                            veniam."</p>
+                        <div class="client-info">
+                            <div>
+                                <div class="client-name">Reviewer A</div>
+                                <div class="client-role">Service Type</div>
+                            </div>
+                            <a href="#rates" class="package-badge">Package Category</a>
                         </div>
-                        <a href="#rates" class="package-badge">Headshots</a>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-icon material-symbols-outlined">format_quote</div>
+                        <p class="quote-text">"Review Placeholder: Duis aute irure dolor in reprehenderit in voluptate
+                            velit esse cillum dolore eu fugiat nulla pariatur."</p>
+                        <div class="client-info">
+                            <div>
+                                <div class="client-name">Reviewer B</div>
+                                <div class="client-role">Service Type</div>
+                            </div>
+                            <a href="#rates" class="package-badge">Package Category</a>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-icon material-symbols-outlined">format_quote</div>
+                        <p class="quote-text">"Review Placeholder: Excepteur sint occaecat cupidatat non proident, sunt
+                            in culpa qui officia deserunt mollit anim id est laborum."</p>
+                        <div class="client-info">
+                            <div>
+                                <div class="client-name">Reviewer C</div>
+                                <div class="client-role">Service Type</div>
+                            </div>
+                            <a href="#rates" class="package-badge">Package Category</a>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-icon material-symbols-outlined">format_quote</div>
+                        <p class="quote-text">"Review Placeholder: Sed ut perspiciatis unde omnis iste natus error sit
+                            voluptatem accusantium doloremque laudantium, totam rem aperiam."</p>
+                        <div class="client-info">
+                            <div>
+                                <div class="client-name">Reviewer D</div>
+                                <div class="client-role">Service Type</div>
+                            </div>
+                            <a href="#rates" class="package-badge">Package Category</a>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-icon material-symbols-outlined">format_quote</div>
+                        <p class="quote-text">"Review Placeholder: Nemo enim ipsam voluptatem quia voluptas sit
+                            aspernatur aut odit aut fugit, sed quia consequuntur magni dolores."</p>
+                        <div class="client-info">
+                            <div>
+                                <div class="client-name">Reviewer E</div>
+                                <div class="client-role">Service Type</div>
+                            </div>
+                            <a href="#rates" class="package-badge">Package Category</a>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-icon material-symbols-outlined">format_quote</div>
+                        <p class="quote-text">"Review Placeholder: Neque porro quisquam est, qui dolorem ipsum quia
+                            dolor sit amet, consectetur, adipisci velit, sed quia non numquam."</p>
+                        <div class="client-info">
+                            <div>
+                                <div class="client-name">Reviewer F</div>
+                                <div class="client-role">Service Type</div>
+                            </div>
+                            <a href="#rates" class="package-badge">Package Category</a>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-icon material-symbols-outlined">format_quote</div>
+                        <p class="quote-text">"Review Placeholder: Aliquam erat volutpat. Ut wisi enim ad minim veniam,
+                            quis nostrud exerci tation ullamcorper suscipit lobortis nisl."</p>
+                        <div class="client-info">
+                            <div>
+                                <div class="client-name">Reviewer G</div>
+                                <div class="client-role">Service Type</div>
+                            </div>
+                            <a href="#rates" class="package-badge">Package Category</a>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <div class="testimonials-controls">
+                <button class="carousel-btn" id="prevReview" aria-label="Previous Review">
+                    <span class="material-symbols-outlined">chevron_left</span>
+                </button>
+                <button class="carousel-btn next-btn" id="nextReview" aria-label="Next Review">
+                    <svg class="progress-ring" width="64" height="64">
+                        <circle class="progress-ring__circle" stroke="var(--highlight-green)" stroke-width="3"
+                            fill="transparent" r="28" cx="32" cy="32" />
+                    </svg>
+                    <span class="material-symbols-outlined" style="position: relative; z-index: 2;">chevron_right</span>
+                </button>
+            </div>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const track = document.getElementById('reviewsTrack');
+                    const viewport = document.querySelector('.testimonials-viewport');
+                    const nextBtn = document.getElementById('nextReview');
+                    const prevBtn = document.getElementById('prevReview');
+                    const progressCircle = document.querySelector('.progress-ring__circle');
+
+                    // Clone cards for infinite loop
+                    const originalCards = Array.from(track.children);
+                    const cloneCount = 3;
+
+                    // Clone at end
+                    for (let i = 0; i < cloneCount; i++) {
+                        const clone = originalCards[i].cloneNode(true);
+                        track.appendChild(clone);
+                    }
+                    // Clone at start
+                    for (let i = originalCards.length - 1; i >= originalCards.length - cloneCount; i--) {
+                        const clone = originalCards[i].cloneNode(true);
+                        track.insertBefore(clone, track.firstChild);
+                    }
+
+                    const allCards = Array.from(track.children);
+                    let currentIndex = cloneCount;
+                    let isTransitioning = false;
+                    let autoAdvanceInterval = 8000;
+
+                    // Cached layout vars
+                    let amount = 0;
+                    let centerOffset = 0;
+                    let cardsToShow = 1;
+
+                    function calculateLayout() {
+                        const style = window.getComputedStyle(track);
+                        const gap = parseInt(style.gap) || 48;
+                        amount = originalCards[0].offsetWidth + gap;
+
+                        const viewportWidth = viewport.offsetWidth;
+                        cardsToShow = window.innerWidth > 768 ? 2 : 1;
+                        const groupWidth = (originalCards[0].offsetWidth * cardsToShow) + (gap * (cardsToShow - 1));
+                        centerOffset = (viewportWidth - groupWidth) / 2;
+                    }
+
+                    function updateCarousel(isAuto = false, immediate = false) {
+                        if (immediate) track.style.transition = 'none';
+                        else track.style.transition = 'transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)';
+
+                        track.style.transform = `translateX(${-currentIndex * amount + centerOffset}px)`;
+
+                        // Sync active state across clones to prevent flashing on jump
+                        const activeOriginalIndices = [];
+                        for (let i = 0; i < cardsToShow; i++) {
+                            const idx = (currentIndex - cloneCount + i + originalCards.length) % originalCards.length;
+                            activeOriginalIndices.push(idx);
+                        }
+
+                        allCards.forEach((card, i) => {
+                            const cardOriginalIndex = ((i - cloneCount) % originalCards.length + originalCards.length) % originalCards.length;
+                            if (activeOriginalIndices.includes(cardOriginalIndex)) {
+                                card.classList.add('active');
+                            } else {
+                                card.classList.remove('active');
+                            }
+                        });
+
+                        if (isAuto) {
+                            nextBtn.classList.add('active-pulse');
+                            setTimeout(() => nextBtn.classList.remove('active-pulse'), 400);
+                        }
+
+                        if (immediate) {
+                            // Force reflow
+                            track.offsetHeight;
+                        }
+                    }
+
+                    function checkBoundaries() {
+                        if (currentIndex >= originalCards.length + cloneCount) {
+                            currentIndex = cloneCount;
+                            updateCarousel(false, true);
+                        } else if (currentIndex < cloneCount) {
+                            currentIndex = originalCards.length + cloneCount - 1;
+                            updateCarousel(false, true);
+                        }
+                    }
+
+                    track.addEventListener('transitionend', () => {
+                        isTransitioning = false;
+                        checkBoundaries();
+                    });
+
+                    function move(direction) {
+                        if (isTransitioning) return;
+                        isTransitioning = true;
+                        currentIndex += direction;
+                        updateCarousel();
+                    }
+
+                    function startProgress() {
+                        progressCircle.style.transition = 'none';
+                        progressCircle.style.strokeDashoffset = '176';
+                        progressCircle.getBoundingClientRect(); // force reflow
+                        progressCircle.style.transition = `stroke-dashoffset ${autoAdvanceInterval}ms linear`;
+                        progressCircle.style.strokeDashoffset = '0';
+                    }
+
+                    nextBtn.addEventListener('click', () => {
+                        move(1);
+                        resetInterval();
+                    });
+
+                    prevBtn.addEventListener('click', () => {
+                        move(-1);
+                        resetInterval();
+                    });
+
+                    let autoAdvance = setInterval(() => {
+                        move(1, true);
+                        startProgress();
+                    }, autoAdvanceInterval);
+
+                    function resetInterval() {
+                        clearInterval(autoAdvance);
+                        startProgress();
+                        autoAdvance = setInterval(() => {
+                            move(1, true);
+                            startProgress();
+                        }, autoAdvanceInterval);
+                    }
+
+                    // Initial setup
+                    calculateLayout();
+                    updateCarousel(false, true);
+                    startProgress();
+
+                    window.addEventListener('resize', () => {
+                        calculateLayout();
+                        updateCarousel(false, true);
+                    });
+                });
+            </script>
         </section>
 
         <!-- Photography Packages Section -->
@@ -134,31 +412,31 @@
             <div class="rates-grid">
                 <div class="rate-card glass-panel">
                     <h3>Headshots</h3>
-                    <div class="price">$75</div>
+                    <div class="price">$99</div>
                     <p class="rate-desc">Professional headshots, perfect for LinkedIn and personal branding.</p>
                     <ul class="features">
                         <li><span class="material-symbols-outlined">check_circle</span> 1 Outfit</li>
                         <li><span class="material-symbols-outlined">check_circle</span> 1 Location</li>
                         <li><span class="material-symbols-outlined">check_circle</span> 5 Edited High-Res Images</li>
                     </ul>
-                    <!-- <a href="#contact" class="btn btn-outline">Inquire</a> -->
+                    <div class="bulk-discount">Group discounts available!</div>
                 </div>
 
                 <div class="rate-card glass-panel">
                     <h3>Graduation</h3>
-                    <div class="price">$150</div>
+                    <div class="price">$165</div>
                     <p class="rate-desc">Capture your milestone achievement with memorable portraits.</p>
                     <ul class="features">
                         <li><span class="material-symbols-outlined">check_circle</span> 1 Hour Session</li>
                         <li><span class="material-symbols-outlined">check_circle</span> Campus Locations</li>
                         <li><span class="material-symbols-outlined">check_circle</span> 15 Edited High-Res Images</li>
                     </ul>
-                    <!-- <a href="#contact" class="btn btn-outline">Inquire</a> -->
+                    <div class="bulk-discount">Bulk rates for groups!</div>
                 </div>
 
                 <div class="rate-card glass-panel">
                     <h3>Engagements</h3>
-                    <div class="price">$350</div>
+                    <div class="price">$385</div>
                     <p class="rate-desc">Celebrate your love story with a comprehensive shoot.</p>
                     <ul class="features">
                         <li><span class="material-symbols-outlined">check_circle</span> 2 Hour Session</li>
@@ -171,7 +449,7 @@
 
                 <div class="rate-card glass-panel">
                     <h3>City Hall Weddings</h3>
-                    <div class="price">$550</div>
+                    <div class="price">$605</div>
                     <p class="rate-desc">Intimate coverage for your special day.</p>
                     <ul class="features">
                         <li><span class="material-symbols-outlined">check_circle</span> Ceremony & Portrait Coverage
@@ -182,6 +460,22 @@
                     </ul>
                     <!-- <a href="#contact" class="btn btn-outline">Get Quote</a> -->
                 </div>
+                <div class="rate-card rate-card-special" style="border-top: none !important;">
+                    <h3>Something Else?</h3>
+                    <div class="price">Let's Talk</div>
+                    <p class="rate-desc">Have a unique idea? We cover a wide variety of custom projects.</p>
+                    <ul class="features features-2col">
+                        <li><span class="material-symbols-outlined">check_circle</span> Custom Concepts</li>
+                        <li><span class="material-symbols-outlined">check_circle</span> Brand & Commercial Shoots</li>
+                        <li><span class="material-symbols-outlined">check_circle</span> Editorial Photography</li>
+                        <li><span class="material-symbols-outlined">check_circle</span> Album & Cover Art</li>
+                        <li><span class="material-symbols-outlined">check_circle</span> Behind The Scenes</li>
+                        <li><span class="material-symbols-outlined">check_circle</span> Reach out for a quote</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 4rem;">
+                <a href="#contact" class="btn btn-primary">Book Now</a>
             </div>
         </section>
 
@@ -189,58 +483,121 @@
         <section id="faq" class="faq-section">
             <h2 class="section-title text-center">Frequently Asked Questions</h2>
             <div class="faq-grid">
-                <div class="faq-item glass-panel">
+                <div class="faq-item">
                     <h3>What is your turnaround time?</h3>
-                    <p>Typically 2-3 weeks for most sessions, but rush delivery is available upon request.</p>
+                    <p>2 weeks or sooner.</p>
                 </div>
-                <div class="faq-item glass-panel">
+                <div class="faq-item">
                     <h3>Do you travel for shoots?</h3>
-                    <p>Yes! Travel fees may apply depending on the distance from the city center.</p>
+                    <p>Yes, within the city.</p>
                 </div>
-                <div class="faq-item glass-panel">
+                <div class="faq-item">
                     <h3>How do we receive our photos?</h3>
-                    <p>You will receive a link to a secure online gallery where you can download high-res files.</p>
+                    <p>Google Drive.</p>
                 </div>
-                <div class="faq-item glass-panel">
+                <div class="faq-item">
                     <h3>What should I wear?</h3>
-                    <p>Wear something you feel comfortable and confident in. I recommend solid colors and avoiding large logos.</p>
+                    <p>Depends on the package.</p>
                 </div>
-                <div class="faq-item glass-panel">
+                <div class="faq-item">
                     <h3>Can I have the RAW files?</h3>
-                    <p>I do not provide RAW files as the editing process is half of my creative work.</p>
+                    <p>Nope.</p>
                 </div>
-                <div class="faq-item glass-panel">
+                <div class="faq-item">
                     <h3>What happens if it rains?</h3>
-                    <p>We can reschedule or embrace the weather! Cloudy days actually provide beautiful, soft lighting.</p>
+                    <p>I have a transparent umbrella that I bring to shoot with a chance of rain. It also makes for a
+                        great prop.</p>
                 </div>
-                <div class="faq-item glass-panel">
+                <div class="faq-item">
                     <h3>Do you require a deposit?</h3>
-                    <p>Yes, a 50% non-refundable retainer is required to secure your date.</p>
+                    <p>No, I don't require a deposit.</p>
                 </div>
-                <div class="faq-item glass-panel">
+                <div class="faq-item">
                     <h3>Can we order prints through you?</h3>
-                    <p>Absolutely! The online gallery has an integrated store for high-quality professional prints.</p>
-                </div>
-                <div class="faq-item glass-panel">
-                    <h3>How long have you been a photographer?</h3>
-                    <p>I've been shooting professionally for several years, constantly evolving my style.</p>
-                </div>
-                <div class="faq-item glass-panel">
-                    <h3>Do you offer payment plans?</h3>
-                    <p>Yes, for larger packages like weddings or full commercial days, we can work out a schedule.</p>
+                    <p>Yes, you can order prints though me.</p>
                 </div>
             </div>
         </section>
 
-        <!-- CTA Section -->
-        <section class="cta-section text-center">
-            <div class="cta-content glass-panel">
-                <div class="quote-icon material-symbols-outlined">format_quote</div>
-                <h2 class="cta-quote">Timeless images you'll love.</h2>
-                <p>Let's create something beautiful together.</p>
-                <a href="#contact" class="btn btn-highlight">Let's Work Together</a>
+        <!-- New York City Section -->
+        <section id="nyc" class="faq-section" style="max-width: 1200px;">
+            <h2 class="section-title text-center" style="margin-bottom: 4rem;">
+                New York<br>
+                <div class="subway-letters">
+                    <span class="subway-circle subway-green">C</span>
+                    <span class="subway-circle subway-yellow">I</span>
+                    <span class="subway-circle subway-red">T</span>
+                    <span class="subway-circle subway-blue">Y</span>
+                </div>
+            </h2>
+            <div class="nyc-grid">
+                <div class="placeholder-img" style="height: 100%; border-style: solid; padding: 2rem;">
+                    <p>This is a placeholder text box. Share stories from your time shooting in the city, the vibe you
+                        capture, or details about upcoming NYC sessions here.</p>
+                </div>
+                <div class="nyc-images">
+                    <div class="placeholder-img">Image Placeholder</div>
+                    <div class="placeholder-img">Image Placeholder</div>
+                    <div class="placeholder-img">Image Placeholder</div>
+                    <div class="placeholder-img">Image Placeholder</div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary"
+                    style="display: inline-flex; align-items: center; gap: 0.2rem; padding: 0.8rem 2rem;">
+                    Follow on
+                    <span class="subway-circle-sm subway-pink" style="margin-left: 0.5rem;">I</span>
+                    <span class="subway-circle-sm subway-purple">G</span>
+                </a>
             </div>
         </section>
+
+        <!-- Contact Section Placeholder -->
+        <section id="contact" class="faq-section" style="padding-bottom: 8rem;">
+            <h2 class="section-title text-center">Get In Touch</h2>
+            <div class="faq-grid" style="grid-template-columns: 1fr;">
+                <form class="contact-form glass-panel">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="hello@example.com" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="service">Service</label>
+                            <select id="service">
+                                <option value="portrait">Portrait Session</option>
+                                <option value="graduation">Graduation</option>
+                                <option value="engagement">Engagement</option>
+                                <option value="wedding">City Hall Wedding</option>
+                                <option value="commercial">Commercial/Brand</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Preferred Date</label>
+                            <input type="date" id="date">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="5" placeholder="Tell me about your vision..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary submit-btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- CTA Section
+        <section class="cta-section text-center">
+            <div class="cta-content">
+                <div class="street-sign rotate-right" style="margin-bottom: 2rem;">Let's work together</div>
+            </div>
+        </section> -->
 
     </main>
 
