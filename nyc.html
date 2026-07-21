@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>New York City - Jordan Broihier</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	
+	<link rel="stylesheet" href="index.css">
+	
+	<style type="text/css">
+        #nyc-stage {
+            position: relative;
+            z-index: 1;
+            width: min(1140px, 94vw);
+            margin: 7rem auto 4rem auto;
+        }
+
+        /* Subway Circle & Track Line Styles */
+        .subway-letters {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 0.6rem;
+            position: relative;
+        }
+
+        .subway-circle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            color: #ffffff;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+            font-weight: 700;
+            font-size: 3.2rem;
+            text-transform: uppercase !important;
+            line-height: 1;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+            position: relative;
+            z-index: 2;
+        }
+
+        .subway-green { background-color: #00933C; }
+        .subway-yellow { background-color: #FCCC0A; color: #000000; }
+        .subway-red { background-color: #EE352E; }
+        .subway-blue { background-color: #0039A6; }
+        .subway-pink { background-color: #E1306C; color: #ffffff; }
+        .subway-purple { background-color: #833AB4; color: #ffffff; }
+
+        /* Sideways Subway Line Track with Station Dots */
+        .subway-green::before {
+            content: '';
+            position: absolute;
+            right: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100vw;
+            height: 32px;
+            background-image:
+                radial-gradient(circle, #00933C 14px, transparent 14px),
+                linear-gradient(#00933C, #00933C);
+            background-size: 180px 100%, 100% 10px;
+            background-repeat: repeat-x, no-repeat;
+            background-position: center;
+            z-index: -1;
+        }
+
+        .subway-blue::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100vw;
+            height: 32px;
+            background-image:
+                radial-gradient(circle, #0039A6 14px, transparent 14px),
+                linear-gradient(#0039A6, #0039A6);
+            background-size: 180px 100%, 100% 10px;
+            background-repeat: repeat-x, no-repeat;
+            background-position: center;
+            z-index: -1;
+        }
+
+        .subway-circle-sm {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            color: #ffffff;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase !important;
+            line-height: 1;
+        }
+
+        /* NYC Header Section */
+        .nyc-hero-card {
+            background: transparent;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            border: none;
+            box-shadow: none;
+            padding: 2rem 0 3rem 0;
+            margin-bottom: 1rem;
+            text-align: center;
+            position: relative;
+            overflow: visible;
+        }
+
+        .nyc-title {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin: 0 0 0.5rem 0;
+            color: var(--text-color);
+            letter-spacing: -0.02em;
+        }
+
+        .nyc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 2rem;
+        }
+
+        .nyc-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 20px;
+            padding: 2.5rem 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 20px 40px -15px rgba(0,0,0,0.06);
+        }
+
+        .nyc-card h2 {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            margin: 0 0 1.2rem 0;
+            color: var(--text-color);
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 0.75rem;
+        }
+
+        .nyc-card p {
+            color: #475569;
+            line-height: 1.7;
+            font-size: 1.05rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 14px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-img:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .ig-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #111111;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.85rem 2.2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-top: 1.5rem;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+        }
+
+        .ig-btn:hover {
+            background: #ea580c;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(234, 88, 12, 0.25);
+        }
+
+        @media (max-width: 900px) {
+            .nyc-grid {
+                grid-template-columns: 1fr;
+            }
+            .subway-circle {
+                width: 60px;
+                height: 60px;
+                font-size: 2.5rem;
+            }
+        }
+	</style>
+</head>
+<body>
+	<div id="stage-3d">
+		<header id="top-nav">
+			<div class="logo">JJB.</div>
+			<nav>
+				<a class="nav-item" href="index.html">Home</a>
+				<a class="nav-item" href="photography.html">Photography</a>
+				<a class="nav-item" href="nyc.html">NYC</a>
+				<a class="nav-item" href="resume.html" rel="nofollow">Resume</a>
+				<a class="nav-item" href="https://jordanbroihier.com/misc/minecraft/minecraft.html" target="_blank" rel="noopener">Minecraft</a>
+				<a class="nav-btn" href="https://www.linkedin.com/in/jordanbroihier/" target="_blank" rel="noopener">LinkedIn</a>
+			</nav>
+		</header>
+
+		<main id="nyc-stage">
+            <!-- Header Hero Card with Custom Subway Circles -->
+            <div class="nyc-hero-card">
+                <h1 class="nyc-title">New York</h1>
+                <div class="subway-letters">
+                    <span class="subway-circle subway-green">C</span>
+                    <span class="subway-circle subway-yellow">I</span>
+                    <span class="subway-circle subway-red">T</span>
+                    <span class="subway-circle subway-blue">Y</span>
+                </div>
+            </div>
+
+            <!-- Content Grid -->
+            <div class="nyc-grid">
+                <!-- Story & Vibe Card -->
+                <div class="nyc-card">
+                    <h2>Street Stories & City Vibe</h2>
+                    <p>
+                        New York City is a living canvas. From early morning quiet in Central Park to the golden hour reflections off yellow taxis in Midtown, capturing the raw energy of NYC is all about timing, perspective, and atmosphere.
+                    </p>
+                    <p>
+                        Specializing in street portraits, candid moments, urban architecture, and high-contrast editorial photography across Manhattan and Brooklyn.
+                    </p>
+                    
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="ig-btn">
+                        Follow on 
+                        <span class="subway-circle-sm subway-pink" style="margin-left: 0.3rem;">I</span>
+                        <span class="subway-circle-sm subway-purple">G</span>
+                    </a>
+                </div>
+
+                <!-- Gallery Card -->
+                <div class="nyc-card">
+                    <h2>Gallery & Moments</h2>
+                    <div class="photo-gallery">
+                        <img src="photography/nycyellow.webp" alt="NYC Yellow Taxi" class="gallery-img" style="grid-column: span 2; height: 260px;">
+                        <img src="photography/cropme.webp" alt="NYC Moment" class="gallery-img">
+                        <div style="background: #f1f5f9; border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #94a3b8; font-weight: 500; height: 220px; border: 1px dashed #cbd5e1;">
+                            NYC Session
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+	</div>
+
+	<script src="canvas.js"></script>
+</body>
+</html>

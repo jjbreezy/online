@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+	<title>Resume - Jordan Broihier</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	
+	<link rel="stylesheet" href="index.css">
+	
+	<style type="text/css">
+        #resume-stage {
+            position: relative;
+            z-index: 1;
+            width: min(1140px, 94vw);
+            margin: 6.5rem auto 3.5rem auto;
+        }
+
+        /* Profile Header Card */
+        .profile-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 20px;
+            padding: 2.2rem 2.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 20px 40px -15px rgba(0,0,0,0.05);
+            margin-bottom: 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            min-height: 120px;
+        }
+
+        /* Subtle Corner Texture Gradient */
+        .has-dotwack::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 160px;
+            height: 120px;
+            background-image: radial-gradient(#64748b 1.5px, transparent 1.5px);
+            background-size: 11px 11px;
+            opacity: 0.18;
+            border-bottom-right-radius: 20px;
+            pointer-events: none;
+            z-index: 0;
+            mask-image: radial-gradient(circle at 100% 100%, black 20%, transparent 85%);
+            -webkit-mask-image: radial-gradient(circle at 100% 100%, black 20%, transparent 85%);
+        }
+
+        .profile-info {
+            position: relative;
+            z-index: 2;
+            flex-shrink: 0;
+        }
+
+        .profile-info h1 {
+            font-family: var(--font-heading);
+            font-size: 3.4rem;
+            margin: 0;
+            color: var(--text-color);
+            letter-spacing: -0.02em;
+            line-height: 1;
+        }
+
+        /* Multi-Line 2D Fabric Dot Grid System (Spanning lines above and below text bay) */
+        .tile-stream-window {
+            position: relative;
+            z-index: 10;
+            max-width: 620px;
+        }
+
+        .dot-fabric-matrix {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .dot-row {
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            flex-wrap: wrap;
+        }
+
+        /* Fabric Dots forming 2D Dot Matrix */
+        .grid-dot {
+            display: inline-block;
+            border-radius: 50%;
+            background: #cbd5e1;
+            flex-shrink: 0;
+        }
+        .dot-sm { width: 6px; height: 6px; background: #e2e8f0; }
+        .dot-md { width: 10px; height: 10px; background: #cbd5e1; }
+        .dot-lg { width: 14px; height: 14px; background: #94a3b8; }
+
+        /* Transitioning Mini Pills */
+        .mini-pill {
+            display: inline-block;
+            height: 16px;
+            border-radius: 20px;
+            background: #e2e8f0;
+            flex-shrink: 0;
+        }
+        .pill-w1 { width: 20px; }
+        .pill-w2 { width: 32px; }
+        .pill-w3 { width: 44px; }
+
+        /* Fully Rounded Clean White Pill Badges */
+        .hero-tile {
+            position: relative;
+            z-index: 10;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.45rem 1.15rem;
+            border-radius: 30px;
+            font-size: 0.84rem;
+            font-weight: 600;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 3px 10px -2px rgba(0,0,0,0.04);
+            color: #334155;
+            user-select: none;
+        }
+
+        /* Main 2-Column Grid */
+        .resume-grid {
+            display: grid;
+            grid-template-columns: 1.55fr 1fr;
+            gap: 1.25rem;
+        }
+
+        .grid-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 20px;
+            padding: 2.2rem 2.6rem;
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 20px 40px -15px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Minimalist Section Titles */
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 1.7rem;
+            font-weight: 700;
+            margin: 0 0 1.5rem 0;
+            color: var(--text-color);
+            letter-spacing: -0.01em;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Direct Experience Items */
+        .role-item {
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .role-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .role-title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .role-title-row h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 0;
+            color: var(--text-color);
+        }
+
+        .company-badge {
+            background: #f8fafc;
+            color: #334155;
+            padding: 0.25rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            border: 1px solid #e2e8f0;
+        }
+
+        .role-bullets {
+            margin: 0;
+            padding-left: 1.2rem;
+            color: #475569;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .role-bullets li {
+            margin-bottom: 0.45rem;
+        }
+
+        .role-bullets li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Direct Skill Categories */
+        .skill-category {
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .skill-category:last-child {
+            margin-bottom: 0;
+        }
+
+        .skill-category h4 {
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #64748b;
+            margin: 0 0 0.6rem 0;
+            font-weight: 700;
+        }
+
+        .chip-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .chip {
+            padding: 0.35rem 0.85rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            background: #f8fafc;
+            color: #1e293b;
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s ease;
+        }
+
+        .chip:hover {
+            border-color: #ea580c;
+            color: #ea580c;
+            transform: translateY(-1px);
+        }
+
+        .chip-pop {
+            background: #fff7ed;
+            color: #c2410c;
+            border-color: #ffedd5;
+            font-weight: 600;
+        }
+
+        /* Minimalist Education */
+        .edu-card-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .edu-card-content h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 0 0 0.25rem 0;
+            color: var(--text-color);
+        }
+
+        .edu-degree {
+            color: #1e293b;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin: 0 0 0.25rem 0;
+        }
+
+        .edu-sub {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        @media (max-width: 900px) {
+            .resume-grid {
+                grid-template-columns: 1fr;
+            }
+            .profile-card {
+                padding: 1.8rem;
+            }
+            .grid-card {
+                padding: 1.6rem;
+            }
+            .tile-stream-window {
+                width: 100%;
+            }
+        }
+	</style>
+</head>
+<body>
+	<div id="stage-3d">
+		<header id="top-nav">
+			<div class="logo">JJB.</div>
+			<nav>
+				<a class="nav-item" href="index.html">Home</a>
+				<a class="nav-item" href="photography.html">Photography</a>
+				<a class="nav-item" href="nyc.html">NYC</a>
+				<a class="nav-item" href="resume.html" rel="nofollow">Resume</a>
+				<a class="nav-item" href="https://jordanbroihier.com/misc/minecraft/minecraft.html" target="_blank" rel="noopener">Minecraft</a>
+				<a class="nav-btn" href="https://www.linkedin.com/in/jordanbroihier/" target="_blank" rel="noopener">LinkedIn</a>
+			</nav>
+		</header>
+
+		<main id="resume-stage" itemscope itemtype="http://schema.org/Person">
+            <!-- Header Profile Section -->
+            <article class="profile-card has-dotwack">
+                <div class="profile-info">
+                    <h1 itemprop="name">Jordan Broihier</h1>
+                </div>
+                
+                <!-- Multi-Line 2D Fabric Dot Grid System & Pill Cluster -->
+                <div class="tile-stream-window">
+                    <div class="dot-fabric-matrix">
+                        <!-- Top Line (Spanning above text bay) -->
+                        <div class="dot-row">
+                            <span class="grid-dot dot-sm"></span>
+                            <span class="grid-dot dot-md"></span>
+                            <span class="grid-dot dot-lg"></span>
+                            <span class="mini-pill pill-w1"></span>
+                            <span class="mini-pill pill-w2"></span>
+                            <span class="mini-pill pill-w3"></span>
+                            <span class="hero-tile">Growth</span>
+                            <span class="hero-tile">Agentic AI Workflows</span>
+                        </div>
+
+                        <!-- Middle Line (Beside text bay) -->
+                        <div class="dot-row">
+                            <span class="grid-dot dot-sm"></span>
+                            <span class="grid-dot dot-md"></span>
+                            <span class="grid-dot dot-lg"></span>
+                            <span class="mini-pill pill-w2"></span>
+                            <span class="hero-tile">AEO / GEO Strategy</span>
+                            <span class="hero-tile">Paid Media & Growth</span>
+                        </div>
+
+                        <!-- Bottom Line (Spanning below text bay) -->
+                        <div class="dot-row">
+                            <span class="grid-dot dot-sm"></span>
+                            <span class="grid-dot dot-md"></span>
+                            <span class="grid-dot dot-lg"></span>
+                            <span class="mini-pill pill-w1"></span>
+                            <span class="hero-tile">Prompt Engineering</span>
+                            <span class="hero-tile">Performance DTC</span>
+                            <span class="hero-tile">Data Analytics</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Core 2-Column Grid -->
+            <div class="resume-grid">
+                <!-- Left: Detailed Experience Timeline -->
+                <section class="grid-card has-dotwack">
+                    <h2 class="section-title">Professional Experience</h2>
+
+                    <!-- Role Item 1 -->
+                    <div class="role-item" itemprop="worksFor" itemscope itemtype="http://schema.org/EmployeeRole">
+                        <div class="role-title-row">
+                            <h3 itemprop="roleName">Partner / Media Manager</h3>
+                            <span class="company-badge" itemprop="worksFor">Junction37 Agency</span>
+                        </div>
+                        <ul class="role-bullets">
+                            <li>Developed internal agentic AI workflows (content, reporting) and custom applications, streamlining agency operations in direct partnership with executive leadership.</li>
+                            <li>Directed key agency accounts, serving as primary manager responsible for strategy, client communications, and platform execution.</li>
+                            <li>Architected and pioneered Answer Engine Optimization (AEO/GEO) strategies and prompt engineering pipelines across brand CPG client accounts.</li>
+                            <li>Ran paid social and search advertising strategy across multiple concurrent client accounts.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Role Item 2 -->
+                    <div class="role-item" itemprop="worksFor" itemscope itemtype="http://schema.org/EmployeeRole">
+                        <div class="role-title-row">
+                            <h3 itemprop="roleName">Paid Media Manager</h3>
+                            <span class="company-badge" itemprop="worksFor">HYPE10 Agency</span>
+                        </div>
+                        <ul class="role-bullets">
+                            <li>Managed performance DTC accounts across telehealth, apparel, and healthcare; awarded Top Performer multiple times.</li>
+                            <li>Led Paid Social strategy for major client RFPs and completely overhauled agency template standards.</li>
+                            <li>Mentored direct reports and oversaw junior media specialists.</li>
+                            <li>Planned and implemented significant ad spends across Meta, Google, and TikTok, scaling key account order volumes and directing enterprise ecommerce launches.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Right Sidebar: Education & Categorized Skills -->
+                <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+                    <!-- Education Card -->
+                    <section class="grid-card" itemprop="alumniOf" itemscope itemtype="http://schema.org/EducationalOrganization">
+                        <h2 class="section-title">Education</h2>
+                        <div class="edu-card-content">
+                            <h3 itemprop="name">Cornell University</h3>
+                            <p class="edu-degree">B.A. Political Science</p>
+                            <p class="edu-sub">D1 Men’s Heavyweight Rowing</p>
+                        </div>
+                    </section>
+
+                    <!-- Skill Chips Card -->
+                    <section class="grid-card has-dotwack">
+                        <h2 class="section-title">Skills & Stack</h2>
+
+                        <div class="skill-category">
+                            <h4>AI & Automation</h4>
+                            <div class="chip-group">
+                                <span class="chip chip-pop" itemprop="knowsAbout">Google Antigravity</span>
+                                <span class="chip chip-pop" itemprop="knowsAbout">Claude Code</span>
+                                <span class="chip chip-pop" itemprop="knowsAbout">Prompt Engineering</span>
+                                <span class="chip" itemprop="knowsAbout">Microsoft Copilot</span>
+                                <span class="chip" itemprop="knowsAbout">Gemini</span>
+                                <span class="chip" itemprop="knowsAbout">ChatGPT</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <h4>AEO & Analytics</h4>
+                            <div class="chip-group">
+                                <span class="chip chip-pop" itemprop="knowsAbout">Profound AEO</span>
+                                <span class="chip" itemprop="knowsAbout">SEMrush</span>
+                                <span class="chip" itemprop="knowsAbout">ScreamingFrog</span>
+                                <span class="chip" itemprop="knowsAbout">Google Analytics</span>
+                                <span class="chip" itemprop="knowsAbout">Looker Studio</span>
+                                <span class="chip" itemprop="knowsAbout">Triple Whale</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <h4>Paid Media & Growth</h4>
+                            <div class="chip-group">
+                                <span class="chip" itemprop="knowsAbout">Meta Media Buying</span>
+                                <span class="chip" itemprop="knowsAbout">Amazon Ads</span>
+                                <span class="chip" itemprop="knowsAbout">TikTok Ads</span>
+                                <span class="chip" itemprop="knowsAbout">Jira</span>
+                                <span class="chip" itemprop="knowsAbout">HubSpot</span>
+                                <span class="chip" itemprop="knowsAbout">HTML/CSS/JS</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <h4>Creative & Productivity</h4>
+                            <div class="chip-group">
+                                <span class="chip" itemprop="knowsAbout">Adobe Photoshop</span>
+                                <span class="chip" itemprop="knowsAbout">DaVinci Resolve</span>
+                                <span class="chip" itemprop="knowsAbout">Higgsfield</span>
+                                <span class="chip" itemprop="knowsAbout">Asana</span>
+                                <span class="chip" itemprop="knowsAbout">Monday.com</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+	</div>
+
+	<script src="canvas.js"></script>
+</body>
+</html>

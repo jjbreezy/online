@@ -1,144 +1,387 @@
-/* #header {
-    grid-row: 1;
-    grid-column: 1;
-    font-size: 25px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bolder;
-    z-index: 1;
-    position: sticky;
-    justify-content: center;
-} */
-
-canvas {
-    height: 100%;
-    width: 100%;
-    /* background: rgb(173,173,173);
-    background: linear-gradient(277deg, rgba(173,173,173,1) 0%, rgba(255,255,255,1) 29%); */
-    grid-row: 1;
-    grid-column: 1;
-    z-index: 0;
+:root {
+    --bg-color-main: #ffffff;
+    --bg-color-subtle: #f8f9fa;
+    --text-color: #111111;
+    --text-muted: #555555;
+    --accent-color: #ff6600;
+    --font-heading: 'Cormorant Garamond', 'Garamond', 'Georgia', serif;
+    --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
-/* https://codepen.io/anon/embed/qBbQeON?height=500&theme-id=1&slug-hash=qBbQeON&default-tab=result#css-box for bg */
-body {
-    /* background: rgb(173,173,173);
-    background: linear-gradient(277deg, rgba(173,173,173,1) 0%, rgba(255,255,255,1) 29%); */
-    /* testing an animated gradient bg using the four balloon colors!!! */
-    background: linear-gradient(-45deg, #0F9D58, #F4B400, #DB4437, #4285F4);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
 
+* {
+    box-sizing: border-box;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+}
+
+html, body {
     margin: 0;
     padding: 0;
-    display: grid;
-    grid-template-rows: 100vh;
-    grid-template-columns: 100vw;
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #e2e8f0;
+    color: var(--text-color);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+}
+
+/* 3D Box Window Illusion Stage */
+#stage-3d {
+    position: relative;
+    width: calc(100vw - 32px);
+    min-height: calc(100vh - 32px);
+    margin: 16px auto;
+    border-radius: 20px;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 50% 45%, #ffffff 0%, #f1f5f9 65%, #e2e8f0 100%);
+    box-shadow: 
+        0 25px 50px -12px rgba(0, 0, 0, 0.14),
+        0 0 0 1px rgba(0, 0, 0, 0.08),
+        inset 0 0 100px rgba(0, 0, 0, 0.05);
+    perspective: 1000px;
+}
+
+/* 3D Box Perspective Dotted Room Grid */
+#stage-3d::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle, rgba(0, 0, 0, 0.1) 1.5px, transparent 1.5px) 0 0 / 36px 36px,
+        radial-gradient(ellipse at 50% 50%, transparent 40%, rgba(0, 0, 0, 0.07) 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* 3D Box Corner Perspective Diagonals */
+#stage-3d::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(to bottom right, rgba(0,0,0,0.06) 0%, transparent 35%),
+        linear-gradient(to bottom left, rgba(0,0,0,0.06) 0%, transparent 35%),
+        linear-gradient(to top right, rgba(0,0,0,0.06) 0%, transparent 35%),
+        linear-gradient(to top left, rgba(0,0,0,0.06) 0%, transparent 35%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Top Navigation Bar */
+#top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 3.5rem;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--text-color);
+}
+
+#top-nav nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    position: relative;
+    padding-bottom: 0.25rem;
+    transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--text-color);
+    transition: width 0.3s ease;
+}
+
+.nav-item:hover::after {
+    width: 100%;
+}
+
+.nav-btn {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    padding: 0.5rem 1.35rem;
+    border: 1.5px solid var(--text-color);
+    border-radius: 30px;
+    transition: all 0.25s ease;
+    margin-left: 0.5rem;
+    background: transparent;
+}
+
+.nav-btn:hover {
+    background-color: var(--text-color);
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Canvas */
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: auto;
+}
+
+/* Main Interactive Text Card */
+#text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 3.8rem 4.5rem;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 
+        0 30px 70px -15px rgba(0, 0, 0, 0.08),
+        0 10px 25px -10px rgba(0, 0, 0, 0.04);
+    width: min(780px, 88vw);
+    box-sizing: border-box;
+    pointer-events: auto;
     overflow: hidden;
 }
-/* baby's second media query */
-@media (max-width: 1300px) {
-    #headline {
-        content: 'Welcome';
-    }
-    #spin {
-        display: none;
-    }
+
+/* Corner Mechanical Press Button */
+.corner-press-btn {
+    position: absolute;
+    bottom: 1.4rem;
+    right: 1.6rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    box-shadow: 
+        0 4px 0 #cbd5e1,
+        0 8px 18px -4px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #475569;
+    transition: transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.12s ease, border-color 0.12s ease, background-color 0.15s ease;
+    user-select: none;
+    z-index: 10;
+    cursor: default;
+    --active-accent: #ea580c;
 }
 
-/* makes the background animation work */
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+.corner-press-btn .btn-arrow {
+    font-size: 1.3rem;
+    color: #475569;
+    transition: transform 0.2s ease, color 0.2s ease;
 }
 
-#text {
-    /* margin-left: 1em; */
-    grid-row: 1;
-    grid-column: 1;
-    justify-self: center;
-    align-self: center;
-    font-size: 25px;
-    font-family: 'Rubik', sans-serif;
-    /* font-weight: bolder; */
-    z-index: 1;
-    color: white;
-}
-#codeblock {
-    width: fit-content;
-    font-size: 20px;
-    font-family: 'Courier New', Courier, monospace;
-    background-color: #262626;
-    color:lightgoldenrodyellow;
-    padding: 20px;
-    border: 1px solid lightslategrey;
-    border-radius: 10px;
-}
-code a {
-    color: #4285F4;
-}
-code b {
-    color: #0F9D58;
+/* Mechanical Clicked / Pressed State Triggered when text is fully typed */
+.corner-press-btn.pressed {
+    transform: translateY(3px);
+    background: var(--active-accent);
+    border-color: var(--active-accent);
+    box-shadow: 
+        0 2px 10px rgba(0, 0, 0, 0.12);
 }
 
-/* spin from here: https://codepen.io/Rafu/pen/VJYRyY */
-#spin {
-    color:white;
-    background-color: #262626;
-    position: fixed;
-    /* white-space: pre; */
-    justify-self: center;
-    align-self: center;
-  }
-#spin:after {
-    content:"";
-    animation: spin 13s linear infinite;
-}
-@keyframes spin {
-    0% { content:"personal website \1F4F0.";}
-    10% { content:"portfolio \1F5BC.";}
-    20% { content:"resume \1F4BC.";}
-    30% { content:"certifications \1F4C3.";}
-    40% { content:"funky fun balloon zone \1F388.";}
-    50% { content:"project \1F527.";}
-    60% { content:"misadventures in web development \1F468.";}
-    70% { content:"Github pages site \2705.";}
-    80% { content:"innermost thoughts \1F4AD.";}
-    90% { content:"testbed \1F9EA.";}
-    100% { content:"is this thing on \2753."}
+.corner-press-btn.pressed .btn-arrow {
+    color: #ffffff;
+    transform: translateY(-2px);
 }
 
 #headline {
-    align-items: center;
-    justify-items: center;
-    margin: 10px;
+    font-size: clamp(1.8rem, 3.8vw, 3rem);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    margin: 0 0 0.2rem 0;
+    line-height: 1.2;
+    color: var(--text-color);
+    letter-spacing: -0.02em;
+    text-align: left;
 }
 
-#bottom-nav {
-    position: sticky;
-    bottom: 20px;
+.typewriter-wrapper {
     display: flex;
-    justify-content: center;
     align-items: center;
-    align-self: center;
-    font-size: 25px;
-    font-family: 'Rubik', sans-serif;
-    color: white;
+    margin: 0.2rem 0 0.5rem 0;
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 3.8vw, 3rem);
+    font-style: italic;
+    color: #ff6600;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    min-height: 3.6rem;
 }
-.nav-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    margin: 10px;
-    text-decoration: none;
-    color: white;
+
+#typewriter {
+    transition: background-color 0.15s ease, color 0.15s ease;
 }
-.github-button {
+
+#typewriter.highlighted {
+    background-color: var(--active-highlight-bg, #ffedd5);
+    color: #0f172a;
+    border-radius: 4px;
+    padding: 0 4px;
+}
+
+.cursor {
+    display: inline-block;
+    color: #ff6600;
+    font-weight: 300;
+    margin-left: 2px;
+    animation: blink 0.8s step-end infinite;
+}
+
+@keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Centered Bottom Balloon Callout Badge */
+.balloon-badge-btn {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
     display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #ffffff;
+    font-size: 0.92rem;
+    font-weight: 600;
+    padding: 0.7rem 1.6rem;
+    border-radius: 30px;
+    border: 1.5px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 
+        0 14px 30px -4px rgba(15, 23, 42, 0.25),
+        0 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 10;
+}
+
+.balloon-badge-btn:hover {
+    background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+    transform: translateX(-50%) translateY(-2px) scale(1.03);
+    box-shadow: 
+        0 18px 35px -4px rgba(234, 88, 12, 0.35),
+        0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.badge-icon {
+    font-size: 1.15rem;
+    display: inline-block;
+    animation: float-balloon 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes float-balloon {
+    from { transform: translateY(0); }
+    to { transform: translateY(-4px); }
+}
+
+.subtitle .icon {
+    font-size: 1.3rem;
+    color: #ff6600;
+}
+
+#codeblock {
+    display: inline-block;
+    font-size: 0.95rem;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    background-color: #f1f3f7;
+    color: #2d3748;
+    padding: 1rem 1.6rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+#codeblock code b {
+    color: #059669;
+}
+
+#codeblock .github-button {
+    margin-left: 0.5rem;
+    vertical-align: middle;
+}
+
+.builds-link {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+}
+
+.builds-link a {
+    color: var(--text-color);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: color 0.2s ease;
+}
+
+.builds-link a:hover {
+    color: var(--accent-color);
+}
+
+/* Footer */
+#bottom-footer {
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    z-index: 10;
+}
+
+@media (max-width: 768px) {
+    #top-nav {
+        padding: 1.5rem 2rem;
+    }
+    #text {
+        padding: 2.5rem 2rem;
+    }
+    #headline {
+        font-size: 2.2rem;
+    }
 }
