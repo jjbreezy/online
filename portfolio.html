@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Portfolio - Jordan Broihier</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+	
+	<link rel="stylesheet" href="index.css">
+	
+	<style type="text/css">
+        /* Solid Performant Background */
+        body {
+            background: #f8fafc !important;
+        }
+
+        #stage-3d {
+            background: #f8fafc !important;
+        }
+
+        #stage-3d::before {
+            display: none !important;
+            opacity: 0 !important;
+        }
+
+        #portfolio-stage {
+            position: relative;
+            z-index: 1;
+            width: min(1180px, 94vw);
+            margin: 7.5rem auto 4rem auto;
+        }
+
+        /* Minimalist Floating Header with Left Alignment */
+        .portfolio-minimal-header {
+            margin-bottom: 2.8rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1.25rem;
+            padding: 0 0.2rem;
+        }
+
+        .minimal-title-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .minimal-title-group h1 {
+            font-family: var(--font-heading);
+            font-size: 3.8rem;
+            font-weight: 700;
+            margin: 0;
+            color: var(--text-color);
+            letter-spacing: -0.03em;
+            line-height: 1;
+        }
+
+        .animated-spark {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #fff7ed;
+            color: #ea580c;
+            border: 1px solid #ffedd5;
+            font-size: 1.4rem;
+            box-shadow: 0 4px 12px rgba(234, 88, 12, 0.15);
+            animation: pulse-spin 6s linear infinite;
+        }
+
+        @keyframes pulse-spin {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        .minimal-title-group p {
+            color: #64748b;
+            margin: 0.45rem 0 0 0;
+            font-size: 1.15rem;
+            font-weight: 400;
+        }
+
+        /* Distinct Segmented Control Bar for Portfolio Category Filtering */
+        .filter-bar {
+            display: inline-flex;
+            align-items: center;
+            background: #e2e8f0;
+            padding: 4px;
+            border-radius: 12px;
+            gap: 2px;
+            border: 1px solid #cbd5e1;
+        }
+
+        .filter-btn {
+            background: transparent;
+            color: #64748b;
+            padding: 0.45rem 1.1rem;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            user-select: none;
+            white-space: nowrap;
+        }
+
+        .filter-btn:hover {
+            color: #1e293b;
+        }
+
+        .filter-btn.active {
+            background: #ffffff;
+            color: #ea580c;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        }
+
+        /* -------------------------------------------------------------
+           Bento Grid Gallery
+        ------------------------------------------------------------- */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            grid-auto-flow: dense;
+        }
+
+        .bento-card {
+            background: #ffffff;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+            will-change: transform;
+        }
+
+        .bento-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(234, 88, 12, 0.35);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        /* Grid Span Variations */
+        .span-col-2 {
+            grid-column: span 2;
+        }
+
+        .span-row-2 {
+            grid-row: span 2;
+        }
+
+        /* Card Content Inner Padding */
+        .card-body {
+            padding: 2rem 2.2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
+        }
+
+        .card-tag {
+            display: inline-block;
+            background: #fff3eb;
+            color: #ea580c;
+            padding: 0.35rem 0.85rem;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            border: 1px solid #ffedd5;
+            margin-bottom: 0.9rem;
+            align-self: flex-start;
+        }
+
+        .tag-art {
+            background: #f3e8ff;
+            color: #9333ea;
+            border-color: #f0abfc;
+        }
+
+        .tag-exp {
+            background: #e0f2fe;
+            color: #0284c7;
+            border-color: #bae6fd;
+        }
+
+        .tag-logo {
+            background: #fef3c7;
+            color: #d97706;
+            border-color: #fde68a;
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: 1.85rem;
+            margin: 0 0 0.6rem 0;
+            color: var(--text-color);
+            line-height: 1.15;
+        }
+
+        .card-desc {
+            color: #475569;
+            font-size: 0.96rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Image Card Media Headers */
+        .card-media-top {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .card-media-tall {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .card-media-side {
+            width: 50%;
+            object-fit: cover;
+        }
+
+        .side-layout {
+            flex-direction: row;
+        }
+
+        .side-layout .card-body {
+            width: 50%;
+        }
+
+        /* Text Only Card Accent */
+        .text-only-card {
+            background: #ffffff;
+            min-height: 220px;
+        }
+
+        .text-only-card .card-title {
+            font-size: 2.1rem;
+        }
+
+        /* Lightweight Media Placeholder Box */
+        .media-placeholder {
+            background: #f8fafc;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 960px) {
+            .bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .span-col-2 {
+                grid-column: span 1;
+            }
+            .side-layout {
+                flex-direction: column;
+            }
+            .card-media-side {
+                width: 100%;
+                height: 200px;
+            }
+            .side-layout .card-body {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+            .span-row-2 {
+                grid-row: span 1;
+            }
+        }
+	</style>
+</head>
+<body>
+	<div id="stage-3d">
+		<header id="top-nav">
+			<a class="logo" href="index.html" style="text-decoration: none; color: inherit;">JJB.</a>
+			<button class="hamburger" id="hamburgerBtn" aria-label="Toggle Navigation">
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
+			<nav id="navMenu">
+				<a class="nav-item" href="index.html">Home</a>
+				<a class="nav-item" href="resume.html" rel="nofollow">Resume</a>
+				<a class="nav-item active" href="portfolio.html">Portfolio</a>
+				<a class="nav-item" href="photography.html">Photography</a>
+				<a class="nav-item" href="nyc.html">NYC</a>
+				<a class="nav-item nav-item-linkedin" href="https://www.linkedin.com/in/jordanbroihier/" target="_blank" rel="noopener">LinkedIn</a>
+			</nav>
+		</header>
+
+		<main id="portfolio-stage">
+            <!-- Minimalist Floating Header -->
+            <div class="portfolio-minimal-header">
+                <div class="minimal-title-group">
+                    <h1>Portfolio</h1>
+                    <p>Selected Works, Sculptures & Custom Projects</p>
+                </div>
+                <div class="filter-bar">
+                    <button class="filter-btn active" data-filter="all">All Works</button>
+                    <button class="filter-btn" data-filter="sculpture">Sculpture & Art</button>
+                    <button class="filter-btn" data-filter="design">Custom Projects</button>
+                    <button class="filter-btn" data-filter="logo">Logo Design</button>
+                </div>
+            </div>
+
+            <!-- Dynamic Bento Grid Gallery -->
+            <div class="bento-grid" id="portfolioGrid">
+                
+                <!-- Card 1: Tall Card (Recycled Component Mobile) -->
+                <article class="bento-card span-row-2" data-category="sculpture">
+                    <div class="card-media-tall media-placeholder">
+                        [ Recycled Component Mobile Photo ]
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <span class="card-tag tag-art">Sculpture & Fine Art</span>
+                            <h2 class="card-title">Recycled Component Mobile</h2>
+                            <p class="card-desc">Large-scale hanging mobile sculpture assembly constructed from precision recycled mechanical & industrial components, balancing motion and spatial gravity.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2: Wide Card (Custom Card Deck) -->
+                <article class="bento-card span-col-2 side-layout" data-category="design">
+                    <div class="card-media-side media-placeholder" style="min-height: 240px;">
+                        [ Custom Card Deck Photo ]
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <span class="card-tag tag-exp">Custom Project</span>
+                            <h2 class="card-title">Custom Playing Card Deck</h2>
+                            <p class="card-desc">Large group order custom playing card deck design and production run, featuring bespoke typography, custom iconography, and premium tuck box packaging.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3: Standard Card (Clear Lamp Series) -->
+                <article class="bento-card" data-category="sculpture">
+                    <div class="card-media-top media-placeholder">
+                        [ Clear Lamp Series Photo ]
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <span class="card-tag tag-art">Sculpture & Light</span>
+                            <h2 class="card-title">Clear Lamp Series</h2>
+                            <p class="card-desc">Custom translucent lighting series exploring acrylic refraction, minimal exposed filament geometry, and ambient diffusion.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4: Logo Design Card (MoundIQ logo) -->
+                <article class="bento-card span-col-2 side-layout" data-category="logo">
+                    <div class="card-media-side media-placeholder" style="min-height: 220px;">
+                        [ MoundIQ Logo Placeholder ]
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <span class="card-tag tag-logo">Logo Design</span>
+                            <h2 class="card-title">MoundIQ Logo</h2>
+                            <p class="card-desc">Brand identity and vector emblem design for MoundIQ, combining modern sports analytics aesthetic with clean geometric mark design.</p>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </main>
+
+		<!-- Floating Progress Pill -->
+		<div class="floating-progress-pill" id="progressPill">
+			<div class="floating-progress-track">
+				<div class="floating-progress-fill" id="progressFill"></div>
+			</div>
+			<span class="floating-progress-text" id="progressText">0%</span>
+		</div>
+	</div>
+
+	<!-- Interactive Category Filter & Layout Scripts -->
+	<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const cards = document.querySelectorAll('.bento-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filter = btn.getAttribute('data-filter');
+
+                    cards.forEach(card => {
+                        const category = card.getAttribute('data-category');
+                        if (filter === 'all' || category === filter) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Hamburger Toggle
+            const hamburger = document.getElementById('hamburgerBtn');
+            const navMenu = document.getElementById('navMenu');
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', () => {
+                    hamburger.classList.toggle('open');
+                    navMenu.classList.toggle('open');
+                });
+            }
+
+            // Floating Scroll Indicator & Progress Pill Logic
+            const scrollIndicator = document.getElementById('scrollIndicator');
+            const progressPill = document.getElementById('progressPill');
+            const progressFill = document.getElementById('progressFill');
+            const progressText = document.getElementById('progressText');
+
+            function handleScroll() {
+                const scrollTop = window.scrollY || document.documentElement.scrollTop;
+                const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+                if (scrollHeight > 100) {
+                    const progress = Math.min(100, Math.max(0, Math.round((scrollTop / scrollHeight) * 100)));
+                    
+                    if (progressFill) progressFill.style.width = progress + '%';
+                    if (progressText) progressText.textContent = progress + '%';
+
+                    if (progressPill) {
+                        if (scrollTop > 50) progressPill.classList.add('visible');
+                        else progressPill.classList.remove('visible');
+                    }
+
+                    if (scrollIndicator) {
+                        if (scrollTop < scrollHeight - 120) {
+                            scrollIndicator.classList.add('visible');
+                        } else {
+                            scrollIndicator.classList.remove('visible');
+                        }
+                    }
+                }
+            }
+
+            if (scrollIndicator) {
+                scrollIndicator.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.scrollBy({ top: window.innerHeight * 0.75, behavior: 'smooth' });
+                });
+            }
+
+            window.addEventListener('scroll', handleScroll, { passive: true });
+            handleScroll();
+        });
+	</script>
+</body>
+</html>

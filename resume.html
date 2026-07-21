@@ -12,6 +12,18 @@
 	<link rel="stylesheet" href="index.css">
 	
 	<style type="text/css">
+        /* Force Sans Serif Font across entire Resume Page */
+        #resume-stage,
+        #resume-stage h1,
+        #resume-stage h2,
+        #resume-stage h3,
+        #resume-stage h4,
+        #resume-stage .section-title,
+        #resume-stage .company-name,
+        #resume-stage .profile-info h1 {
+            font-family: var(--font-body), 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+        }
+
         #resume-stage {
             position: relative;
             z-index: 1;
@@ -19,118 +31,30 @@
             margin: 6.5rem auto 3.5rem auto;
         }
 
-        /* Profile Header Card */
+        /* Profile Header Section (No background card, centered, smaller text) */
         .profile-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-radius: 20px;
-            padding: 2.2rem 2.8rem;
-            border: 1px solid rgba(255, 255, 255, 0.9);
-            box-shadow: 0 20px 40px -15px rgba(0,0,0,0.05);
-            margin-bottom: 1.25rem;
+            background: transparent;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            border-radius: 0;
+            padding: 0 0 2rem 0;
+            border: none;
+            box-shadow: none;
+            margin-bottom: 1rem;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            position: relative;
-            overflow: hidden;
-            min-height: 120px;
-        }
-
-        /* Subtle Corner Texture Gradient */
-        .has-dotwack::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 160px;
-            height: 120px;
-            background-image: radial-gradient(#64748b 1.5px, transparent 1.5px);
-            background-size: 11px 11px;
-            opacity: 0.18;
-            border-bottom-right-radius: 20px;
-            pointer-events: none;
-            z-index: 0;
-            mask-image: radial-gradient(circle at 100% 100%, black 20%, transparent 85%);
-            -webkit-mask-image: radial-gradient(circle at 100% 100%, black 20%, transparent 85%);
-        }
-
-        .profile-info {
-            position: relative;
-            z-index: 2;
-            flex-shrink: 0;
+            text-align: center;
         }
 
         .profile-info h1 {
-            font-family: var(--font-heading);
-            font-size: 3.4rem;
+            font-family: var(--font-body), 'Plus Jakarta Sans', sans-serif !important;
+            font-size: 2.2rem;
+            font-weight: 700;
             margin: 0;
             color: var(--text-color);
             letter-spacing: -0.02em;
-            line-height: 1;
-        }
-
-        /* Multi-Line 2D Fabric Dot Grid System (Spanning lines above and below text bay) */
-        .tile-stream-window {
-            position: relative;
-            z-index: 10;
-            max-width: 620px;
-        }
-
-        .dot-fabric-matrix {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .dot-row {
-            display: flex;
-            align-items: center;
-            gap: 0.45rem;
-            flex-wrap: wrap;
-        }
-
-        /* Fabric Dots forming 2D Dot Matrix */
-        .grid-dot {
-            display: inline-block;
-            border-radius: 50%;
-            background: #cbd5e1;
-            flex-shrink: 0;
-        }
-        .dot-sm { width: 6px; height: 6px; background: #e2e8f0; }
-        .dot-md { width: 10px; height: 10px; background: #cbd5e1; }
-        .dot-lg { width: 14px; height: 14px; background: #94a3b8; }
-
-        /* Transitioning Mini Pills */
-        .mini-pill {
-            display: inline-block;
-            height: 16px;
-            border-radius: 20px;
-            background: #e2e8f0;
-            flex-shrink: 0;
-        }
-        .pill-w1 { width: 20px; }
-        .pill-w2 { width: 32px; }
-        .pill-w3 { width: 44px; }
-
-        /* Fully Rounded Clean White Pill Badges */
-        .hero-tile {
-            position: relative;
-            z-index: 10;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.45rem 1.15rem;
-            border-radius: 30px;
-            font-size: 0.84rem;
-            font-weight: 600;
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 3px 10px -2px rgba(0,0,0,0.04);
-            color: #334155;
-            user-select: none;
+            line-height: 1.2;
         }
 
         /* Main 2-Column Grid */
@@ -164,9 +88,9 @@
             z-index: 2;
         }
 
-        /* Direct Experience Items */
+        /* Direct Experience Role Progression Steppers */
         .role-item {
-            margin-bottom: 2rem;
+            margin-bottom: 2.2rem;
             position: relative;
             z-index: 2;
         }
@@ -175,17 +99,18 @@
             margin-bottom: 0;
         }
 
-        .role-title-row {
+        .role-header-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             gap: 0.5rem;
-            margin-bottom: 0.6rem;
+            margin-bottom: 1.1rem;
         }
 
-        .role-title-row h3 {
-            font-size: 1.25rem;
+        .company-name {
+            font-family: var(--font-heading);
+            font-size: 1.65rem;
             font-weight: 700;
             margin: 0;
             color: var(--text-color);
@@ -201,20 +126,92 @@
             border: 1px solid #e2e8f0;
         }
 
-        .role-bullets {
+        .progression-timeline {
+            position: relative;
+            padding-left: 1.4rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+            border-left: 2px solid #e2e8f0;
+            margin-left: 0.5rem;
+        }
+
+        .progression-step {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .step-dot {
+            position: absolute;
+            left: -1.78rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #cbd5e1;
+            border: 2px solid #ffffff;
+        }
+
+        .step-current .step-dot {
+            background: #ea580c;
+            box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.2);
+        }
+
+        .role-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #1e293b;
             margin: 0;
-            padding-left: 1.2rem;
+        }
+
+        .step-current .role-title {
+            color: #ea580c;
+        }
+
+        .role-level-tag {
+            font-size: 0.78rem;
+            color: #64748b;
+            font-weight: 600;
+            background: #f8fafc;
+            padding: 0.2rem 0.7rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .step-current .role-level-tag {
+            background: #fff7ed;
+            color: #c2410c;
+            border-color: #ffedd5;
+        }
+
+        /* "Before" Background Note Section */
+        .before-section {
+            margin-top: 2.2rem;
+            padding-top: 1.4rem;
+            border-top: 1px dashed #cbd5e1;
+            position: relative;
+            z-index: 2;
+        }
+
+        .before-title {
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #64748b;
+            margin: 0 0 0.4rem 0;
+            font-weight: 700;
+        }
+
+        .before-desc {
             color: #475569;
-            line-height: 1.6;
             font-size: 0.95rem;
-        }
-
-        .role-bullets li {
-            margin-bottom: 0.45rem;
-        }
-
-        .role-bullets li:last-child {
-            margin-bottom: 0;
+            line-height: 1.6;
+            margin: 0;
         }
 
         /* Direct Skill Categories */
@@ -312,95 +309,74 @@
 <body>
 	<div id="stage-3d">
 		<header id="top-nav">
-			<div class="logo">JJB.</div>
-			<nav>
+			<a class="logo" href="index.html" style="text-decoration: none; color: inherit;">JJB.</a>
+			<button class="hamburger" id="hamburgerBtn" aria-label="Toggle Navigation">
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
+			<nav id="navMenu">
 				<a class="nav-item" href="index.html">Home</a>
+				<a class="nav-item active" href="resume.html" rel="nofollow">Resume</a>
+				<a class="nav-item" href="portfolio.html">Portfolio</a>
 				<a class="nav-item" href="photography.html">Photography</a>
 				<a class="nav-item" href="nyc.html">NYC</a>
-				<a class="nav-item" href="resume.html" rel="nofollow">Resume</a>
-				<a class="nav-item" href="https://jordanbroihier.com/misc/minecraft/minecraft.html" target="_blank" rel="noopener">Minecraft</a>
-				<a class="nav-btn" href="https://www.linkedin.com/in/jordanbroihier/" target="_blank" rel="noopener">LinkedIn</a>
+				<a class="nav-item nav-item-linkedin" href="https://www.linkedin.com/in/jordanbroihier/" target="_blank" rel="noopener">LinkedIn</a>
 			</nav>
 		</header>
 
 		<main id="resume-stage" itemscope itemtype="http://schema.org/Person">
             <!-- Header Profile Section -->
-            <article class="profile-card has-dotwack">
+            <article class="profile-card">
                 <div class="profile-info">
-                    <h1 itemprop="name">Jordan Broihier</h1>
-                </div>
-                
-                <!-- Multi-Line 2D Fabric Dot Grid System & Pill Cluster -->
-                <div class="tile-stream-window">
-                    <div class="dot-fabric-matrix">
-                        <!-- Top Line (Spanning above text bay) -->
-                        <div class="dot-row">
-                            <span class="grid-dot dot-sm"></span>
-                            <span class="grid-dot dot-md"></span>
-                            <span class="grid-dot dot-lg"></span>
-                            <span class="mini-pill pill-w1"></span>
-                            <span class="mini-pill pill-w2"></span>
-                            <span class="mini-pill pill-w3"></span>
-                            <span class="hero-tile">Growth</span>
-                            <span class="hero-tile">Agentic AI Workflows</span>
-                        </div>
-
-                        <!-- Middle Line (Beside text bay) -->
-                        <div class="dot-row">
-                            <span class="grid-dot dot-sm"></span>
-                            <span class="grid-dot dot-md"></span>
-                            <span class="grid-dot dot-lg"></span>
-                            <span class="mini-pill pill-w2"></span>
-                            <span class="hero-tile">AEO / GEO Strategy</span>
-                            <span class="hero-tile">Paid Media & Growth</span>
-                        </div>
-
-                        <!-- Bottom Line (Spanning below text bay) -->
-                        <div class="dot-row">
-                            <span class="grid-dot dot-sm"></span>
-                            <span class="grid-dot dot-md"></span>
-                            <span class="grid-dot dot-lg"></span>
-                            <span class="mini-pill pill-w1"></span>
-                            <span class="hero-tile">Prompt Engineering</span>
-                            <span class="hero-tile">Performance DTC</span>
-                            <span class="hero-tile">Data Analytics</span>
-                        </div>
-                    </div>
+                    <h1 itemprop="name">Resume: Jordan Broihier</h1>
                 </div>
             </article>
 
             <!-- Core 2-Column Grid -->
             <div class="resume-grid">
-                <!-- Left: Detailed Experience Timeline -->
+                <!-- Left: Rapid Role Progression Timeline -->
                 <section class="grid-card has-dotwack">
                     <h2 class="section-title">Professional Experience</h2>
 
-                    <!-- Role Item 1 -->
-                    <div class="role-item" itemprop="worksFor" itemscope itemtype="http://schema.org/EmployeeRole">
-                        <div class="role-title-row">
-                            <h3 itemprop="roleName">Partner / Media Manager</h3>
-                            <span class="company-badge" itemprop="worksFor">Junction37 Agency</span>
+                    <!-- Role Item 1: Junction37 Agency -->
+                    <div class="role-item">
+                        <div class="role-header-row">
+                            <h3 class="company-name">Junction37 Agency</h3>
                         </div>
-                        <ul class="role-bullets">
-                            <li>Developed internal agentic AI workflows (content, reporting) and custom applications, streamlining agency operations in direct partnership with executive leadership.</li>
-                            <li>Directed key agency accounts, serving as primary manager responsible for strategy, client communications, and platform execution.</li>
-                            <li>Architected and pioneered Answer Engine Optimization (AEO/GEO) strategies and prompt engineering pipelines across brand CPG client accounts.</li>
-                            <li>Ran paid social and search advertising strategy across multiple concurrent client accounts.</li>
-                        </ul>
+                        
+                        <div class="progression-timeline">
+                            <div class="progression-step step-current">
+                                <span class="step-dot"></span>
+                                <h4 class="role-title">Junior Partner</h4>
+                            </div>
+                            <div class="progression-step">
+                                <span class="step-dot"></span>
+                                <h4 class="role-title">Associate Partner</h4>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Role Item 2 -->
-                    <div class="role-item" itemprop="worksFor" itemscope itemtype="http://schema.org/EmployeeRole">
-                        <div class="role-title-row">
-                            <h3 itemprop="roleName">Paid Media Manager</h3>
-                            <span class="company-badge" itemprop="worksFor">HYPE10 Agency</span>
+                    <!-- Role Item 2: HYPE10 Agency -->
+                    <div class="role-item">
+                        <div class="role-header-row">
+                            <h3 class="company-name">HYPE10 Agency</h3>
                         </div>
-                        <ul class="role-bullets">
-                            <li>Managed performance DTC accounts across telehealth, apparel, and healthcare; awarded Top Performer multiple times.</li>
-                            <li>Led Paid Social strategy for major client RFPs and completely overhauled agency template standards.</li>
-                            <li>Mentored direct reports and oversaw junior media specialists.</li>
-                            <li>Planned and implemented significant ad spends across Meta, Google, and TikTok, scaling key account order volumes and directing enterprise ecommerce launches.</li>
-                        </ul>
+                        
+                        <div class="progression-timeline">
+                            <div class="progression-step step-current">
+                                <span class="step-dot"></span>
+                                <h4 class="role-title">Senior Paid Media Manager</h4>
+                            </div>
+                            <div class="progression-step">
+                                <span class="step-dot"></span>
+                                <h4 class="role-title">Paid Media Manager</h4>
+                            </div>
+                            <div class="progression-step">
+                                <span class="step-dot"></span>
+                                <h4 class="role-title">Associate Digital Specialist</h4>
+                            </div>
+                        </div>
                     </div>
                 </section>
 
@@ -472,6 +448,69 @@
         </main>
 	</div>
 
+		<!-- Floating Progress Pill -->
+		<div class="floating-progress-pill" id="progressPill">
+			<div class="floating-progress-track">
+				<div class="floating-progress-fill" id="progressFill"></div>
+			</div>
+			<span class="floating-progress-text" id="progressText">0%</span>
+		</div>
+	</div>
+
 	<script src="canvas.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			// Hamburger Toggle
+			const hamburger = document.getElementById('hamburgerBtn');
+			const navMenu = document.getElementById('navMenu');
+			if (hamburger && navMenu) {
+				hamburger.addEventListener('click', () => {
+					hamburger.classList.toggle('open');
+					navMenu.classList.toggle('open');
+				});
+			}
+
+			// Floating Scroll Indicator & Progress Pill Logic
+			const scrollIndicator = document.getElementById('scrollIndicator');
+			const progressPill = document.getElementById('progressPill');
+			const progressFill = document.getElementById('progressFill');
+			const progressText = document.getElementById('progressText');
+
+			function handleScroll() {
+				const scrollTop = window.scrollY || document.documentElement.scrollTop;
+				const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+				if (scrollHeight > 100) {
+					const progress = Math.min(100, Math.max(0, Math.round((scrollTop / scrollHeight) * 100)));
+					
+					if (progressFill) progressFill.style.width = progress + '%';
+					if (progressText) progressText.textContent = progress + '%';
+
+					if (progressPill) {
+						if (scrollTop > 50) progressPill.classList.add('visible');
+						else progressPill.classList.remove('visible');
+					}
+
+					if (scrollIndicator) {
+						if (scrollTop < scrollHeight - 120) {
+							scrollIndicator.classList.add('visible');
+						} else {
+							scrollIndicator.classList.remove('visible');
+						}
+					}
+				}
+			}
+
+			if (scrollIndicator) {
+				scrollIndicator.addEventListener('click', (e) => {
+					e.preventDefault();
+					window.scrollBy({ top: window.innerHeight * 0.75, behavior: 'smooth' });
+				});
+			}
+
+			window.addEventListener('scroll', handleScroll, { passive: true });
+			handleScroll();
+		});
+	</script>
 </body>
 </html>

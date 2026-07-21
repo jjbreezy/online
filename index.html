@@ -30,14 +30,19 @@
 <body>
 	<div id="stage-3d">
 		<header id="top-nav">
-			<div class="logo">JJB.</div>
-			<nav>
-				<a class="nav-item" href="index.html">Home</a>
+			<a class="logo" href="index.html" style="text-decoration: none; color: inherit;">JJB.</a>
+			<button class="hamburger" id="hamburgerBtn" aria-label="Toggle Navigation">
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
+			<nav id="navMenu">
+				<a class="nav-item active" href="index.html">Home</a>
+				<a class="nav-item" href="resume.html" rel="nofollow">Resume</a>
+				<a class="nav-item" href="portfolio.html">Portfolio</a>
 				<a class="nav-item" href="photography.html">Photography</a>
 				<a class="nav-item" href="nyc.html">NYC</a>
-				<a class="nav-item" href="resume.html" rel="nofollow">Resume</a>
-				<a class="nav-item" href="https://jordanbroihier.com/misc/minecraft/minecraft.html" target="_blank" rel="noopener">Minecraft</a>
-				<a class="nav-btn" href="https://www.linkedin.com/in/jordanbroihier/" target="_blank" rel="noopener">LinkedIn</a>
+				<a class="nav-item nav-item-linkedin" href="https://www.linkedin.com/in/jordanbroihier/" target="_blank" rel="noopener">LinkedIn</a>
 			</nav>
 		</header>
 
@@ -54,10 +59,71 @@
 		</div>
 
 		<div class="balloon-badge-btn">
-			<span class="badge-icon">&#127880;</span> Click anywhere to spawn 3D balloons
+			<span class="oversized-pointer">👆</span>
+			<span class="badge-text">tap to make a balloon</span>
+		</div>
+		<!-- Floating Progress Pill -->
+		<div class="floating-progress-pill" id="progressPill">
+			<div class="floating-progress-track">
+				<div class="floating-progress-fill" id="progressFill"></div>
+			</div>
+			<span class="floating-progress-text" id="progressText">0%</span>
 		</div>
 	</div>
 
 	<script src="canvas.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			const hamburger = document.getElementById('hamburgerBtn');
+			const navMenu = document.getElementById('navMenu');
+			if (hamburger && navMenu) {
+				hamburger.addEventListener('click', () => {
+					hamburger.classList.toggle('open');
+					navMenu.classList.toggle('open');
+				});
+			}
+
+			// Floating Scroll Indicator & Progress Pill Logic
+			const scrollIndicator = document.getElementById('scrollIndicator');
+			const progressPill = document.getElementById('progressPill');
+			const progressFill = document.getElementById('progressFill');
+			const progressText = document.getElementById('progressText');
+
+			function handleScroll() {
+				const scrollTop = window.scrollY || document.documentElement.scrollTop;
+				const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+				if (scrollHeight > 100) {
+					const progress = Math.min(100, Math.max(0, Math.round((scrollTop / scrollHeight) * 100)));
+					
+					if (progressFill) progressFill.style.width = progress + '%';
+					if (progressText) progressText.textContent = progress + '%';
+
+					if (progressPill) {
+						if (scrollTop > 50) progressPill.classList.add('visible');
+						else progressPill.classList.remove('visible');
+					}
+
+					if (scrollIndicator) {
+						if (scrollTop < scrollHeight - 120) {
+							scrollIndicator.classList.add('visible');
+						} else {
+							scrollIndicator.classList.remove('visible');
+						}
+					}
+				}
+			}
+
+			if (scrollIndicator) {
+				scrollIndicator.addEventListener('click', (e) => {
+					e.preventDefault();
+					window.scrollBy({ top: window.innerHeight * 0.75, behavior: 'smooth' });
+				});
+			}
+
+			window.addEventListener('scroll', handleScroll, { passive: true });
+			handleScroll();
+		});
+	</script>
 </body>
 </html>

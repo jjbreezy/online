@@ -20,17 +20,35 @@ window.addEventListener('mousemove', (e) => {
     mouse.y = e.clientY;
 });
 
+// Standard & Rare Balloon Palette
+const standardBalloonColors = [
+    { main: '#4285F4', light: '#93bbfd', dark: '#1d5ec4' }, // Blue
+    { main: '#DB4437', light: '#f59890', dark: '#a82015' }, // Red
+    { main: '#F4B400', light: '#fce38a', dark: '#b88500' }, // Yellow
+    { main: '#0F9D58', light: '#74e3a9', dark: '#086337' }, // Green
+    { main: '#ea580c', light: '#ffedd5', dark: '#c2410c' }  // Orange
+];
+
+const rareBalloonColors = [
+    { main: '#e1306c', light: '#ff85b3', dark: '#9b1544', rare: 'pink' },       // Hot Pink
+    { main: '#a855f7', light: '#7dd3fc', dark: '#c084fc', rare: 'iridescent' }, // Opalescent Iridescent
+    { main: '#ff2a6d', light: '#ffd700', dark: '#0056ff', rare: 'rainbow' },    // Horizontal Striped Rainbow
+    { main: '#f59e0b', light: '#fef3c7', dark: '#78350f', rare: 'gold' },       // Metallic Gold with Chrome Reflection
+    { main: '#94a3b8', light: '#f8fafc', dark: '#334155', rare: 'silver' }      // Metallic Silver with Chrome Reflection
+];
+
+function getRandomBalloonColor() {
+    // 22% chance rare color, 78% chance standard color
+    if (Math.random() < 0.22) {
+        return rareBalloonColors[Math.floor(Math.random() * rareBalloonColors.length)];
+    }
+    return standardBalloonColors[Math.floor(Math.random() * standardBalloonColors.length)];
+}
+
 window.addEventListener('click', (e) => {
     // Spawn balloon at click position with gentle upward velocity
     const radius = Math.random() * 15 + 40;
-    const colors = [
-        { main: '#4285F4', light: '#93bbfd', dark: '#1d5ec4' }, // Blue
-        { main: '#DB4437', light: '#f59890', dark: '#a82015' }, // Red
-        { main: '#F4B400', light: '#fce38a', dark: '#b88500' }, // Yellow
-        { main: '#0F9D58', light: '#74e3a9', dark: '#086337' }, // Green
-        { main: '#ea580c', light: '#ffedd5', dark: '#c2410c' }  // Orange
-    ];
-    const color = colors[Math.floor(Math.random() * colors.length)];
+    const color = getRandomBalloonColor();
     const vx = (Math.random() - 0.5) * 1.2;
     const vy = -Math.random() * 0.6 - 0.3;
     
@@ -121,19 +139,130 @@ class Balloon {
 
         const r = this.radius;
 
-        // Draw Solid Round 3D Balloon Orb
+        // 1. Special Rendering: Bent 3D Curved Striped Rainbow Balloon
+        if (this.color.rare === 'rainbow') {
+            ctx.beginPath();
+            ctx.arc(0, 0, r, 0, Math.PI * 2);
+            ctx.clip();
+
+            const stripeColors = ['#ff2a6d', '#ff9900', '#ffd700', '#05d9e8', '#0056ff', '#a12559'];
+            
+            // Base background fill (lowest stripe color)
+            ctx.fillStyle = stripeColors[stripeColors.length - 1];
+            ctx.fillRect(-r, -r, r * 2, r * 2);
+
+            // Draw stacked curved 3D spherical ellipses from top to bottom
+            const yPositions = [-r * 0.72, -r * 0.4, -r * 0.08, r * 0.24, r * 0.56];
+            const rx = r * 1.25;
+            const ry = r * 0.38;
+
+            for (let i = 0; i < yPositions.length; i++) {
+                ctx.fillStyle = stripeColors[i];
+                ctx.beginPath();
+                ctx.ellipse(0, yPositions[i], rx, ry, 0, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            // 3D Spherical Radial Shading & Surface Contour Overlay
+            const sphereShade = ctx.createRadialGradient(
+                -r * 0.35, -r * 0.35, r * 0.05,
+                0, 0, r * 1.05
+            );
+            sphereShade.addColorStop(0, 'rgba(255, 255, 255, 0.75)');
+            sphereShade.addColorStop(0.3, 'rgba(255, 255, 255, 0.08)');
+            sphereShade.addColorStop(0.75, 'rgba(0, 0, 0, 0.08)');
+            sphereShade.addColorStop(1, 'rgba(0, 0, 0, 0.45)');
+
+            ctx.fillStyle = sphereShade;
+            ctx.beginPath();
+            ctx.arc(0, 0, r, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Specular Glossy Highlight
+            ctx.beginPath();
+            ctx.arc(-r * 0.35, -r * 0.35, r * 0.18, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
+            ctx.fill();
+
+            ctx.restore();
+            return;
+        }
+
+        // 2. Special Rendering: Truly Metallic Gold & Silver with Reflections
+        if (this.color.rare === 'gold' || this.color.rare === 'silver') {
+            ctx.beginPath();
+            ctx.arc(0, 0, r, 0, Math.PI * 2);
+
+            const isGold = this.color.rare === 'gold';
+            
+            // High-Contrast Multi-Stop Metallic Chrome Radial Gradient
+            const grad = ctx.createRadialGradient(
+                -r * 0.35, -r * 0.35, r * 0.02,
+                0, 0, r * 1.1
+            );
+
+            if (isGold) {
+                grad.addColorStop(0, '#ffffff');       // Chrome Specular Peak
+                grad.addColorStop(0.12, '#fff7ed');    // Highlight Gold
+                grad.addColorStop(0.35, '#f59e0b');    // Mid Gold
+                grad.addColorStop(0.55, '#ffffff');    // Horizon Mirror Line
+                grad.addColorStop(0.72, '#b45309');    // Deep Amber Shadow
+                grad.addColorStop(0.92, '#d97706');    // Metallic Rim Light
+                grad.addColorStop(1, '#451a03');       // Edge Shadow
+            } else { // Silver
+                grad.addColorStop(0, '#ffffff');       // Chrome Specular Peak
+                grad.addColorStop(0.15, '#f8fafc');    // Bright Silver
+                grad.addColorStop(0.38, '#94a3b8');    // Mid Silver
+                grad.addColorStop(0.58, '#ffffff');    // Horizon Mirror Line
+                grad.addColorStop(0.75, '#475569');    // Deep Steel Shadow
+                grad.addColorStop(0.92, '#cbd5e1');    // Metallic Rim Light
+                grad.addColorStop(1, '#0f172a');       // Edge Shadow
+            }
+
+            ctx.fillStyle = grad;
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.16)';
+            ctx.shadowBlur = 18;
+            ctx.shadowOffsetY = 8;
+            ctx.fill();
+            ctx.shadowColor = 'transparent';
+
+            // Primary Specular Reflection Spot
+            ctx.beginPath();
+            ctx.arc(-r * 0.35, -r * 0.35, r * 0.18, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
+            ctx.fill();
+
+            // Secondary Rim Mirror Reflection Curve (Simulating Environment Floor Reflection)
+            ctx.beginPath();
+            ctx.ellipse(r * 0.25, r * 0.35, r * 0.45, r * 0.15, -Math.PI / 6, 0, Math.PI * 2);
+            ctx.fillStyle = isGold ? 'rgba(254, 243, 199, 0.45)' : 'rgba(255, 255, 255, 0.45)';
+            ctx.fill();
+
+            ctx.restore();
+            return;
+        }
+
+        // 3. Standard & Pink/Iridescent Spherical Balloon
         ctx.beginPath();
         ctx.arc(0, 0, r, 0, Math.PI * 2);
 
-        // 3D Spherical Radial Gradient Fill
         const grad = ctx.createRadialGradient(
             -r * 0.35, -r * 0.35, r * 0.05,
             -r * 0.1, -r * 0.1, r * 1.15
         );
-        grad.addColorStop(0, '#ffffff');
-        grad.addColorStop(0.25, this.color.light);
-        grad.addColorStop(0.75, this.color.main);
-        grad.addColorStop(1, this.color.dark);
+
+        if (this.color.rare === 'iridescent') {
+            grad.addColorStop(0, '#ffffff');
+            grad.addColorStop(0.2, '#f472b6'); // Soft Pink
+            grad.addColorStop(0.45, '#7dd3fc'); // Opalescent Sky Blue
+            grad.addColorStop(0.7, '#c084fc'); // Lavender
+            grad.addColorStop(1, '#6366f1');    // Indigo Pearl
+        } else {
+            grad.addColorStop(0, '#ffffff');
+            grad.addColorStop(0.25, this.color.light);
+            grad.addColorStop(0.75, this.color.main);
+            grad.addColorStop(1, this.color.dark);
+        }
 
         ctx.fillStyle = grad;
         ctx.shadowColor = 'rgba(0, 0, 0, 0.08)';
@@ -154,21 +283,13 @@ class Balloon {
 
 // Instantiate initial set of balloons
 const balloons = [];
-const colorPalette = [
-    { main: '#4285F4', light: '#93bbfd', dark: '#1d5ec4' }, // Blue
-    { main: '#DB4437', light: '#f59890', dark: '#a82015' }, // Red
-    { main: '#F4B400', light: '#fce38a', dark: '#b88500' }, // Yellow
-    { main: '#0F9D58', light: '#74e3a9', dark: '#086337' }, // Green
-    { main: '#ea580c', light: '#ffedd5', dark: '#c2410c' }  // Orange
-];
-
 for (let i = 0; i < 6; i++) {
     const radius = Math.random() * 15 + 42;
     const x = Math.random() * (canvas.width - radius * 4) + radius * 2;
     const y = Math.random() * (canvas.height * 0.6) + canvas.height * 0.2;
     const vx = (Math.random() - 0.5) * 0.6;
     const vy = -Math.random() * 0.5 - 0.2;
-    const color = colorPalette[i % colorPalette.length];
+    const color = getRandomBalloonColor();
 
     balloons.push(new Balloon(x, y, radius, vx, vy, color));
 }
@@ -191,7 +312,7 @@ function animate() {
 
 animate();
 
-// --- Typewriter Effect with Balloon Color Cycling & Deletion Modes ---
+// --- Typewriter Effect with Balloon Color & Metallic Theme Cycling ---
 const phrases = [
     "personal website.",
     "portfolio.",
@@ -201,11 +322,18 @@ const phrases = [
 ];
 
 const balloonAccentPalette = [
-    { main: '#4285F4', light: '#dbeaff' }, // Blue
-    { main: '#DB4437', light: '#fde8e8' }, // Red
-    { main: '#d97706', light: '#fef3c7' }, // Gold/Yellow
-    { main: '#0F9D58', light: '#dcfce7' }, // Green
-    { main: '#ea580c', light: '#ffedd5' }  // Orange
+    // Standard Common Themes (~75%)
+    { main: '#4285F4', light: '#dbeaff', type: 'standard' },
+    { main: '#DB4437', light: '#fde8e8', type: 'standard' },
+    { main: '#d97706', light: '#fef3c7', type: 'standard' },
+    { main: '#0F9D58', light: '#dcfce7', type: 'standard' },
+    { main: '#ea580c', light: '#ffedd5', type: 'standard' },
+    // Rare Themes (~25%)
+    { main: '#e1306c', light: '#fce7f3', type: 'pink' },
+    { main: '#a855f7', light: '#f3e8ff', type: 'iridescent' },
+    { main: '#ff2a6d', light: '#ffe4e6', type: 'rainbow' },
+    { main: '#b45309', light: '#fef3c7', type: 'gold' },
+    { main: '#64748b', light: '#f1f5f9', type: 'silver' }
 ];
 
 let currentAccentIndex = 4;
@@ -217,8 +345,11 @@ let isHighlighting = false;
 
 function cycleRandomAccentColor() {
     let nextIndex = currentAccentIndex;
-    while (nextIndex === currentAccentIndex && balloonAccentPalette.length > 1) {
-        nextIndex = Math.floor(Math.random() * balloonAccentPalette.length);
+    const isRare = Math.random() < 0.25;
+    if (isRare) {
+        nextIndex = 5 + Math.floor(Math.random() * 5);
+    } else {
+        nextIndex = Math.floor(Math.random() * 5);
     }
     currentAccentIndex = nextIndex;
     const accent = balloonAccentPalette[currentAccentIndex];
@@ -228,9 +359,25 @@ function cycleRandomAccentColor() {
     const pressBtn = document.getElementById('press-btn');
 
     if (typewriterEl) {
-        typewriterEl.style.color = accent.main;
+        typewriterEl.classList.remove('rainbow-text', 'iridescent-text', 'gold-text', 'silver-text');
+        if (accent.type === 'rainbow') {
+            typewriterEl.classList.add('rainbow-text');
+            typewriterEl.style.color = '';
+        } else if (accent.type === 'iridescent') {
+            typewriterEl.classList.add('iridescent-text');
+            typewriterEl.style.color = '';
+        } else if (accent.type === 'gold') {
+            typewriterEl.classList.add('gold-text');
+            typewriterEl.style.color = '';
+        } else if (accent.type === 'silver') {
+            typewriterEl.classList.add('silver-text');
+            typewriterEl.style.color = '';
+        } else {
+            typewriterEl.style.color = accent.main;
+        }
         typewriterEl.style.setProperty('--active-highlight-bg', accent.light);
     }
+
     if (cursorEl) cursorEl.style.color = accent.main;
     if (pressBtn) pressBtn.style.setProperty('--active-accent', accent.main);
 }
