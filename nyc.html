@@ -6,6 +6,7 @@
 	<title>New York City - Jordan Broihier</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="index.css">
 	
 	<style type="text/css">
@@ -77,24 +78,7 @@
             z-index: 1;
         }
 
-        /* Clockwise Rectangular Border Scroll Progress Indicator overlaying black site border */
-        .border-scroll-svg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            z-index: 9999;
-        }
 
-        .border-scroll-path {
-            fill: none;
-            stroke: #ea580c;
-            stroke-width: 6;
-            stroke-linecap: round;
-            transition: stroke-dashoffset 0.12s ease-out;
-        }
 
         .subway-map-svg {
             width: 100%;
@@ -422,11 +406,6 @@
 </head>
 <body>
 	<div id="stage-3d">
-		<!-- Clockwise Border Scroll Progress Overlay -->
-		<svg class="border-scroll-svg" id="borderScrollSvg">
-			<path class="border-scroll-path" id="borderScrollPath" d="" />
-		</svg>
-
         <!-- Branching Dotted Subway Route Map Background -->
         <div class="subway-map-container">
             <svg class="subway-map-svg" viewBox="0 0 1400 900" preserveAspectRatio="xMidYMid slice">
@@ -472,7 +451,6 @@
 			<nav id="navMenu">
 				<a class="nav-item" href="index.html">Home</a>
 				<a class="nav-item" href="resume.html" rel="nofollow">Resume</a>
-				<a class="nav-item" href="portfolio.html">Portfolio</a>
 				<a class="nav-item" href="photography.html">Photography</a>
 				<a class="nav-item active" href="nyc.html">NYC</a>
 				<a class="nav-item nav-item-linkedin" href="https://www.linkedin.com/in/jordanbroihier/" target="_blank" rel="noopener">LinkedIn</a>
@@ -635,36 +613,6 @@
             document.getElementById('nextCardBtn').addEventListener('click', cycleNext);
             document.getElementById('prevCardBtn').addEventListener('click', cyclePrev);
 
-            // Clockwise Outer Border Gallery Progress Indicator Script
-            const borderPath = document.getElementById('borderScrollPath');
-            const borderSvg = document.getElementById('borderScrollSvg');
-
-            function updateBorderProgress() {
-                if (!borderPath || !borderSvg) return;
-                const w = window.innerWidth;
-                const h = window.innerHeight;
-
-                const inset = 3;
-                const pathData = `
-                    M ${w / 2} ${inset}
-                    L ${w - inset} ${inset}
-                    L ${w - inset} ${h - inset}
-                    L ${inset} ${h - inset}
-                    L ${inset} ${inset}
-                    Z
-                `;
-                borderPath.setAttribute('d', pathData);
-
-                const pathLength = borderPath.getTotalLength();
-                borderPath.style.strokeDasharray = pathLength;
-
-                // Progress advances clockwise based on photo position in the deck gallery (100% when at last photo)
-                const progress = totalCardsCount > 1 ? currentCardIndex / (totalCardsCount - 1) : 1;
-
-                borderPath.style.strokeDashoffset = pathLength * (1 - progress);
-            }
-
-            window.addEventListener('resize', updateBorderProgress);
             updateCardPositions();
 
             // Hamburger Toggle
@@ -678,6 +626,5 @@
             }
         });
 	</script>
-	<script src="canvas.js"></script>
 </body>
 </html>

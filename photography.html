@@ -9,7 +9,7 @@
 	
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Overpass:wght@700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;600;700;800;900&family=Overpass:wght@700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 	
 	<link rel="stylesheet" href="index.css">
@@ -26,20 +26,6 @@
 
         #stage-3d::before {
             display: none !important;
-        }
-
-        /* -------------------------------------------------------------
-           Fixed Top Viewport Scroll Progress Indicator Line
-        ------------------------------------------------------------- */
-        .site-scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 3px;
-            background: #ea580c;
-            width: 0%;
-            z-index: 9999;
-            transition: width 0.08s ease-out;
         }
 
         /* -------------------------------------------------------------
@@ -157,72 +143,13 @@
         }
 
         /* -------------------------------------------------------------
-           Featured Work Bento Grid (Integrating "Behind the Lens")
+           Work Section Grid
         ------------------------------------------------------------- */
-        .featured-bento-grid {
+        .work-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
             margin-bottom: 5.5rem;
-        }
-
-        .behind-lens-wide-card {
-            grid-column: span 2;
-            background: #ffffff;
-            border-radius: 20px;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.03);
-            display: flex;
-            overflow: hidden;
-            transition: transform 0.25s ease, border-color 0.25s ease;
-        }
-
-        .behind-lens-wide-card:hover {
-            transform: translateY(-3px);
-            border-color: rgba(234, 88, 12, 0.4);
-            box-shadow: 0 10px 24px rgba(0,0,0,0.06);
-        }
-
-        .behind-lens-img {
-            width: 42%;
-            height: 100%;
-            min-height: 280px;
-            object-fit: cover;
-        }
-
-        .behind-lens-content {
-            padding: 2.2rem 2.4rem;
-            width: 58%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .behind-lens-tag {
-            display: inline-block;
-            background: #fff3eb;
-            color: #ea580c;
-            padding: 0.3rem 0.8rem;
-            border-radius: 16px;
-            font-size: 0.78rem;
-            font-weight: 600;
-            border: 1px solid #ffedd5;
-            margin-bottom: 0.8rem;
-            align-self: flex-start;
-        }
-
-        .behind-lens-content h3 {
-            font-family: var(--font-heading);
-            font-size: 2rem;
-            margin: 0 0 0.8rem 0;
-            color: var(--text-color);
-        }
-
-        .behind-lens-content p {
-            color: #475569;
-            font-size: 0.98rem;
-            line-height: 1.65;
-            margin: 0 0 0.8rem 0;
         }
 
         .photo-showcase-card {
@@ -246,6 +173,81 @@
             height: 230px;
             object-fit: cover;
             display: block;
+        }
+
+        .photo-showcase-info {
+            padding: 1.3rem 1.6rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .photo-showcase-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        .photo-showcase-count {
+            font-size: 0.8rem;
+            color: #ea580c;
+            font-weight: 600;
+            background: #fff3eb;
+            padding: 0.25rem 0.65rem;
+            border-radius: 12px;
+        }
+
+        /* -------------------------------------------------------------
+           About Section (Further Down Page)
+        ------------------------------------------------------------- */
+        .about-section {
+            margin-bottom: 5.5rem;
+        }
+
+        .about-card {
+            max-width: 860px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+            display: flex;
+            overflow: hidden;
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(234, 88, 12, 0.4);
+            box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+        }
+
+        .about-img {
+            width: 38%;
+            min-height: 280px;
+            object-fit: cover;
+        }
+
+        .about-content {
+            padding: 2.4rem 2.6rem;
+            width: 62%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .about-content h3 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            margin: 0 0 0.8rem 0;
+            color: var(--text-color);
+        }
+
+        .about-content p {
+            color: #475569;
+            font-size: 0.98rem;
+            line-height: 1.65;
+            margin: 0 0 0.8rem 0;
         }
 
         .photo-showcase-info {
@@ -513,18 +515,27 @@
             background: #ffffff;
             border-radius: 16px;
             border: 1px solid #e2e8f0;
-            padding: 1.6rem 1.8rem;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+            padding: 1.8rem 2rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+
+        .faq-item:hover {
+            transform: translateY(-2px);
+            border-color: rgba(234, 88, 12, 0.4);
         }
 
         .faq-item h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin: 0 0 0.4rem 0;
+            font-family: var(--font-heading);
+            font-size: 1.45rem;
+            margin: 0 0 0.6rem 0;
             color: var(--text-color);
         }
 
         .faq-item p {
-            color: #475569;
+            color: #64748b;
             font-size: 0.95rem;
             line-height: 1.6;
             margin: 0;
@@ -535,18 +546,17 @@
                 padding: 1.6rem 2.8rem;
                 font-size: 2.2rem;
             }
-            .behind-lens-wide-card {
-                grid-column: span 1;
+            .about-card {
                 flex-direction: column;
             }
-            .behind-lens-img {
+            .about-img {
                 width: 100%;
                 height: 240px;
             }
-            .behind-lens-content {
+            .about-content {
                 width: 100%;
             }
-            .featured-bento-grid, .rates-grid {
+            .work-grid, .rates-grid {
                 grid-template-columns: 1fr;
             }
             .rate-card-special {
@@ -564,9 +574,6 @@
 </head>
 <body>
 	<div id="stage-3d">
-		<!-- Fixed Top Viewport Scroll Progress Line -->
-		<div class="site-scroll-progress" id="siteScrollProgress"></div>
-
 		<!-- Transparent Non-Sticky Top Nav Header -->
 		<header id="top-nav">
 			<a class="logo" href="index.html" style="text-decoration: none; color: inherit;">JJB.</a>
@@ -578,7 +585,6 @@
 			<nav id="navMenu">
 				<a class="nav-item" href="index.html">Home</a>
 				<a class="nav-item" href="resume.html" rel="nofollow">Resume</a>
-				<a class="nav-item" href="portfolio.html">Portfolio</a>
 				<a class="nav-item active" href="photography.html">Photography</a>
 				<a class="nav-item" href="nyc.html">NYC</a>
 				<a class="nav-item nav-item-linkedin" href="https://www.linkedin.com/in/jordanbroihier/" target="_blank" rel="noopener">LinkedIn</a>
@@ -597,25 +603,13 @@
 
             <div class="hero-action-row">
                 <a href="#rates" class="btn-photo-primary">View Packages & Rates</a>
-                <a href="#portfolio" class="btn-photo-secondary">Explore Featured Work</a>
+                <a href="#work" class="btn-photo-secondary">Explore Featured Work</a>
             </div>
 
-            <!-- Featured Work Bento Grid (Integrating "Behind the Lens" as a Wide Card) -->
-            <section id="portfolio" style="margin-bottom: 5.5rem;">
-                <h2 class="photo-section-title">Featured Work & About</h2>
-                <div class="featured-bento-grid">
-                    
-                    <!-- Integrated Behind the Lens Wide Bento Card -->
-                    <article class="behind-lens-wide-card">
-                        <img src="photography/cropme.webp" alt="Jordan Broihier holding camera" class="behind-lens-img">
-                        <div class="behind-lens-content">
-                            <span class="behind-lens-tag">Behind the Lens</span>
-                            <h3>Hi, I'm Jordan.</h3>
-                            <p>I strive to tell a compelling story with every frame. What began as a passionate hobby evolved into capturing genuine, memorable moments across NYC.</p>
-                            <p>Whether it's a portrait session, campus graduation, or an intimate city hall wedding, my goal is to deliver timeless high-resolution imagery.</p>
-                        </div>
-                    </article>
-
+            <!-- Featured Work Section -->
+            <section id="work" style="margin-bottom: 5.5rem;">
+                <h2 class="photo-section-title">Featured Work</h2>
+                <div class="work-grid">
                     <!-- Showcase Card 1: Portraiture -->
                     <article class="photo-showcase-card">
                         <img src="photography/cropme.webp" alt="Portrait Photography">
@@ -642,11 +636,10 @@
                             <span class="photo-showcase-count">Cityscapes</span>
                         </div>
                     </article>
-
                 </div>
             </section>
 
-            <!-- Reviews Rotating Cards Carousel -->
+            <!-- Client Reviews Section (temporarily commented out)
             <section class="reviews-section" id="reviews">
                 <div class="reviews-stars-row">
                     <span class="material-symbols-outlined">star</span>
@@ -706,6 +699,7 @@
                     </button>
                 </div>
             </section>
+            -->
 
             <!-- Photography Packages Section (Clean Uniform Borders) -->
             <section id="rates" class="rates-section">
@@ -717,7 +711,6 @@
                         <div>
                             <div class="package-header-row">
                                 <h3>Headshots</h3>
-                                <span class="package-tag">Personal Branding</span>
                             </div>
                             <div class="price">$99</div>
                             <p class="rate-desc">Professional headshots, perfect for LinkedIn and personal branding.</p>
@@ -734,7 +727,6 @@
                         <div>
                             <div class="package-header-row">
                                 <h3>Graduation</h3>
-                                <span class="package-tag">Milestone Shoot</span>
                             </div>
                             <div class="price">$165</div>
                             <p class="rate-desc">Capture your milestone achievement with memorable portraits.</p>
@@ -751,7 +743,6 @@
                         <div>
                             <div class="package-header-row">
                                 <h3>Engagements</h3>
-                                <span class="package-tag">Couples Series</span>
                             </div>
                             <div class="price">$385</div>
                             <p class="rate-desc">Celebrate your love story with a comprehensive shoot.</p>
@@ -768,7 +759,6 @@
                         <div>
                             <div class="package-header-row">
                                 <h3>City Hall Weddings</h3>
-                                <span class="package-tag">Special Day</span>
                             </div>
                             <div class="price">$605</div>
                             <p class="rate-desc">Intimate coverage for your special NYC wedding day.</p>
@@ -785,7 +775,6 @@
                         <div>
                             <div class="package-header-row">
                                 <h3>Something Else?</h3>
-                                <span class="package-tag">Bespoke Shoot</span>
                             </div>
                             <div class="price">Custom Projects</div>
                             <p class="rate-desc">Have a unique vision? We cover custom editorial, commercial, and creative concepts.</p>
@@ -798,6 +787,19 @@
                         </div>
                     </div>
 
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="about-section">
+                <h2 class="photo-section-title">About</h2>
+                <div class="about-card">
+                    <img src="photography/cropme.webp" alt="Jordan Broihier holding camera" class="about-img">
+                    <div class="about-content">
+                        <h3>Hi, I'm Jordan.</h3>
+                        <p>I strive to tell a compelling story with every frame. What began as a passionate hobby evolved into capturing genuine, memorable moments across NYC.</p>
+                        <p>Whether it's a portrait session, campus graduation, or an intimate city hall wedding, my goal is to deliver timeless high-resolution imagery.</p>
+                    </div>
                 </div>
             </section>
 
@@ -826,44 +828,33 @@
         </main>
 	</div>
 
-	<!-- Scroll Progress Bar & Reviews Carousel Scripts -->
 	<script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Viewport Top Scroll Progress Line
-            const scrollLine = document.getElementById('siteScrollProgress');
-            window.addEventListener('scroll', () => {
-                const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                if (scrollLine && height > 0) {
-                    scrollLine.style.width = (winScroll / height) * 100 + "%";
-                }
-            });
-
-            // Reviews Carousel Logic
+            // Reviews Carousel Logic (Safely guards if reviews section is commented out)
             const track = document.getElementById('reviewsTrack');
             const prevBtn = document.getElementById('prevReview');
             const nextBtn = document.getElementById('nextReview');
-            if (!track || !prevBtn || !nextBtn) return;
+            if (track && prevBtn && nextBtn) {
+                const cards = Array.from(track.children);
+                let index = 0;
 
-            const cards = Array.from(track.children);
-            let index = 0;
+                function updateCarousel() {
+                    const cardWidth = cards[0].offsetWidth + 24;
+                    track.style.transform = `translateX(${-index * cardWidth}px)`;
+                }
 
-            function updateCarousel() {
-                const cardWidth = cards[0].offsetWidth + 24;
-                track.style.transform = `translateX(${-index * cardWidth}px)`;
+                nextBtn.addEventListener('click', () => {
+                    index = (index + 1) % cards.length;
+                    updateCarousel();
+                });
+
+                prevBtn.addEventListener('click', () => {
+                    index = (index - 1 + cards.length) % cards.length;
+                    updateCarousel();
+                });
+
+                window.addEventListener('resize', updateCarousel);
             }
-
-            nextBtn.addEventListener('click', () => {
-                index = (index + 1) % cards.length;
-                updateCarousel();
-            });
-
-            prevBtn.addEventListener('click', () => {
-                index = (index - 1 + cards.length) % cards.length;
-                updateCarousel();
-            });
-
-            window.addEventListener('resize', updateCarousel);
 
             // Hamburger Toggle
             const hamburger = document.getElementById('hamburgerBtn');
@@ -874,56 +865,7 @@
                     navMenu.classList.toggle('open');
                 });
             }
-
-            // Floating Scroll Indicator & Progress Pill Logic
-            const scrollIndicator = document.getElementById('scrollIndicator');
-            const progressPill = document.getElementById('progressPill');
-            const progressFill = document.getElementById('progressFill');
-            const progressText = document.getElementById('progressText');
-
-            function handleScroll() {
-                const scrollTop = window.scrollY || document.documentElement.scrollTop;
-                const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-
-                if (scrollHeight > 100) {
-                    const progress = Math.min(100, Math.max(0, Math.round((scrollTop / scrollHeight) * 100)));
-                    
-                    if (progressFill) progressFill.style.width = progress + '%';
-                    if (progressText) progressText.textContent = progress + '%';
-
-                    if (progressPill) {
-                        if (scrollTop > 50) progressPill.classList.add('visible');
-                        else progressPill.classList.remove('visible');
-                    }
-
-                    if (scrollIndicator) {
-                        if (scrollTop < scrollHeight - 120) {
-                            scrollIndicator.classList.add('visible');
-                        } else {
-                            scrollIndicator.classList.remove('visible');
-                        }
-                    }
-                }
-            }
-
-            if (scrollIndicator) {
-                scrollIndicator.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    window.scrollBy({ top: window.innerHeight * 0.75, behavior: 'smooth' });
-                });
-            }
-
-            window.addEventListener('scroll', handleScroll, { passive: true });
-            handleScroll();
         });
 	</script>
-
-	<!-- Floating Progress Pill -->
-	<div class="floating-progress-pill" id="progressPill">
-		<div class="floating-progress-track">
-			<div class="floating-progress-fill" id="progressFill"></div>
-		</div>
-		<span class="floating-progress-text" id="progressText">0%</span>
-	</div>
 </body>
 </html>

@@ -158,57 +158,11 @@ main {
     border-bottom: 1px solid var(--glass-border);
 }
 
-.scroll-progress-container {
-    flex: 1;
-    height: 4px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-    overflow: hidden;
-    margin: 0 2rem;
-    pointer-events: none;
-    position: relative;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-}
-
-.glass-nav.scrolled .scroll-progress-container {
-    opacity: 1;
-}
-
-.glass-nav.contact-view .scroll-progress-container {
-    opacity: 0.2;
-    /* Significantly reduced opacity at the bottom */
-}
-
-#scroll-indicator {
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(to right, #ff5500, #ffb700);
-    -webkit-mask-image: radial-gradient(circle at center, #000 1.2px, transparent 1.5px);
-    -webkit-mask-size: 8px 100%;
-    mask-image: radial-gradient(circle at center, #000 1.2px, transparent 1.5px);
-    mask-size: 8px 100%;
-    opacity: 1;
-    transition: width 0.1s ease-out;
-}
-
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1.2rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    /* allow wrapping on small screens */
-    gap: 1rem;
-}
-
 .logo {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: -0.5px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
     background: linear-gradient(135deg, #fff, var(--aero-cyan));
     -webkit-background-clip: text;
     background-clip: text;
