@@ -3,18 +3,25 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-174469449-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'UA-174469449-1');
+	<!-- Google Consent Mode v2: Default deny all until user consents -->
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('consent', 'default', {
+			'ad_storage': 'denied',
+			'analytics_storage': 'denied',
+			'ad_user_data': 'denied',
+			'ad_personalization': 'denied',
+			'wait_for_update': 500
+		});
 	</script>
-	
-	<!-- google adsense -->
-    <script data-ad-client="ca-pub-6238449652173707" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+	<!-- TODO: Replace YOUR_GA4_ID with your GA4 Measurement ID (G-XXXXXXXXXX) -->
+	<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA4_ID"></script> -->
+	<!-- <script>
+		gtag('js', new Date());
+		gtag('config', 'YOUR_GA4_ID');
+	</script> -->
 
 	<title>Jordan Broihier's Personal Website</title>
 	
@@ -26,6 +33,7 @@
 	<!-- Main Stylesheet -->
 	<link rel="stylesheet" href="index.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+	<link rel="stylesheet" href="consent.css">
 </head>
 <body>
 	<div id="stage-3d">
@@ -38,7 +46,7 @@
 			</button>
 			<nav id="navMenu">
 				<a class="nav-item active" href="index.html">Home</a>
-				<a class="nav-item" href="resume.html" rel="nofollow">Resume</a>
+				<!-- <a class="nav-item" href="resume.html" rel="nofollow">Resume</a> -->
 				<a class="nav-item" href="photography.html">Photography</a>
 				<a class="nav-item" href="nyc.html">NYC</a>
 				<a class="nav-item nav-item-linkedin" href="https://www.linkedin.com/in/jordanbroihier/" target="_blank" rel="noopener">LinkedIn</a>
@@ -61,9 +69,25 @@
 			<span class="oversized-pointer">👆</span>
 			<span class="badge-text">tap to make a balloon</span>
 		</div>
+
+		<footer class="site-footer home-footer">
+			&copy; 2026 Jordan Broihier. All Rights Reserved.<span class="footer-sep">|</span><a href="privacy.html">Privacy Policy</a><span class="footer-sep">|</span><a href="terms.html">Terms of Use</a>
+		</footer>
+	</div>
+
+	<!-- Cookie Consent Banner -->
+	<div id="cookie-consent-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
+		<div class="consent-card">
+			<p>This site uses cookies and Google Analytics to understand how visitors use the site and improve the experience. For details, see our <a href="privacy.html">Privacy Policy</a>.</p>
+			<div class="consent-buttons">
+				<button id="consent-accept" class="consent-btn consent-btn-accept">Accept</button>
+				<button id="consent-reject" class="consent-btn consent-btn-reject">Reject</button>
+			</div>
+		</div>
 	</div>
 
 	<script src="canvas.js"></script>
+	<script src="consent.js"></script>
 	<script>
 		document.addEventListener('DOMContentLoaded', () => {
 			const hamburger = document.getElementById('hamburgerBtn');

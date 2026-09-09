@@ -8,18 +8,20 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="index.css">
+	<link rel="stylesheet" href="consent.css">
 	
 	<style type="text/css">
-        /* NYC Page Specific Styles: Black Site Border, Darker Gradient, White Logo, No Scroll */
+        /* NYC Page Specific Styles: Black Background, Subtle Dark Border, White Logo, No Scroll */
         html, body {
             overflow: hidden !important;
             height: 100vh !important;
-            background: #0f172a !important;
+            background: #000000 !important;
+            color: #f1f5f9;
         }
 
         #stage-3d {
-            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 70%, #020617 100%) !important;
-            border: 6px solid #000000;
+            background: radial-gradient(circle at center, #111111 0%, #080808 60%, #000000 100%) !important;
+            border: 6px solid #141414;
             box-sizing: border-box;
             height: 100vh;
             overflow: hidden;
@@ -29,6 +31,10 @@
         #top-nav .logo {
             color: #ffffff !important;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .hamburger span {
+            background: #ffffff !important;
         }
 
         /* Completely Hide Standard Orthogonal Dot Grid on NYC Page */
@@ -56,8 +62,8 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at center, transparent 30%, rgba(2, 6, 23, 0.65) 75%, rgba(2, 6, 23, 0.9) 100%);
-            box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.8);
+            background: radial-gradient(circle at center, transparent 25%, rgba(0, 0, 0, 0.7) 70%, rgba(0, 0, 0, 0.95) 100%);
+            box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.95);
             pointer-events: none;
             z-index: 2;
         }
@@ -68,23 +74,20 @@
             position: absolute;
             inset: 0;
             background-image: 
-                radial-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 0),
-                radial-gradient(rgba(255, 255, 255, 0.25) 1px, transparent 0);
+                radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0),
+                radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 0);
             background-size: 8px 8px, 12px 12px;
             background-position: 0 0, 4px 4px;
-            opacity: 0.75;
-            mix-blend-mode: multiply;
+            opacity: 0.5;
             pointer-events: none;
             z-index: 1;
         }
 
-
-
         .subway-map-svg {
             width: 100%;
             height: 100%;
-            opacity: 0.65;
-            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.15));
+            opacity: 0.45;
+            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
         }
 
         @keyframes subway-map-fade {
@@ -103,7 +106,7 @@
             position: relative;
             z-index: 1;
             width: min(960px, 94vw);
-            margin: 6.8rem auto 1rem auto;
+            margin: 9.2rem auto 0.5rem auto;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -113,10 +116,11 @@
         .subway-letters {
             display: flex;
             justify-content: center;
-            gap: 0.45rem;
-            margin-top: 0.35rem;
+            align-items: center;
+            gap: 0.55rem;
+            margin-top: 0.25rem;
             position: relative;
-            width: 242px;
+            width: auto;
             margin-left: auto;
             margin-right: auto;
         }
@@ -199,27 +203,27 @@
         /* NYC Header Section */
         .nyc-hero-card {
             background: transparent;
-            padding: 0.2rem 0 1rem 0;
+            padding: 0;
             text-align: center;
             position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin-bottom: 0.6rem;
         }
 
         .nyc-title {
-            font-family: var(--font-heading), 'Cormorant Garamond', Georgia, serif !important;
-            font-size: 3rem;
-            font-weight: 600;
+            font-family: 'Helvetica Neue', Helvetica, Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+            font-size: 3.8rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
             margin: 0 0 0.35rem 0;
             color: #ffffff !important;
             line-height: 1;
-            width: 242px;
-            display: flex;
-            justify-content: space-between;
-            letter-spacing: 0;
-            box-sizing: border-box;
-            white-space: nowrap !important;
+            text-align: center;
+            display: block;
+            width: auto;
+            text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6);
         }
 
         /* Floating Photo Deck */
@@ -229,7 +233,17 @@
             flex-direction: column;
             align-items: center;
             position: relative;
-            margin-top: 0.4rem;
+            margin-top: 0.5rem;
+        }
+
+        .deck-outer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 800px;
+            position: relative;
         }
 
         .deck-wrapper {
@@ -322,50 +336,50 @@
             opacity: 0 !important;
         }
 
-        /* Navigation Controls */
-        .deck-controls {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-top: 1rem;
-            z-index: 20;
-        }
-
+        /* Left & Right Navigation Swipe Buttons */
         .deck-btn {
-            width: 40px;
-            height: 40px;
+            width: 46px;
+            height: 46px;
             border-radius: 50%;
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 12px -2px rgba(0,0,0,0.08);
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            color: #334155;
-            font-size: 1.1rem;
+            color: #0f172a;
+            font-size: 1.25rem;
             font-weight: bold;
             transition: all 0.2s ease;
+            flex-shrink: 0;
+            z-index: 20;
         }
 
         .deck-btn:hover {
             background: #ea580c;
             color: #ffffff;
             border-color: #ea580c;
-            transform: scale(1.06);
+            transform: scale(1.08);
+        }
+
+        .deck-meta {
+            margin-top: 0.75rem;
+            text-align: center;
+            z-index: 20;
         }
 
         .deck-hint {
-            font-size: 0.82rem;
-            color: #64748b;
+            font-size: 0.8rem;
+            color: #94a3b8;
             font-weight: 500;
             text-transform: uppercase;
-            letter-spacing: 0.06em;
+            letter-spacing: 0.08em;
         }
 
         /* Centered Instagram Follow Button */
         .ig-btn-container {
-            margin-top: 1.1rem;
+            margin-top: 0.75rem;
             text-align: center;
             z-index: 20;
         }
@@ -374,32 +388,76 @@
             display: inline-flex;
             align-items: center;
             gap: 0.45rem;
-            background: #111111;
+            background: #18181b;
             color: #ffffff;
+            border: 1px solid #27272a;
             text-decoration: none;
-            padding: 0.75rem 1.9rem;
+            padding: 0.65rem 1.6rem;
             border-radius: 30px;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             transition: all 0.25s ease;
-            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.35);
         }
 
         .ig-btn:hover {
             background: #ea580c;
+            border-color: #ea580c;
             transform: translateY(-2px);
-            box-shadow: 0 10px 22px rgba(234, 88, 12, 0.25);
+            box-shadow: 0 10px 22px rgba(234, 88, 12, 0.35);
+        }
+
+        @media (max-width: 640px) {
+            #nyc-stage {
+                margin-top: 6.5rem;
+                width: 96vw;
+            }
+            .nyc-title {
+                font-size: 2.7rem;
+            }
+            .subway-circle {
+                width: 44px;
+                height: 44px;
+                font-size: 1.8rem;
+            }
+            .deck-outer {
+                position: relative;
+                gap: 0;
+            }
+            .deck-btn {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 25;
+                background: rgba(0, 0, 0, 0.72);
+                color: #ffffff;
+                border: 1px solid rgba(255, 255, 255, 0.25);
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
+            }
+            .deck-btn:hover {
+                transform: translateY(-50%) scale(1.08);
+            }
+            .deck-btn-prev {
+                left: 8px;
+            }
+            .deck-btn-next {
+                right: 8px;
+            }
         }
 
         @media (max-height: 800px) {
             #nyc-stage {
-                margin-top: 4.2rem;
+                margin-top: 6.8rem;
+            }
+            .nyc-title {
+                font-size: 3.2rem;
             }
             .deck-wrapper {
-                height: 380px;
+                height: 360px;
             }
             .deck-card img {
-                max-height: 360px;
+                max-height: 340px;
             }
         }
 	</style>
@@ -450,7 +508,7 @@
 			</button>
 			<nav id="navMenu">
 				<a class="nav-item" href="index.html">Home</a>
-				<a class="nav-item" href="resume.html" rel="nofollow">Resume</a>
+				<!-- <a class="nav-item" href="resume.html" rel="nofollow">Resume</a> -->
 				<a class="nav-item" href="photography.html">Photography</a>
 				<a class="nav-item active" href="nyc.html">NYC</a>
 				<a class="nav-item nav-item-linkedin" href="https://www.linkedin.com/in/jordanbroihier/" target="_blank" rel="noopener">LinkedIn</a>
@@ -471,35 +529,37 @@
 
             <!-- Floating Unboxed Swipeable Photo Deck Stage -->
             <section class="deck-stage">
-                <div class="deck-wrapper">
-                    <div class="deck-container" id="deckContainer">
-                        <!-- Photo Card 1 -->
-                        <article class="deck-card" data-pos="0">
-                            <img src="photography/nycyellow.webp" alt="NYC Yellow Taxi">
-                        </article>
+                <div class="deck-outer">
+                    <button class="deck-btn deck-btn-prev" id="prevCardBtn" aria-label="Previous photo">←</button>
+                    <div class="deck-wrapper">
+                        <div class="deck-container" id="deckContainer">
+                            <!-- Photo Card 1 -->
+                            <article class="deck-card" data-pos="0">
+                                <img src="photography/nycyellow.webp" alt="NYC Yellow Taxi">
+                            </article>
 
-                        <!-- Photo Card 2 -->
-                        <article class="deck-card" data-pos="1">
-                            <img src="photography/cropme.webp" alt="NYC Street Moment">
-                        </article>
+                            <!-- Photo Card 2 -->
+                            <article class="deck-card" data-pos="1">
+                                <img src="photography/cropme.webp" alt="NYC Street Moment">
+                            </article>
 
-                        <!-- Photo Card 3 -->
-                        <article class="deck-card" data-pos="2">
-                            <img src="photography/nycyellow.webp" alt="Fifth Avenue NYC" style="filter: sepia(0.2) contrast(1.08);">
-                        </article>
+                            <!-- Photo Card 3 -->
+                            <article class="deck-card" data-pos="2">
+                                <img src="photography/nycyellow.webp" alt="Fifth Avenue NYC" style="filter: sepia(0.2) contrast(1.08);">
+                            </article>
 
-                        <!-- Photo Card 4 -->
-                        <article class="deck-card" data-pos="3">
-                            <img src="photography/cropme.webp" alt="NYC Transit" style="filter: saturate(1.3) contrast(1.1);">
-                        </article>
+                            <!-- Photo Card 4 -->
+                            <article class="deck-card" data-pos="3">
+                                <img src="photography/cropme.webp" alt="NYC Transit" style="filter: saturate(1.3) contrast(1.1);">
+                            </article>
+                        </div>
                     </div>
+                    <button class="deck-btn deck-btn-next" id="nextCardBtn" aria-label="Next photo">→</button>
                 </div>
 
-                <!-- Deck Controls -->
-                <div class="deck-controls">
-                    <button class="deck-btn" id="prevCardBtn" aria-label="Previous photo">←</button>
+                <!-- Deck Meta Hint -->
+                <div class="deck-meta">
                     <span class="deck-hint">Swipe or Drag Photos</span>
-                    <button class="deck-btn" id="nextCardBtn" aria-label="Next photo">→</button>
                 </div>
 
                 <!-- Centered Follow on IG Button -->
@@ -512,91 +572,88 @@
                 </div>
             </section>
         </main>
+
+		<footer class="site-footer" style="color: #4a5568;">
+			&copy; 2026 Jordan Broihier. All Rights Reserved.<span class="footer-sep" style="color: #2d3748;">|</span><a href="privacy.html" style="color: #64748b;">Privacy Policy</a><span class="footer-sep" style="color: #2d3748;">|</span><a href="terms.html" style="color: #64748b;">Terms of Use</a>
+		</footer>
+	</div>
+
+	<!-- Cookie Consent Banner -->
+	<div id="cookie-consent-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
+		<div class="consent-card">
+			<p>This site uses cookies and Google Analytics to understand how visitors use the site and improve the experience. For details, see our <a href="privacy.html">Privacy Policy</a>.</p>
+			<div class="consent-buttons">
+				<button id="consent-accept" class="consent-btn consent-btn-accept">Accept</button>
+				<button id="consent-reject" class="consent-btn consent-btn-reject">Reject</button>
+			</div>
+		</div>
 	</div>
 
 	<!-- Interactive Drag & Swipe Script -->
+	<script src="consent.js"></script>
 	<script>
         document.addEventListener('DOMContentLoaded', () => {
             const container = document.getElementById('deckContainer');
-            if (!container) return;
-
-            let cards = Array.from(container.querySelectorAll('.deck-card'));
-            let isDragging = false;
+            const deckCards = Array.from(container.querySelectorAll('.deck-card'));
+            let activeCard = null;
             let startX = 0;
             let currentX = 0;
-            let activeCard = null;
-
-            let totalCardsCount = cards.length;
-            let currentCardIndex = 0;
 
             function updateCardPositions() {
-                cards.forEach((card, idx) => {
-                    card.setAttribute('data-pos', idx);
+                deckCards.forEach((card, i) => {
+                    card.style.zIndex = deckCards.length - i;
+                    card.classList.remove('pos-0', 'pos-1', 'pos-2', 'pos-3', 'swiping-left', 'swiping-right');
+                    if (i < 4) card.classList.add('pos-' + i);
                     card.style.transform = '';
-                    card.style.opacity = '';
-                    card.classList.remove('swiping-left', 'swiping-right');
                 });
-                updateBorderProgress();
             }
 
             function cycleNext() {
-                if (cards.length === 0) return;
-                const topCard = cards.shift();
-                topCard.classList.add('swiping-left');
-                currentCardIndex = (currentCardIndex + 1) % totalCardsCount;
-                
+                const top = deckCards.shift();
+                top.classList.add('swiping-left');
                 setTimeout(() => {
-                    cards.push(topCard);
+                    deckCards.push(top);
                     updateCardPositions();
-                }, 280);
+                }, 400);
             }
 
             function cyclePrev() {
-                if (cards.length === 0) return;
-                const lastCard = cards.pop();
-                cards.unshift(lastCard);
-                currentCardIndex = (currentCardIndex - 1 + totalCardsCount) % totalCardsCount;
+                const bottom = deckCards.pop();
+                deckCards.unshift(bottom);
                 updateCardPositions();
             }
 
             function startDrag(e) {
-                activeCard = cards[0];
-                if (!activeCard) return;
-                isDragging = true;
-                startX = e.touches ? e.touches[0].clientX : e.clientX;
-                currentX = startX;
+                const card = e.target.closest('.deck-card');
+                if (!card || deckCards.indexOf(card) !== 0) return;
+                activeCard = card;
+                startX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
             }
 
             function dragMove(e) {
-                if (!isDragging || !activeCard) return;
-                currentX = e.touches ? e.touches[0].clientX : e.clientX;
+                if (!activeCard) return;
+                currentX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
                 const deltaX = currentX - startX;
                 const rotate = deltaX * 0.08;
-                
                 activeCard.style.transform = `translateX(${deltaX}px) rotate(${rotate}deg)`;
             }
 
             function endDrag() {
-                if (!isDragging || !activeCard) return;
-                isDragging = false;
+                if (!activeCard) return;
                 const deltaX = currentX - startX;
-
-                if (deltaX > 80) {
-                    activeCard.classList.add('swiping-right');
-                    currentCardIndex = (currentCardIndex + 1) % totalCardsCount;
+                if (Math.abs(deltaX) > 80) {
+                    if (deltaX > 0) {
+                        activeCard.classList.add('swiping-right');
+                    } else {
+                        activeCard.classList.add('swiping-left');
+                    }
+                    const swiped = activeCard;
                     setTimeout(() => {
-                        const topCard = cards.shift();
-                        cards.push(topCard);
+                        const idx = deckCards.indexOf(swiped);
+                        if (idx > -1) deckCards.splice(idx, 1);
+                        deckCards.push(swiped);
                         updateCardPositions();
-                    }, 280);
-                } else if (deltaX < -80) {
-                    activeCard.classList.add('swiping-left');
-                    currentCardIndex = (currentCardIndex + 1) % totalCardsCount;
-                    setTimeout(() => {
-                        const topCard = cards.shift();
-                        cards.push(topCard);
-                        updateCardPositions();
-                    }, 280);
+                    }, 400);
                 } else {
                     activeCard.style.transform = '';
                 }

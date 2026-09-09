@@ -356,42 +356,38 @@ canvas {
     50% { opacity: 0; }
 }
 
-/* Centered Bottom Balloon Callout Badge */
+/* Centered Bottom Balloon Callout Text (No Background) */
 .balloon-badge-btn {
     position: absolute;
-    bottom: 2rem;
+    bottom: 1.25rem;
     left: 50%;
     transform: translateX(-50%);
     display: inline-flex;
     align-items: center;
-    gap: 0.65rem;
-    background: rgba(255, 255, 255, 0.94);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    color: #1e293b;
+    gap: 0.5rem;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    color: #475569;
     font-size: 0.95rem;
     font-weight: 600;
-    padding: 0.55rem 1.45rem;
-    border-radius: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.9);
-    box-shadow: 
-        0 14px 30px -4px rgba(0, 0, 0, 0.08),
-        0 4px 10px rgba(0, 0, 0, 0.04);
+    padding: 0.35rem 0.75rem;
+    border: none;
+    border-radius: 8px;
+    box-shadow: none;
     cursor: pointer;
     user-select: none;
-    transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
     z-index: 10;
     overflow: visible !important;
 }
 
 .oversized-pointer {
-    font-size: 2.2rem;
-    margin-top: -0.65rem;
-    margin-bottom: -0.35rem;
-    margin-left: -0.4rem;
+    font-size: 1.6rem;
+    margin: 0;
     position: relative;
     z-index: 12;
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
     transform: rotate(-10deg);
     transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
     display: inline-block;
@@ -399,19 +395,15 @@ canvas {
 }
 
 .balloon-badge-btn:hover .oversized-pointer {
-    transform: rotate(-10deg) scale(1.18) translateY(-2px);
+    transform: rotate(-10deg) scale(1.15) translateY(-2px);
 }
 
 .balloon-badge-btn:hover {
-    background: #ffffff;
+    background: transparent;
     color: #ea580c;
-    border-color: rgba(234, 88, 12, 0.4);
-    transform: translateX(-50%) translateY(-2px) scale(1.03);
-    box-shadow: 
-        0 18px 35px -4px rgba(234, 88, 12, 0.2),
-        0 6px 14px rgba(0, 0, 0, 0.06);
-}
-        0 6px 14px rgba(0, 0, 0, 0.15);
+    border: none;
+    box-shadow: none;
+    transform: translateX(-50%) translateY(-2px);
 }
 
 .badge-icon {
@@ -560,6 +552,10 @@ canvas {
     }
     #headline {
         font-size: 2.2rem;
+    }
+
+    .balloon-badge-btn {
+        bottom: 2.6rem;
     }
 }
 

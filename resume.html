@@ -10,6 +10,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 	
 	<link rel="stylesheet" href="index.css">
+	<link rel="stylesheet" href="consent.css">
 	
 	<style type="text/css">
         /* Force Sans Serif Font across entire Resume Page */
@@ -317,7 +318,7 @@
 			</button>
 			<nav id="navMenu">
 				<a class="nav-item" href="index.html">Home</a>
-				<a class="nav-item active" href="resume.html" rel="nofollow">Resume</a>
+				<!-- <a class="nav-item active" href="resume.html" rel="nofollow">Resume</a> -->
 				<a class="nav-item" href="photography.html">Photography</a>
 				<a class="nav-item" href="nyc.html">NYC</a>
 				<a class="nav-item nav-item-linkedin" href="https://www.linkedin.com/in/jordanbroihier/" target="_blank" rel="noopener">LinkedIn</a>
@@ -447,6 +448,23 @@
         </main>
 	</div>
 
+		<footer class="site-footer">
+			&copy; 2026 Jordan Broihier. All Rights Reserved.<span class="footer-sep">|</span><a href="privacy.html">Privacy Policy</a><span class="footer-sep">|</span><a href="terms.html">Terms of Use</a>
+		</footer>
+	</div>
+
+	<!-- Cookie Consent Banner -->
+	<div id="cookie-consent-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
+		<div class="consent-card">
+			<p>This site uses cookies and Google Analytics to understand how visitors use the site and improve the experience. For details, see our <a href="privacy.html">Privacy Policy</a>.</p>
+			<div class="consent-buttons">
+				<button id="consent-accept" class="consent-btn consent-btn-accept">Accept</button>
+				<button id="consent-reject" class="consent-btn consent-btn-reject">Reject</button>
+			</div>
+		</div>
+	</div>
+
+	<script src="consent.js"></script>
 	<script>
 		document.addEventListener('DOMContentLoaded', () => {
 			// Hamburger Toggle
