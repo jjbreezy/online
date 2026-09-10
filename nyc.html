@@ -28,6 +28,7 @@
             position: relative;
         }
 
+        /* Dark Mode Navigation for NYC Page */
         #top-nav .logo {
             color: #ffffff !important;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
@@ -35,6 +36,65 @@
 
         .hamburger span {
             background: #ffffff !important;
+        }
+
+        #top-nav .nav-item {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #cbd5e1;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        #top-nav .nav-item:hover {
+            background: rgba(255, 255, 255, 0.16);
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+            transform: translateY(-1px);
+        }
+
+        #top-nav .nav-item.active {
+            background: #ffffff;
+            color: #0a0a0a;
+            border-color: #ffffff;
+            box-shadow: 0 4px 14px rgba(255, 255, 255, 0.16);
+            font-weight: 700;
+        }
+
+        #top-nav .nav-item.active:hover {
+            background: #f1f5f9;
+            color: #000000;
+            border-color: #f1f5f9;
+            box-shadow: 0 4px 16px rgba(255, 255, 255, 0.22);
+        }
+
+        #top-nav .nav-item-linkedin,
+        #top-nav nav a[href*="linkedin"] {
+            background: #00335e !important;
+            color: #e2e8f0 !important;
+            border-color: rgba(255, 255, 255, 0.15) !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4) !important;
+        }
+
+        #top-nav .nav-item-linkedin:hover,
+        #top-nav nav a[href*="linkedin"]:hover {
+            background: #004182 !important;
+            color: #ffffff !important;
+            border-color: rgba(255, 255, 255, 0.3) !important;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6) !important;
+        }
+
+        /* Mobile Dark Drawer for NYC Page */
+        @media (max-width: 768px) {
+            #top-nav nav {
+                background: rgba(15, 17, 23, 0.96) !important;
+                backdrop-filter: blur(24px) !important;
+                -webkit-backdrop-filter: blur(24px) !important;
+                border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
+                box-shadow: -10px 0 40px rgba(0, 0, 0, 0.8) !important;
+            }
         }
 
         /* Completely Hide Standard Orthogonal Dot Grid on NYC Page */
