@@ -1,0 +1,205 @@
+/* === Restored & Modernized 2024 Holiday Gift Guide Styles === */
+:root {
+  --wreath-bg: rgb(0, 61, 29);
+  --content-bg: rgb(0, 27, 13);
+  --card-bg: #ffebcd; /* blanchedalmond */
+  --card-text: #8b0000; /* darkred */
+  --accent-red: #d32f2f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--wreath-bg);
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-image: url('https://static-00.iconduck.com/assets.00/christmas-wreath-emoji-508x512-h9g5izhl.png');
+  background-repeat: repeat;
+  background-size: 160px;
+}
+
+/* Obscurity during authentication check */
+body.protected-hidden {
+  display: none !important;
+}
+
+/* Subpage banner navigation */
+.subpage-banner {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 20, 9, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 12px 24px;
+  box-sizing: border-box;
+  color: #fff;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.subpage-banner a {
+  color: #a7f3d0 !important;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.subpage-banner a:hover {
+  text-decoration: underline;
+}
+
+.subpage-lock-btn {
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #fca5a5;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.subpage-lock-btn:hover {
+  background: rgba(239, 68, 68, 0.35);
+  color: #ffffff;
+}
+
+/* Container */
+.page-container {
+  width: 92%;
+  max-width: 800px;
+  margin: 24px auto 60px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+div {
+  border-radius: 20px;
+}
+
+.header {
+  background-color: var(--card-bg);
+  color: var(--card-text);
+  padding: 32px 28px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.header h1 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  color: darkgreen;
+  margin: 0 0 14px 0;
+}
+
+.header p {
+  margin: 0;
+  line-height: 1.6;
+  font-size: 1.05rem;
+  color: #3e1b1b;
+}
+
+.content {
+  background-color: var(--content-bg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.pricepoint {
+  background-color: var(--card-bg);
+  padding: 24px 28px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.pricepoint h1 {
+  color: var(--card-text);
+  margin-top: 0;
+  margin-bottom: 4px;
+  font-size: 1.5rem;
+}
+
+.pricepoint p {
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: #4a5568;
+  font-weight: 500;
+}
+
+.giftwrapper {
+  padding-left: 20px;
+}
+
+.giftwrapper li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+  color: #1a202c;
+  font-size: 1rem;
+}
+
+a {
+  color: var(--accent-red);
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+a:hover {
+  color: #990000;
+}
+
+.textblock {
+  padding: 24px 28px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+.textblock h1 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 1.5rem;
+  color: #fca5a5;
+}
+
+.textblock p {
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: #cbd5e1;
+}
+
+.textblock ul {
+  padding-left: 20px;
+}
+
+.textblock li {
+  margin-bottom: 8px;
+  color: #e2e8f0;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+}
+
+.footer p {
+  color: white;
+  font-size: 1.2rem;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}

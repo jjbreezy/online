@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Security Headers -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com;">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Jordan’s Christmas List 2025 🎄</title>
+  <!-- Block search engine indexing, archiving, and caching -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex">
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex">
+  <meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="slurp" content="noindex, nofollow, noarchive, nosnippet, noimageindex"> <!-- Yahoo -->
+  <meta name="duckduckbot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="baiduspider" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="yandex" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="applebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="teoma" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="description"
+    content="Mobile‑friendly, responsive Christmas list with sizes, shipping info, and price‑range gift ideas." />
+  <script>
+    if (sessionStorage.getItem('jjb_giftguide_auth') !== 'authenticated') {
+      window.location.replace('index.html?redirect=2025.html');
+    }
+  </script>
+  <style>
+    /* Prevent content flash */
+    body.protected-hidden { display: none !important; }
+
+    .subpage-banner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(8, 19, 11, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 12px 24px;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .subpage-banner a {
+      color: var(--link);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .subpage-banner a:hover {
+      text-decoration: underline;
+    }
+    .subpage-lock-btn {
+      background: rgba(225, 29, 72, 0.18);
+      border: 1px solid rgba(225, 29, 72, 0.35);
+      color: #ffb4c2;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .subpage-lock-btn:hover {
+      background: rgba(225, 29, 72, 0.35);
+      color: #ffffff;
+    }
+  </style>
+  <style>
+    /* === Christmas design tokens === */
+    :root {
+      --bg: #08130b;
+      /* deep evergreen */
+      --panel: #0e2414;
+      /* darker green panel */
+      --text: #f7faf7;
+      /* near-white */
+      --muted: #cfe3d3;
+      /* minty muted */
+      --brand: #e11d48;
+      /* holly red */
+      --accent: #fbbf24;
+      /* warm gold */
+      --card: #12311d;
+      /* evergreen card */
+      --border: #1f3b29;
+      /* forest border */
+      --link: #9ae6b4;
+      /* mint link */
+      --shadow: 0 10px 28px rgba(0, 0, 0, .35);
+      --radius: 16px;
+      --radius-sm: 10px;
+      --gutter: 18px;
+      --maxw: 1000px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      font: 16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    /* subtle snowflake pattern using emoji */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .08;
+      z-index: -1;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><text x='20' y='26' text-anchor='middle' font-size='18'>❄️</text></svg>");
+      background-size: 40px 40px;
+      background-repeat: repeat;
+      animation: snowdrift 50s linear infinite;
+    }
+
+    @keyframes snowdrift {
+      from {
+        transform: translateY(0);
+      }
+
+      to {
+        transform: translateY(40px);
+      }
+    }
+
+    /* festive background glows */
+    .bg-glow {
+      position: fixed;
+      inset: -20vh -20vw auto -20vw;
+      height: 60vh;
+      background:
+        radial-gradient(600px 300px at 10% -10%, rgba(236, 72, 153, .12), transparent 40%),
+        radial-gradient(400px 200px at 110% 0%, rgba(251, 191, 36, .12), transparent 40%);
+      z-index: -2;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 32px;
+      padding-left: max(32px, env(safe-area-inset-left));
+      padding-right: max(32px, env(safe-area-inset-right));
+    }
+
+    /* Header */
+    header.hero {
+      margin: 24px auto 28px;
+      background: linear-gradient(145deg, var(--panel), transparent 70%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: clamp(24px, 6vw, 44px);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    header.hero h1 {
+      margin: 0 0 6px;
+      font-size: clamp(1.6rem, 4.4vw, 2.4rem);
+      letter-spacing: .3px;
+    }
+
+    /* Christmas lights title animation */
+    .lights-title {
+      display: inline-block;
+      font-weight: 900;
+      letter-spacing: .5px;
+    }
+
+    .lights-title span {
+      display: inline-block;
+      filter: saturate(1.2);
+      animation: twinkle 2.5s linear infinite;
+    }
+
+    .lights-title span:nth-child(3n+1) {
+      text-shadow: 0 0 6px rgba(225, 29, 72, .85);
+      color: #ffdee5;
+    }
+
+    .lights-title span:nth-child(3n+2) {
+      text-shadow: 0 0 6px rgba(251, 191, 36, .85);
+      color: #fff3d4;
+    }
+
+    .lights-title span:nth-child(3n) {
+      text-shadow: 0 0 6px rgba(34, 197, 94, .85);
+      color: #dbffe6;
+    }
+
+    @keyframes twinkle {
+
+      0%,
+      80% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+
+      85% {
+        opacity: .6;
+      }
+
+      90% {
+        transform: translateY(-1px) scale(1.02);
+      }
+
+      95% {
+        opacity: .85;
+      }
+
+      100% {
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    header.hero p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: .9rem;
+      margin-top: 10px;
+    }
+
+    .badge .dot {
+      width: 8px;
+      height: 8px;
+      background: var(--brand);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    /* Instruction banner for accordions */
+    .hint-banner {
+      margin-top: 12px;
+      background: #0c2e19;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      color: var(--muted);
+    }
+
+    .hint-banner strong {
+      color: var(--accent);
+    }
+
+    /* Quick info */
+    .quick-info {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .quick-info .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+    }
+
+    .quick-info h3 {
+      margin: 0 0 6px;
+      font-size: 1rem;
+    }
+
+    .quick-info p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    @media (min-width: 720px) {
+      .quick-info {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* Sections */
+    section {
+      margin: 28px 0;
+    }
+
+    section:first-child {
+      margin-top: 0;
+    }
+
+    section>h2 {
+      margin: 0 0 10px;
+      font-size: clamp(1.1rem, 2.6vw, 1.4rem);
+    }
+
+    section>p.lead {
+      margin-top: 0;
+      color: var(--muted);
+    }
+
+    /* Accordions */
+    details.accordion,
+    .accordion {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    details.accordion+details.accordion,
+    .accordion+.accordion {
+      margin-top: 12px;
+    }
+
+    details.accordion summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 18px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(0deg, rgba(251, 191, 36, .12), rgba(251, 191, 36, .12)), var(--panel);
+      border-radius: var(--radius-sm);
+      border-bottom: 1px solid transparent;
+    }
+
+    details.accordion summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .price-tag {
+      display: inline-block;
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid #22c55e;
+      color: #4ade80;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 0.9em;
+      margin-right: 10px;
+      font-weight: 700;
+    }
+
+    details.accordion summary .tap {
+      margin-left: auto;
+      font-weight: 700;
+      color: var(--accent);
+      font-size: .95rem;
+      animation: pulse-text 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse-text {
+
+      0%,
+      100% {
+        opacity: 0.7;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+    }
+
+    details.accordion summary::before {
+      content: "▸";
+      display: inline-block;
+      transform-origin: center;
+      transition: transform .2s ease;
+      color: var(--accent);
+      font-size: 1.1rem;
+    }
+
+    details.accordion[open] summary::before {
+      transform: rotate(90deg);
+    }
+
+    details.accordion[open] summary {
+      border-bottom: 1px solid var(--border);
+    }
+
+    details.accordion .content,
+    .accordion .content {
+      padding: 14px 16px;
+      color: var(--muted);
+    }
+
+    /* Warning / Static Accordion */
+    .accordion.warning {
+      background: rgba(225, 29, 72, 0.15);
+      /* Red tint */
+      border-color: var(--brand);
+    }
+
+    .accordion.warning .summary-like {
+      padding: 18px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(0deg, rgba(225, 29, 72, 0.12), rgba(225, 29, 72, 0.12)), var(--panel);
+      border-radius: var(--radius-sm);
+      border-bottom: 1px solid var(--border);
+      color: #ffdee5;
+      font-family: inherit;
+      /* Ensure font matches */
+    }
+
+    .accordion.warning .content {
+      color: #ffdee5;
+    }
+
+    /* Grid & cards */
+    .grid {
+      display: grid;
+      gap: var(--gutter);
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 520px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 900px) {
+      .grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .item {
+      position: relative;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      transform: translateY(6px);
+    }
+
+    .item figure {
+      margin: 0;
+      aspect-ratio: 4 / 3;
+      background: repeating-conic-gradient(from 45deg, rgba(255, 255, 255, .05) 0 12deg, transparent 12deg 24deg);
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .item .body {
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .item .title {
+      font-weight: 700;
+    }
+
+    .item .meta {
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .tag {
+      font-size: .75rem;
+      background: rgba(248, 113, 113, .15);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 4px 8px;
+      border-radius: 999px;
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-top: 6px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border: 1px solid var(--border);
+      background: #173e25;
+      padding: 8px 10px;
+      border-radius: 10px;
+      font-size: .9rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn:hover {
+      filter: brightness(1.05);
+    }
+
+    /* Motion: card fade-up on view */
+    @keyframes fadeUp {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .item {
+        opacity: 0;
+        animation: fadeUp .6s ease forwards;
+      }
+
+      .item:nth-child(3n+1) {
+        animation-delay: .05s;
+      }
+
+      .item:nth-child(3n+2) {
+        animation-delay: .12s;
+      }
+
+      .item:nth-child(3n) {
+        animation-delay: .18s;
+      }
+
+      .item:hover {
+        transform: translateY(-2px);
+        transition: transform .2s ease;
+      }
+
+      .item:hover {
+        transform: translateY(-2px);
+        transition: transform .2s ease;
+      }
+    }
+
+    /* Big Ticket Item Styling */
+    .item.big-ticket {
+      border: 1px solid var(--accent);
+      box-shadow: 0 0 20px rgba(251, 191, 36, 0.15);
+      background: linear-gradient(145deg, var(--card), rgba(251, 191, 36, 0.05));
+    }
+
+    .item.big-ticket .tag {
+      background: rgba(251, 191, 36, 0.15);
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .item.big-ticket .btn {
+      background: var(--accent);
+      color: #08130b;
+      font-weight: 700;
+      border: none;
+    }
+
+    .item.big-ticket .btn:hover {
+      filter: brightness(1.1);
+      box-shadow: 0 0 10px rgba(251, 191, 36, 0.4);
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    footer {
+      margin: 40px 0 16px;
+      color: var(--muted);
+      text-align: center;
+      font-size: .92rem;
+    }
+
+    @media print {
+
+      header.hero,
+      .badge,
+      .controls .btn,
+      details.accordion summary .tap {
+        display: none !important;
+      }
+
+      body {
+        background: #fff;
+        color: #000;
+      }
+
+      .item {
+        border: 1px solid #ccc;
+        box-shadow: none;
+      }
+
+      .item figure {
+        display: none;
+      }
+
+      .grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="protected-hidden">
+  <div class="subpage-banner">
+    <a href="index.html">← Back to Gift Guide Hub</a>
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <a href="2024.html" style="font-weight: normal; font-size: 0.85rem; color: var(--muted);">View 2024 Archive</a>
+      <button type="button" class="subpage-lock-btn" onclick="window.lockGiftGuideSession()">🔒 Lock</button>
+    </div>
+  </div>
+  <div class="bg-glow" aria-hidden="true"></div>
+  <header class="hero container" role="banner">
+    <h1 aria-label="Jordan’s Christmas List" class="lights-title">
+      J<span>o</span>r<span>d</span>a<span>n</span>’<span>s</span>
+      <span>C</span>h<span>r</span>i<span>s</span>t<span>m</span>a<span>s</span> <span>L</span>i<span>s</span>t
+    </h1>
+    <p>Hi friends &amp; family! This is my Christmas 2025 list, grouped by price point. Struggling with ideas? Gift
+      cards and cash are always great (<a href="#retailers" style="color: var(--link); text-decoration: underline;">see
+        retailers</a>)! Don't forget to coordinate with others on what you're purchasing so we don't have
+      duplicates.<br><strong>Please review the <a href="#not-needed"
+          style="color: var(--brand); text-decoration: underline;">what not to get</a> section before
+        shopping!</strong>
+    </p>
+    <div class="hint-banner" role="note">👉 <strong>On phones &amp; tablets:</strong> tap any bar that says <em>Tap to
+        open</em> to expand price ranges and details. ✨</div>
+    <div class="quick-info" aria-label="Quick info">
+
+      <div class="card">
+        <h3>Shipping 📦</h3>
+        <p>NYC · <em>Address on request</em></p>
+      </div>
+    </div>
+  </header>
+  <main class="container" id="content">
+    <!--
+    <section aria-labelledby="priority-title">
+      <h2 id="priority-title">Top priorities 🎯</h2>
+      <p class="lead">A few high‑priority picks for this year. New items first.</p>
+      <div class="grid">
+        <article class="item" aria-label="Trail running vest">
+          <figure>
+            <div>Image placeholder</div>
+          </figure>
+          <div class="body">
+            <div class="title">Trail running vest (soft‑flask)</div>
+            <div class="meta">For long runs; 1–2L capacity, phone pocket.</div>
+            <div class="controls"><a class="btn" href="#" target="_blank" rel="noopener">🔗 View</a></div>
+          </div>
+        </article>
+      </div>
+    </section>
+    -->
+
+    <section aria-labelledby="prices-title">
+      <h2 id="prices-title">Price ranges 💸</h2>
+      <p class="lead">Browse by budget. Tap to open.</p>
+
+      <details class="accordion">
+        <summary><span class="price-tag">$0–$25</span>Stocking Stuffers<span class="tap">Tap to open</span>
+        </summary>
+        <div class="content">
+          <div class="grid">
+            <article class="item placeholder">
+              <div class="body">
+                <div class="title">Chocolate oranges</div>
+                <div class="meta">Classic holiday treat.</div>
+                <div class="controls"><a class="btn" href="https://www.terryschocolate.com" target="_blank"
+                    rel="nofollow noopener noreferrer">🔗 Link</a></div>
+              </div>
+            </article>
+
+            <article class="item placeholder">
+              <div class="body">
+                <div class="title">Epic Provisions</div>
+                <div class="meta">Any flavor/type is great. The salmon ones are extra great.</div>
+                <div class="controls"><a class="btn" href="https://epicprovisions.com" target="_blank" rel="nofollow noopener noreferrer">🔗
+                    Link</a></div>
+              </div>
+            </article>
+
+            <article class="item placeholder">
+              <div class="body">
+                <div class="title">Saucony Men's Running Socks</div>
+                <div class="meta">Size L, ideally the Metamorphic color.</div>
+                <div class="controls"><a class="btn"
+                    href="https://www.saucony.com/en/inferno-cushion-no-show-tab-sock/60480U.html?dwvar_60480U_color=S385170-101#cgid=mens-apparel-socks&start=1"
+                    target="_blank" rel="nofollow noopener noreferrer">🔗
+                    Link</a></div>
+              </div>
+            </article>
+
+            <article class="item placeholder">
+              <div class="body">
+                <div class="title">LEGO Botanicals Happy Plants</div>
+                <div class="meta">Plant shelf cuties.</div>
+                <div class="controls"><a class="btn"
+                    href="https://www.amazon.com/gp/product/B0DRW6C2RF/ref=ox_sc_saved_title_4?smid=ATVPDKIKX0DER&psc=1"
+                    target="_blank" rel="nofollow noopener noreferrer">🔗 Link</a></div>
+              </div>
+            </article>
+            <article class="item placeholder">
+              <div class="body">
+                <div class="title">Mouse Skates</div>
+                <div class="meta">PTFE Glide.</div>
+                <div class="controls"><a class="btn"
+                    href="https://www.amazon.com/gp/product/B0FMXS3SF9/ref=ox_sc_saved_title_10?smid=A1K965OHNO5J12&th=1"
+                    target="_blank" rel="nofollow noopener noreferrer">🔗 Link</a></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </details>
+
+      <details class="accordion">
+        <summary><span class="price-tag">$25–$50</span>Festive Finds<span class="tap">Tap to open</span></summary>
+        <div class="content">
+          <div class="grid">
+
+            <article class="item placeholder">
+              <div class="body">
+                <div class="title">Suncatcher</div>
+                <div class="meta">Light up the room.
+                </div>
+                <div class="controls"><a class="btn"
+                    href="https://www.amazon.com/gp/product/B00IGHUHB6/ref=ox_sc_saved_image_9?smid=AJ4C7RNEEOYHQ&th=1"
+                    target="_blank" rel="nofollow noopener noreferrer">🔗 Link</a></div>
+              </div>
+            </article>
+
+            <article class="item placeholder">
+              <div class="body">
+                <div class="title">Earmuffs</div>
+                <div class="meta">Keep the ears warm.
+                </div>
+                <div class="controls"><a class="btn"
+                    href="https://www.amazon.com/gp/product/B0FLM5XNJG/ref=ox_sc_saved_title_4?smid=A3U63W2PI9E9L5&th=1&psc=1"
+                    target="_blank" rel="nofollow noopener noreferrer">🔗 Link</a></div>
+              </div>
+            </article>
+
+            <article class="item placeholder">
+              <div class="body">
+                <div class="title">Colorful Pepper Mill</div>
+                <div class="meta">A great table centerpiece - ideally wood, a bright red, and an interesting shape.
+                  Doesn't have to be this big.
+                </div>
+                <div class="controls"><a class="btn"
+                    href="https://www.amazon.com/gp/product/B00HNP42AE/ref=ox_sc_saved_title_9?smid=A37ZYJGOIIGR57&th=1"
+                    target="_blank" rel="nofollow noopener noreferrer">🔗 Link</a></div>
+              </div>
+            </article>
+
+            <article class="item placeholder">
+              <div class="body">
+                <div class="title">Clear Building Bricks</div>
+                <div class="meta">DIY lamp projects abound. Probably only need 1 of these.</div>
+                <div class="controls"><a class="btn"
+                    href="https://www.amazon.com/gp/product/B00ZQLE97I/ref=ox_sc_saved_title_1?smid=A1B7M9EQGNCLQA&th=1"
+                    target="_blank" rel="nofollow noopener noreferrer">🔗 Link</a></div>
+              </div>
+            </article>
+            <article class="item placeholder">
+              <div class="body">
+                <div class="title">Water Flosser</div>
+                <div class="meta">Pearly whites and healthy gums await.</div>
+                <div class="controls"><a class="btn"
+                    href="https://www.amazon.com/gp/product/B0CNTRVZPW/ref=ox_sc_saved_title_6?smid=ATVPDKIKX0DER&th=1"
+                    target="_blank" rel="nofollow noopener noreferrer">🔗 Link</a></div>
+              </div>
+            </article>
+
+            <article class="item placeholder">
+              <div class="body">
+                <div class="title">Philips Hue Smart Bulbs</div>
+                <div class="meta">You already knew it was coming.</div>
+                <div class="controls"><a class="btn"
+                    href="https://www.amazon.com/Philips-Hue-Bluetooth-Compatible-Assistant/dp/B095KV6RFY/ref=ast_sto_dp_puis?th=1"
+                    target="_blank" rel="nofollow noopener noreferrer">🔗 Link</a></div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </details>
+
+      <details class="accordion">
+        <summary><span class="price-tag">$50–$100</span>Winter Wonders<span class="tap">Tap to open</span></summary>
+        <div class="content">
+          <div class="grid">
+            <article class="item placeholder">
+              <div class="body">
+                <div class="title">LEGO Mona Lisa</div>
+                <div class="meta">Davinci's enigmatic masterpiece brought to life in brick form - sure to persist as
+                  plastic waste for generations to come.</div>
+                <div class="controls"><a class="btn"
+                    href="https://www.amazon.com/gp/product/B0CPQ6WWK6/ref=ox_sc_saved_title_6?smid=ATVPDKIKX0DER&psc=1"
+                    target="_blank" rel="nofollow noopener noreferrer">🔗 Link</a></div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </details>
+
+      <details class="accordion">
+        <summary><span class="price-tag">$100+</span>Sleigh Selections<span class="tap">Tap to open</span></summary>
+        <div class="content">
+          <div class="grid">
+
+            <!--
+            <article class="item placeholder">
+              <div class="body">
+                <div class="title">Logitech MX Creative Keys</div>
+                <div class="meta">Dials and buttons. Oh my.</div>
+                <div class="controls"><a class="btn"
+                    href="https://www.amazon.com/gp/product/B0DB7SRW2G/ref=ox_sc_saved_title_8?smid=ATVPDKIKX0DER&th=1"
+                    target="_blank" rel="nofollow noopener noreferrer">🔗 Link</a></div>
+              </div>
+            </article>
+            -->
+
+            <article class="item placeholder">
+              <div class="body">
+                <div class="title">Red Light Therapy Lamp</div>
+                <div class="meta">Undoing the desk worker lifestyle one photon at a time.</div>
+                <div class="controls"><a class="btn"
+                    href="https://www.amazon.com/gp/product/B08CDBN5G3/ref=ox_sc_saved_title_8?smid=A1NY7DYKPATFNW&psc=1"
+                    target="_blank" rel="nofollow noopener noreferrer">🔗 Link</a></div>
+              </div>
+            </article>
+
+            <article class="item placeholder">
+              <div class="body">
+                <div class="title">ZeroMouse Blade</div>
+                <div class="meta">This is almost certainly sold out, but it's worth a shot.</div>
+                <div class="controls"><a class="btn" href="https://zeromouse.co/products/blade" target="_blank"
+                    rel="nofollow noopener noreferrer">🔗 Link</a></div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <section aria-labelledby="notes-title">
+      <h2 id="notes-title">Notes 📝</h2>
+
+      <details class="accordion" id="retailers">
+        <summary>Gift Card Retailers 💳 <span class="tap">Tap to open</span></summary>
+        <div class="content">
+          <ul>
+            <li>Amazon</li>
+            <li>J Crew</li>
+            <li>Buck Mason</li>
+            <li>Aesop</li>
+          </ul>
+        </div>
+      </details>
+
+      <div class="accordion warning" id="not-needed">
+        <div class="summary-like">The Naughty List: things not to get me this year 🚫</div>
+        <div class="content">
+          <p>In the spirit of less waste and more joy, here are things <strong>I don’t need this year</strong> (carried
+            over from last year’s guide):</p>
+          <ul>
+            <li><strong>Clothes: </strong>Extra T‑shirts, sweaters, baseball caps, gloves — already stocked. If you feel
+              the need for apparel gifts, refer to the gift card section, or cash - is great.</strong> 🧤</li>
+            <li><strong>Books: </strong>I read on Kindle exclusively now, so I don’t need paper books. My reading
+              backlog
+              is also pretty long, so I don't need to add to the queue.</strong></li>
+            <li>Consumer electronics (gadgets, headphones, chargers, cables, etc.) — apart from what's listed, I have
+              what I need. Want to reduce the amount of e-waste I create going forward. 🔌</li>
+            <li>Wall decor and art — we're set for now. 🖼️</li>
+            <li>Bedding &amp; textiles (pillowcases, blankets, rugs, pillows). 🛏️</li>
+            <li>Cosmetics or skincare products. Sensitive skin, I’ll source my own. 🧴</li>
+            <li><strong>Knick-knacks:</strong> we have plenty of decorations - some might say too much — storage is
+              tight. 🗄️</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer aria-label="Site footer">
+    <p>Last updated: <time datetime="2025-11-26">Nov 26, 2025</time> · Built with HTML & CSS · <span
+        class="muted">Please do not share broadly.</span></p>
+  </footer>
+  <script src="giftguide.js"></script>
+</body>
+
+</html>
