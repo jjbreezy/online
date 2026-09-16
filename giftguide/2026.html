@@ -10,7 +10,7 @@
   <title>Jordan’s Christmas List 2026 🎄</title>
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
   <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
-  <meta name="description" content="Jordan’s 2026 holiday gift guide with sizes, categorized wishlists, and curated ideas." />
+  <meta name="description" content="Jordan’s 2026 holiday gift guide with sizes, preferences, and holiday notes." />
 
   <!-- Immediate Auth Check -->
   <script>
@@ -25,28 +25,26 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* === 2026 Refined Holiday Design Tokens === */
+    /* === 2026 Refined Holiday Design Tokens (High Performance) === */
     :root {
       --bg: #030805;
-      --bg-gradient: radial-gradient(ellipse at 50% 0%, #0d2817 0%, #06150c 55%, #020704 100%);
-      --panel: rgba(14, 38, 22, 0.65);
-      --card: rgba(18, 48, 28, 0.5);
-      --card-hover: rgba(24, 62, 36, 0.7);
-      --border: rgba(154, 230, 180, 0.12);
-      --border-bright: rgba(251, 191, 36, 0.3);
+      --panel: #0c2415;
+      --panel-elevated: #102d1a;
+      --card: #12331e;
+      --card-hover: #184227;
+      --border: rgba(154, 230, 180, 0.16);
+      --border-bright: rgba(251, 191, 36, 0.35);
       --text: #f8faf8;
       --muted: #cbd5cb;
       --subtle: #879989;
       --ruby: #e11d48;
-      --ruby-glow: rgba(225, 29, 72, 0.35);
       --gold: #fbbf24;
       --gold-champagne: #fef08a;
       --mint: #9ae6b4;
-      --emerald-glow: rgba(34, 197, 94, 0.25);
-      --shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+      --shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
       --radius: 18px;
       --radius-sm: 10px;
-      --maxw: 960px;
+      --maxw: 920px;
     }
 
     * { box-sizing: border-box; }
@@ -58,52 +56,23 @@
       margin: 0;
       padding: 0;
       background-color: var(--bg);
-      background-image: var(--bg-gradient);
-      background-attachment: fixed;
+      background-image: radial-gradient(ellipse at 50% 0%, #0d2817 0%, #06150c 50%, #020704 100%);
       color: var(--text);
       font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
       -webkit-font-smoothing: antialiased;
+      /* Eliminating background-attachment: fixed prevents full-viewport scroll repaints */
     }
 
-    /* Ambient Festive Radial Glows */
-    .ambient-glow-1 {
-      position: fixed;
-      top: -150px;
-      left: 10%;
-      width: 500px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(225, 29, 72, 0.09), transparent 65%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .ambient-glow-2 {
-      position: fixed;
-      top: 100px;
-      right: 5%;
-      width: 600px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(251, 191, 36, 0.08), transparent 70%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* Subtle Elegant Snowflake Drift */
+    /* Static Lightweight Snowflake Pattern (Zero Compositing Lag) */
     body::before {
       content: "";
       position: fixed;
       inset: 0;
       pointer-events: none;
-      opacity: 0.07;
+      opacity: 0.05;
       z-index: 0;
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60'><text x='30' y='36' text-anchor='middle' font-size='20' fill='%23ffffff'>❄️</text></svg>");
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60'><text x='30' y='36' text-anchor='middle' font-size='18' fill='%23ffffff'>❄️</text></svg>");
       background-size: 60px 60px;
-      animation: gentle-snow 60s linear infinite;
-    }
-
-    @keyframes gentle-snow {
-      from { transform: translateY(0); }
-      to { transform: translateY(60px); }
     }
 
     /* Subpage Header Banner */
@@ -111,9 +80,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(3, 8, 5, 0.88);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      background: rgba(3, 10, 6, 0.95);
       padding: 14px 28px;
       border-bottom: 1px solid var(--border);
       position: sticky;
@@ -172,11 +139,9 @@
     /* Hero Card */
     header.hero-card {
       background: var(--panel);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: clamp(32px, 6vw, 54px);
+      padding: clamp(32px, 6vw, 52px);
       box-shadow: var(--shadow);
       margin-bottom: 32px;
       position: relative;
@@ -214,10 +179,10 @@
       height: 7px;
       background: var(--gold);
       border-radius: 50%;
-      box-shadow: 0 0 8px var(--gold);
+      box-shadow: 0 0 6px var(--gold);
     }
 
-    /* Elegant Twinkling Title */
+    /* Clean Title */
     h1.hero-title {
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-size: clamp(2.4rem, 6vw, 3.8rem);
@@ -226,19 +191,6 @@
       margin: 0 0 14px 0;
       line-height: 1.1;
       color: #ffffff;
-    }
-
-    h1.hero-title span:nth-child(3n+1) {
-      color: #ffd9e0;
-      text-shadow: 0 0 12px rgba(225, 29, 72, 0.75);
-    }
-    h1.hero-title span:nth-child(3n+2) {
-      color: #fff2cb;
-      text-shadow: 0 0 12px rgba(251, 191, 36, 0.75);
-    }
-    h1.hero-title span:nth-child(3n) {
-      color: #e2fbe8;
-      text-shadow: 0 0 12px rgba(34, 197, 94, 0.75);
     }
 
     header.hero-card p {
@@ -251,19 +203,39 @@
 
     .draft-banner {
       margin-top: 22px;
-      padding: 12px 18px;
-      background: rgba(18, 48, 28, 0.7);
-      border: 1px solid var(--border);
+      padding: 14px 20px;
+      background: var(--panel-elevated);
+      border: 1px dashed var(--border-bright);
       border-radius: var(--radius-sm);
       display: flex;
       align-items: center;
       gap: 12px;
-      font-size: 0.92rem;
+      font-size: 0.95rem;
       color: var(--muted);
     }
 
     .draft-banner strong {
-      color: var(--gold);
+      color: var(--gold-champagne);
+    }
+
+    /* Section Heading */
+    h2.section-heading {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin: 36px 0 16px 0;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    h2.section-heading::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
     }
 
     /* Quick Info / Specs Strip */
@@ -276,10 +248,14 @@
 
     .spec-item {
       background: var(--panel);
-      backdrop-filter: blur(12px);
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
-      padding: 14px 18px;
+      padding: 16px 20px;
+      transition: border-color 0.2s ease;
+    }
+
+    .spec-item:hover {
+      border-color: rgba(154, 230, 180, 0.35);
     }
 
     .spec-item .label {
@@ -297,147 +273,69 @@
       color: #ffffff;
     }
 
-    /* Accordion Category Sections */
-    .category-accordion {
-      background: var(--panel);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      margin-bottom: 18px;
-      overflow: hidden;
-      transition: border-color 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .category-accordion:hover {
-      border-color: rgba(154, 230, 180, 0.25);
-    }
-
-    .category-accordion[open] {
-      border-color: var(--border-bright);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
-    }
-
-    summary.category-header {
-      padding: 20px 26px;
-      font-size: 1.25rem;
-      font-weight: 600;
-      cursor: pointer;
-      list-style: none;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      user-select: none;
-      color: #ffffff;
-    }
-
-    summary.category-header::-webkit-details-marker { display: none; }
-
-    .category-title-group {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .price-pill {
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      color: var(--gold);
-    }
-
-    .chevron-icon {
-      font-size: 0.9rem;
-      color: var(--subtle);
-      transition: transform 0.25s ease;
-    }
-
-    .category-accordion[open] .chevron-icon {
-      transform: rotate(180deg);
-      color: var(--gold);
-    }
-
-    .category-body {
-      padding: 6px 26px 26px 26px;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    /* Item Cards inside Accordion */
-    .items-list {
+    /* Clean Planned Categories Strip (Without Detail Clutter) */
+    .planned-categories-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 14px;
-      margin-top: 16px;
+      margin-bottom: 32px;
     }
 
-    .item-card {
-      background: var(--card);
+    .category-preview-card {
+      background: var(--panel);
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
-      padding: 18px 20px;
+      padding: 20px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+      transition: border-color 0.2s ease, transform 0.2s ease;
     }
 
-    .item-card:hover {
-      background: var(--card-hover);
-      border-color: rgba(255, 255, 255, 0.2);
+    .category-preview-card:hover {
+      border-color: var(--border-bright);
       transform: translateY(-2px);
     }
 
-    .item-card.is-placeholder {
-      border-style: dashed;
-      background: rgba(18, 48, 28, 0.35);
+    .preview-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
     }
 
-    .item-title {
+    .preview-title {
       font-size: 1.05rem;
       font-weight: 600;
       color: #ffffff;
-      margin: 0 0 6px 0;
+      margin: 0;
     }
 
-    .item-desc {
-      font-size: 0.9rem;
+    .preview-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(251, 191, 36, 0.12);
+      border: 1px solid rgba(251, 191, 36, 0.25);
+      color: var(--gold);
+    }
+
+    .preview-desc {
+      font-size: 0.88rem;
       color: var(--muted);
-      line-height: 1.5;
-      margin: 0 0 16px 0;
-    }
-
-    .item-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--mint);
-      text-decoration: none;
-      padding: 6px 12px;
-      background: rgba(154, 230, 180, 0.1);
-      border: 1px solid rgba(154, 230, 180, 0.2);
-      border-radius: 6px;
-      width: fit-content;
-      transition: all 0.15s ease;
-    }
-
-    .item-link:hover {
-      background: rgba(154, 230, 180, 0.2);
-      color: #ffffff;
+      line-height: 1.45;
+      margin: 0;
     }
 
     /* Naughty List Warning Section */
     .naughty-list-card {
-      background: rgba(30, 10, 16, 0.5);
-      border: 1px solid rgba(225, 29, 72, 0.3);
+      background: rgba(30, 10, 16, 0.85);
+      border: 1px solid rgba(225, 29, 72, 0.35);
       border-radius: var(--radius);
       padding: 26px 30px;
       margin-top: 32px;
-      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
     }
 
     .naughty-list-card h3 {
@@ -480,9 +378,6 @@
 </head>
 <body class="protected-hidden">
 
-  <div class="ambient-glow-1" aria-hidden="true"></div>
-  <div class="ambient-glow-2" aria-hidden="true"></div>
-
   <!-- Top Banner Navigation -->
   <div class="subpage-banner">
     <a href="index.html">← Back to Gift Guides</a>
@@ -503,18 +398,19 @@
       </div>
 
       <h1 class="hero-title">
-        <span>Jordan’s</span> <span>Christmas</span> <span>List</span> <span>2026</span> <span>🎄</span>
+        Jordan’s Christmas List 2026 🎄
       </h1>
 
-      <p>A refined collection of gift ideas, everyday staples, clothing sizes, and stocking stuffers for the 2026 holiday season.</p>
+      <p>A curated collection of gift ideas, sizes, and guidelines for the 2026 holiday season.</p>
 
       <div class="draft-banner">
         <span>🎁</span>
-        <span><strong>Holiday 2026 Preview:</strong> This wishlist is currently being curated for the upcoming holiday season. Sizing details and preferred retailers are up-to-date!</span>
+        <span><strong>Holiday 2026 in progress:</strong> Specific items and links will be added closer to the holiday season. Sizing details and guidelines below are accurate!</span>
       </div>
     </header>
 
     <!-- Quick Sizing Strip -->
+    <h2 class="section-heading">Sizes & Preferences</h2>
     <div class="quick-specs">
       <div class="spec-item">
         <div class="label">Shirt / Outerwear</div>
@@ -529,130 +425,46 @@
         <div class="val">US 10.5 / 11</div>
       </div>
       <div class="spec-item">
-        <div class="label">Preferred Styles</div>
+        <div class="label">Preferred Palette</div>
         <div class="val">Neutrals & Evergreen</div>
       </div>
     </div>
 
-    <!-- Tier 1: Over $100 -->
-    <details class="category-accordion" open>
-      <summary class="category-header">
-        <div class="category-title-group">
-          <span>Big Ticket Items</span>
-          <span class="price-pill">$100+</span>
+    <!-- Planned Categories Overview -->
+    <h2 class="section-heading">Planned Price Categories</h2>
+    <div class="planned-categories-grid">
+      <div class="category-preview-card">
+        <div class="preview-header">
+          <h3 class="preview-title">Big Ticket Items</h3>
+          <span class="preview-badge">$100+</span>
         </div>
-        <span class="chevron-icon">▼</span>
-      </summary>
-      <div class="category-body">
-        <div class="items-list">
-          <div class="item-card is-placeholder">
-            <div>
-              <h4 class="item-title">Selected Design or Tech Item</h4>
-              <p class="item-desc">High-quality lifestyle, tech, or studio item for long-term daily use.</p>
-            </div>
-            <span class="item-link" style="opacity: 0.6; pointer-events: none;">Coming Soon</span>
-          </div>
-
-          <div class="item-card is-placeholder">
-            <div>
-              <h4 class="item-title">Home & Living Upgrade</h4>
-              <p class="item-desc">Durable, design-forward cookware, home goods, or minimalist furniture accent.</p>
-            </div>
-            <span class="item-link" style="opacity: 0.6; pointer-events: none;">Coming Soon</span>
-          </div>
-        </div>
+        <p class="preview-desc">Long-term lifestyle, design, and studio upgrades.</p>
       </div>
-    </details>
 
-    <!-- Tier 2: $50 - $100 -->
-    <details class="category-accordion" open>
-      <summary class="category-header">
-        <div class="category-title-group">
-          <span>Seasonal Standouts</span>
-          <span class="price-pill">$50 – $100</span>
+      <div class="category-preview-card">
+        <div class="preview-header">
+          <h3 class="preview-title">Seasonal Standouts</h3>
+          <span class="preview-badge">$50 – $100</span>
         </div>
-        <span class="chevron-icon">▼</span>
-      </summary>
-      <div class="category-body">
-        <div class="items-list">
-          <div class="item-card is-placeholder">
-            <div>
-              <h4 class="item-title">Apparel & Layering Essentials</h4>
-              <p class="item-desc">Quality knitwear, technical base layer, or everyday outerwear piece in dark neutral palette.</p>
-            </div>
-            <span class="item-link" style="opacity: 0.6; pointer-events: none;">Coming Soon</span>
-          </div>
-
-          <div class="item-card is-placeholder">
-            <div>
-              <h4 class="item-title">Everyday Carry / EDC</h4>
-              <p class="item-desc">Compact weather-resistant sling, pocket knife, or desk organizer.</p>
-            </div>
-            <span class="item-link" style="opacity: 0.6; pointer-events: none;">Coming Soon</span>
-          </div>
-        </div>
+        <p class="preview-desc">Quality knitwear, technical layers, and everyday carry.</p>
       </div>
-    </details>
 
-    <!-- Tier 3: Under $50 -->
-    <details class="category-accordion">
-      <summary class="category-header">
-        <div class="category-title-group">
-          <span>Everyday Essentials</span>
-          <span class="price-pill">Under $50</span>
+      <div class="category-preview-card">
+        <div class="preview-header">
+          <h3 class="preview-title">Everyday Essentials</h3>
+          <span class="preview-badge">Under $50</span>
         </div>
-        <span class="chevron-icon">▼</span>
-      </summary>
-      <div class="category-body">
-        <div class="items-list">
-          <div class="item-card is-placeholder">
-            <div>
-              <h4 class="item-title">Coffee & Kitchen Tools</h4>
-              <p class="item-desc">Specialty coffee beans (whole bean), borosilicate glassware, or barista accessories.</p>
-            </div>
-            <span class="item-link" style="opacity: 0.6; pointer-events: none;">Coming Soon</span>
-          </div>
-
-          <div class="item-card is-placeholder">
-            <div>
-              <h4 class="item-title">Photography Accessories</h4>
-              <p class="item-desc">Sensor blowers, lens cloths, or portable camera wrist straps.</p>
-            </div>
-            <span class="item-link" style="opacity: 0.6; pointer-events: none;">Coming Soon</span>
-          </div>
-        </div>
+        <p class="preview-desc">Coffee accessories, kitchen goods, and photography gear.</p>
       </div>
-    </details>
 
-    <!-- Tier 4: Stocking Stuffers -->
-    <details class="category-accordion">
-      <summary class="category-header">
-        <div class="category-title-group">
-          <span>Stocking Stuffers</span>
-          <span class="price-pill">Joyful & Small</span>
+      <div class="category-preview-card">
+        <div class="preview-header">
+          <h3 class="preview-title">Stocking Stuffers</h3>
+          <span class="preview-badge">Small & Joyful</span>
         </div>
-        <span class="chevron-icon">▼</span>
-      </summary>
-      <div class="category-body">
-        <div class="items-list">
-          <div class="item-card">
-            <div>
-              <h4 class="item-title">Reese’s & Dark Chocolate</h4>
-              <p class="item-desc">Classic holiday sweets or Terry's chocolate oranges.</p>
-            </div>
-            <span class="item-link" style="pointer-events: none;">Always Welcome</span>
-          </div>
-
-          <div class="item-card">
-            <div>
-              <h4 class="item-title">Creatine Gummies & Fitness Snacks</h4>
-              <p class="item-desc">Everyday workout fuel and high-protein pantry staples.</p>
-            </div>
-            <span class="item-link" style="pointer-events: none;">Always Welcome</span>
-          </div>
-        </div>
+        <p class="preview-desc">Reese's, chocolate oranges, and fitness pantry staples.</p>
       </div>
-    </details>
+    </div>
 
     <!-- The 2026 Naughty List -->
     <div class="naughty-list-card">
