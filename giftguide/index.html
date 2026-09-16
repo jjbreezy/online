@@ -39,10 +39,10 @@
     <!-- Locked State: Password Challenge Modal -->
     <section id="hub-lock-screen" aria-label="Password Access Gate">
       <div class="lock-card">
-        <div class="lock-icon-wrapper">🎁</div>
-        <span class="lock-badge">Holiday Gift Guides</span>
+        <div class="lock-icon-wrapper">🔒</div>
+        <span class="lock-badge">Private Access</span>
         <h2>Jordan's Gift Guides</h2>
-        <p>This section is password-protected for family & friends. Please enter the passphrase to view the wishlists.</p>
+        <p>This section is password-protected. Enter the passphrase below to view wishlists.</p>
 
         <form id="password-form" autocomplete="off">
           <div class="password-input-group">
@@ -53,23 +53,21 @@
           <div class="password-error-text" id="password-error">Incorrect password. Please try again.</div>
         </form>
 
-        <p class="lock-hint-text">🔒 Need access? Ask Jordan for the holiday passphrase.</p>
+        <p class="lock-hint-text">🔒 Need access? Ask Jordan for the passphrase.</p>
       </div>
     </section>
 
-    <!-- Unlocked State: Hub Directory -->
+    <!-- Unlocked State: Directory -->
     <section id="hub-unlocked-content" aria-label="Gift Guide Directory">
       <div class="hub-hero">
-        <h1 class="twinkle-title">
-          <span>Jordan’s</span> <span>Holiday</span> <span>Wishlists</span> <span>🎄</span>
-        </h1>
-        <p>Welcome! Browse the current wishlist for clothing sizes, specific items, and ideas, or visit previous years for reference.</p>
+        <h1 class="portal-title">Jordan’s Gift Guides</h1>
+        <p>Curated wishlists for birthdays, holidays, sizing references, and past archives.</p>
       </div>
 
       <h2 class="section-subheading">Active & Upcoming Wishlists</h2>
       <div class="guide-cards-grid">
-        <!-- Holiday 2026 Featured Card -->
-        <a class="guide-card featured" href="2026.html">
+        <!-- Holiday 2026 Featured Card (Green Snowflake Tile) -->
+        <a class="guide-card card-holiday featured" href="2026.html">
           <div>
             <span class="guide-card-tag tag-current">🎄 Holiday 2026 (Upcoming)</span>
             <h3>2026 Christmas List</h3>
@@ -80,8 +78,8 @@
           </div>
         </a>
 
-        <!-- Birthday 2026 Monochrome Card -->
-        <a class="guide-card" href="birthday26.html" style="background: #141418; border-color: rgba(255, 255, 255, 0.15);">
+        <!-- Birthday 2026 Card (Monochrome Cake Tile) -->
+        <a class="guide-card card-birthday" href="birthday26.html">
           <div>
             <span class="guide-card-tag tag-birthday">🎂 Birthday 2026 (Monochrome)</span>
             <h3>2026 Birthday Wishlist</h3>
@@ -95,10 +93,10 @@
 
       <h2 class="section-subheading">Past Wishlist Archives</h2>
       <div class="guide-cards-grid">
-        <!-- 2025 Archive Card -->
-        <a class="guide-card" href="2025.html">
+        <!-- 2025 Archive Card (Green Snowflake Tile) -->
+        <a class="guide-card card-holiday card-archive" href="2025.html">
           <div>
-            <span class="guide-card-tag tag-archive">📜 2025 Archive</span>
+            <span class="guide-card-tag tag-archive">📜 2025 Holiday Archive</span>
             <h3>2025 Christmas List</h3>
             <p>Last year's interactive evergreen holiday list featuring sizes, accordion categories, stocking stuffers, and the 2025 Naughty List.</p>
           </div>
@@ -107,10 +105,10 @@
           </div>
         </a>
 
-        <!-- 2024 Archive Card -->
-        <a class="guide-card" href="2024.html">
+        <!-- 2024 Archive Card (Green Snowflake Tile) -->
+        <a class="guide-card card-holiday card-archive" href="2024.html">
           <div>
-            <span class="guide-card-tag tag-archive">📜 2024 Archive</span>
+            <span class="guide-card-tag tag-archive">📜 2024 Holiday Archive</span>
             <h3>2024 Holiday Guide</h3>
             <p>The nostalgic 2024 holiday reference guide with restored retro festive styling and vintage wishlist ideas.</p>
           </div>

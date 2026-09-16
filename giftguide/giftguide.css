@@ -1,17 +1,18 @@
-/* === Gift Guide Hub & Shared Section Styles === */
+/* === Gift Guide Gateway & Section Styles (Neutral Base) === */
 :root {
-  --bg: #08130b;
-  --panel: #0e2414;
-  --text: #f7faf7;
-  --muted: #cfe3d3;
-  --brand: #e11d48;
-  --accent: #fbbf24;
-  --card: #12311d;
-  --card-hover: #173d25;
-  --border: #1f3b29;
+  --bg: #090b10;
+  --panel: #11141c;
+  --card: #151822;
+  --card-hover: #1c212e;
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+  --subtle: #64748b;
+  --border: rgba(255, 255, 255, 0.08);
   --border-light: rgba(255, 255, 255, 0.15);
-  --link: #9ae6b4;
-  --shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+  --border-bright: rgba(255, 255, 255, 0.28);
+  --accent: #38bdf8;
+  --link: #7dd3fc;
+  --shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
   --radius: 18px;
   --radius-sm: 10px;
   --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
@@ -27,28 +28,11 @@ html, body {
   margin: 0;
   padding: 0;
   background-color: var(--bg);
+  background-image: radial-gradient(circle at 50% 0%, #151a26 0%, #090b10 75%);
+  background-attachment: fixed;
   color: var(--text);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
-}
-
-/* Background snowflake animation */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  opacity: .08;
-  z-index: 0;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><text x='20' y='26' text-anchor='middle' font-size='18'>❄️</text></svg>");
-  background-size: 40px 40px;
-  background-repeat: repeat;
-  animation: snowdrift 50s linear infinite;
-}
-
-@keyframes snowdrift {
-  from { transform: translateY(0); }
-  to { transform: translateY(40px); }
 }
 
 /* Protected Subpage initial obscurity to avoid flash of content */
@@ -65,7 +49,7 @@ body.protected-hidden {
   justify-content: space-between;
   align-items: center;
   padding: 16px 32px;
-  background: rgba(8, 19, 11, 0.85);
+  background: rgba(9, 11, 16, 0.85);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
@@ -106,14 +90,14 @@ body.protected-hidden {
 }
 
 .guide-lock-btn {
-  background: rgba(225, 29, 72, 0.15);
-  border: 1px solid rgba(225, 29, 72, 0.35);
-  color: #ffb4c2;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #cbd5e1;
   cursor: pointer;
 }
 
 .guide-lock-btn:hover {
-  background: rgba(225, 29, 72, 0.3);
+  background: rgba(255, 255, 255, 0.15);
   color: #ffffff;
 }
 
@@ -142,36 +126,26 @@ body.protected-hidden {
 .lock-card {
   width: 100%;
   max-width: 440px;
-  background: linear-gradient(160deg, #0e2414 0%, #0a1b0f 100%);
-  border: 1px solid var(--border);
+  background: var(--panel);
+  border: 1px solid var(--border-light);
   border-radius: var(--radius);
   padding: 38px 32px;
-  box-shadow: var(--shadow), 0 0 40px rgba(18, 49, 29, 0.5);
+  box-shadow: var(--shadow);
   text-align: center;
   position: relative;
   overflow: hidden;
-}
-
-.lock-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--brand), var(--accent), #22c55e);
 }
 
 .lock-icon-wrapper {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 64px;
-  height: 64px;
-  background: rgba(225, 29, 72, 0.15);
-  border: 1px solid rgba(225, 29, 72, 0.3);
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 50%;
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin-bottom: 18px;
 }
 
@@ -181,10 +155,10 @@ body.protected-hidden {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--accent);
-  background: rgba(251, 191, 36, 0.12);
-  border: 1px solid rgba(251, 191, 36, 0.25);
-  padding: 4px 10px;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 4px 12px;
   border-radius: 999px;
   margin-bottom: 12px;
 }
@@ -192,7 +166,7 @@ body.protected-hidden {
 .lock-card h2 {
   font-family: var(--font-heading);
   font-size: 2.2rem;
-  font-weight: 700;
+  font-weight: 600;
   margin: 0 0 8px 0;
   color: #ffffff;
   letter-spacing: -0.01em;
@@ -213,8 +187,8 @@ body.protected-hidden {
 .password-input-group input {
   width: 100%;
   padding: 13px 44px 13px 16px;
-  background: rgba(0, 0, 0, 0.3);
-  border: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border-light);
   border-radius: var(--radius-sm);
   color: #ffffff;
   font-family: var(--font-body);
@@ -224,8 +198,8 @@ body.protected-hidden {
 }
 
 .password-input-group input:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.2);
+  border-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.15);
 }
 
 .toggle-pass-btn {
@@ -249,22 +223,21 @@ body.protected-hidden {
 .unlock-btn {
   width: 100%;
   padding: 13px 20px;
-  background: linear-gradient(135deg, var(--brand) 0%, #be123c 100%);
-  color: #ffffff;
+  background: #ffffff;
+  color: #090b10;
   font-family: var(--font-body);
   font-size: 1rem;
   font-weight: 600;
   border: none;
   border-radius: var(--radius-sm);
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(225, 29, 72, 0.35);
-  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  transition: transform 0.15s ease, background-color 0.15s ease;
 }
 
 .unlock-btn:hover {
   transform: translateY(-1px);
-  filter: brightness(1.08);
-  box-shadow: 0 6px 18px rgba(225, 29, 72, 0.45);
+  background: #e2e8f0;
 }
 
 .unlock-btn:active {
@@ -280,7 +253,7 @@ body.protected-hidden {
 
 .lock-hint-text {
   font-size: 0.8rem;
-  color: rgba(207, 227, 211, 0.6);
+  color: var(--subtle);
   margin-top: 18px !important;
   margin-bottom: 0 !important;
 }
@@ -296,7 +269,7 @@ body.protected-hidden {
   animation: shake 0.4s ease-in-out;
 }
 
-/* Unlocked Hub Content */
+/* Unlocked Content */
 #hub-unlocked-content {
   display: none;
   width: 100%;
@@ -304,28 +277,16 @@ body.protected-hidden {
 
 .hub-hero {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 36px;
 }
 
-.twinkle-title {
+.portal-title {
   font-family: var(--font-heading);
-  font-size: clamp(2.4rem, 6vw, 3.5rem);
-  font-weight: 700;
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  font-weight: 600;
   margin: 0 0 10px 0;
-  letter-spacing: -0.01em;
-}
-
-.twinkle-title span:nth-child(3n+1) {
-  color: #ffdee5;
-  text-shadow: 0 0 10px rgba(225, 29, 72, 0.8);
-}
-.twinkle-title span:nth-child(3n+2) {
-  color: #fff3d4;
-  text-shadow: 0 0 10px rgba(251, 191, 36, 0.8);
-}
-.twinkle-title span:nth-child(3n) {
-  color: #dbffe6;
-  text-shadow: 0 0 10px rgba(34, 197, 94, 0.8);
+  letter-spacing: -0.02em;
+  color: #ffffff;
 }
 
 .hub-hero p {
@@ -352,12 +313,6 @@ body.protected-hidden {
   flex: 1;
   height: 1px;
   background: var(--border);
-}
-
-.tag-birthday {
-  background: rgba(255, 255, 255, 0.08);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 /* Year Cards Grid */
@@ -391,9 +346,8 @@ body.protected-hidden {
   }
 }
 
+/* Base Card Styles */
 .guide-card {
-  background: var(--card);
-  border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 30px;
   display: flex;
@@ -406,28 +360,102 @@ body.protected-hidden {
   color: inherit;
 }
 
+/* Ensure content stays above patterned backgrounds */
+.guide-card > div,
+.guide-card > .guide-card-cta {
+  position: relative;
+  z-index: 1;
+}
+
 .guide-card:hover {
-  background: var(--card-hover);
-  border-color: rgba(255, 255, 255, 0.2);
   transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
 }
 
-.guide-card.featured {
-  border-color: rgba(225, 29, 72, 0.4);
-  background: linear-gradient(160deg, #163821 0%, #0f2a18 100%);
+/* === HOLIDAY TILES: Green Background + Snowflake Pattern === */
+.card-holiday {
+  background: linear-gradient(150deg, #0d2817 0%, #06160c 100%);
+  border: 1px solid rgba(74, 222, 128, 0.2);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
 }
 
-.guide-card.featured::before {
+.card-holiday::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.09;
+  z-index: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='36' height='36'><text x='18' y='25' text-anchor='middle' font-size='16'>❄️</text></svg>");
+  background-size: 36px 36px;
+  background-repeat: repeat;
+  animation: snowdrift 45s linear infinite;
+}
+
+@keyframes snowdrift {
+  from { transform: translateY(0); }
+  to { transform: translateY(36px); }
+}
+
+.card-holiday:hover {
+  border-color: rgba(74, 222, 128, 0.4);
+  box-shadow: 0 16px 36px rgba(9, 38, 22, 0.45);
+}
+
+.card-holiday.featured {
+  border-color: rgba(74, 222, 128, 0.35);
+}
+
+.card-holiday.featured::after {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 3px;
-  background: var(--brand);
+  background: linear-gradient(90deg, #22c55e, #e11d48, #fbbf24);
+  z-index: 2;
 }
 
+.card-holiday.card-archive {
+  background: linear-gradient(150deg, #091c10 0%, #05120a 100%);
+  border: 1px solid rgba(74, 222, 128, 0.14);
+}
+
+.card-holiday.card-archive::before {
+  opacity: 0.07;
+}
+
+/* === BIRTHDAY TILES: Monochrome Dark + Cake Pattern === */
+.card-birthday {
+  background: linear-gradient(150deg, #15161c 0%, #0d0e13 100%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+}
+
+.card-birthday::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.09;
+  z-index: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><text x='20' y='27' text-anchor='middle' font-size='16'>🎂</text></svg>");
+  background-size: 40px 40px;
+  background-repeat: repeat;
+  animation: cakedrift 50s linear infinite;
+}
+
+@keyframes cakedrift {
+  from { transform: translateY(0); }
+  to { transform: translateY(40px); }
+}
+
+.card-birthday:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+}
+
+/* Card Tags */
 .guide-card-tag {
   display: inline-flex;
   align-items: center;
@@ -443,15 +471,21 @@ body.protected-hidden {
 }
 
 .tag-current {
-  background: rgba(225, 29, 72, 0.18);
+  background: rgba(225, 29, 72, 0.2);
   color: #ffa4b5;
-  border: 1px solid rgba(225, 29, 72, 0.35);
+  border: 1px solid rgba(225, 29, 72, 0.38);
+}
+
+.tag-birthday {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.22);
 }
 
 .tag-archive {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.06);
   color: #cbd5e1;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .guide-card h3 {
@@ -487,7 +521,7 @@ body.protected-hidden {
   justify-content: space-between;
   align-items: center;
   padding: 16px 20px;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   font-size: 0.85rem;
@@ -506,28 +540,4 @@ body.protected-hidden {
   background: #22c55e;
   border-radius: 50%;
   box-shadow: 0 0 8px #22c55e;
-}
-
-/* Subpage Top Bar Helper */
-.subpage-banner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(8, 19, 11, 0.9);
-  padding: 12px 24px;
-  border-bottom: 1px solid var(--border);
-  font-size: 0.9rem;
-}
-
-.subpage-banner a {
-  color: var(--link);
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-weight: 500;
-}
-
-.subpage-banner a:hover {
-  text-decoration: underline;
 }
