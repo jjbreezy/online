@@ -6,128 +6,118 @@
 	<!-- Security Headers -->
 	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com;">
 	<meta name="referrer" content="strict-origin-when-cross-origin">
+	<!-- Search Engine & Crawler Exclusion Directives -->
 	<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
-	<title>Resume - Jordan Broihier</title>
+	<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
+
+	<title>Resume — Jordan Broihier</title>
+
+	<!-- Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-	
+	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+	<!-- Main Stylesheets -->
 	<link rel="stylesheet" href="index.css">
 	<link rel="stylesheet" href="consent.css">
 	
 	<style type="text/css">
-        /* Force Sans Serif Font across entire Resume Page */
+        /* Allow text selection specifically on Resume page */
         #resume-stage,
-        #resume-stage h1,
-        #resume-stage h2,
-        #resume-stage h3,
-        #resume-stage h4,
-        #resume-stage .section-title,
-        #resume-stage .company-name,
-        #resume-stage .profile-info h1 {
-            font-family: var(--font-body), 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+        #resume-stage * {
+            user-select: text !important;
+            -webkit-user-select: text !important;
         }
 
         #resume-stage {
             position: relative;
             z-index: 1;
-            width: min(1140px, 94vw);
-            margin: 6.5rem auto 3.5rem auto;
+            width: min(1040px, 92vw);
+            margin: 6.5rem auto 4.5rem auto;
+            font-family: var(--font-body);
         }
 
-        /* Profile Header Section (No background card, centered, smaller text) */
-        .profile-card {
-            background: transparent;
-            backdrop-filter: none;
-            -webkit-backdrop-filter: none;
-            border-radius: 0;
-            padding: 0 0 2rem 0;
-            border: none;
-            box-shadow: none;
-            margin-bottom: 1rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        .profile-info h1 {
-            font-family: var(--font-body), 'Plus Jakarta Sans', sans-serif !important;
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin: 0;
-            color: var(--text-color);
-            letter-spacing: -0.02em;
-            line-height: 1.2;
-        }
-
-        /* Main 2-Column Grid */
-        .resume-grid {
-            display: grid;
-            grid-template-columns: 1.55fr 1fr;
-            gap: 1.25rem;
-        }
-
-        .grid-card {
-            background: rgba(255, 255, 255, 0.95);
+        /* Header Card */
+        .resume-header-card {
+            background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border-radius: 20px;
-            padding: 2.2rem 2.6rem;
+            padding: 2.25rem 2.75rem;
             border: 1px solid rgba(255, 255, 255, 0.9);
-            box-shadow: 0 20px 40px -15px rgba(0,0,0,0.05);
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 15px 35px -10px rgba(15, 23, 42, 0.05);
+            margin-bottom: 1.5rem;
         }
 
-        /* Minimalist Section Titles */
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2.4rem, 4.5vw, 3.2rem);
+            font-weight: 700;
+            margin: 0 0 0.3rem 0;
+            color: #0f172a;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.12rem;
+            font-weight: 600;
+            color: #334155;
+            margin: 0 0 0.45rem 0;
+            line-height: 1.4;
+        }
+
+        .hero-location {
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: #64748b;
+            letter-spacing: 0.01em;
+        }
+
+        /* 2-Column Content Grid */
+        .resume-grid {
+            display: grid;
+            grid-template-columns: 1.35fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .resume-panel {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 20px;
+            padding: 2.25rem 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 15px 35px -10px rgba(15, 23, 42, 0.05);
+        }
+
         .section-title {
             font-family: var(--font-heading);
-            font-size: 1.7rem;
+            font-size: 1.75rem;
             font-weight: 700;
-            margin: 0 0 1.5rem 0;
-            color: var(--text-color);
-            letter-spacing: -0.01em;
-            position: relative;
-            z-index: 2;
+            margin: 0 0 1.75rem 0;
+            color: #0f172a;
+            letter-spacing: -0.02em;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #f1f5f9;
         }
 
-        /* Direct Experience Role Progression Steppers */
-        .role-item {
-            margin-bottom: 2.2rem;
-            position: relative;
-            z-index: 2;
+        /* Experience Company Groups & Progression */
+        .company-group {
+            margin-bottom: 2.25rem;
         }
 
-        .role-item:last-child {
+        .company-group:last-child {
             margin-bottom: 0;
-        }
-
-        .role-header-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.1rem;
         }
 
         .company-name {
             font-family: var(--font-heading);
-            font-size: 1.65rem;
+            font-size: 1.55rem;
             font-weight: 700;
-            margin: 0;
-            color: var(--text-color);
-        }
-
-        .company-badge {
-            background: #f8fafc;
-            color: #334155;
-            padding: 0.25rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.82rem;
-            font-weight: 600;
-            border: 1px solid #e2e8f0;
+            margin: 0 0 1.1rem 0;
+            color: #0f172a;
+            letter-spacing: -0.01em;
         }
 
         .progression-timeline {
@@ -136,7 +126,7 @@
             display: flex;
             flex-direction: column;
             gap: 1.1rem;
-            border-left: 2px solid #e2e8f0;
+            border-left: 1.5px solid #e2e8f0;
             margin-left: 0.5rem;
         }
 
@@ -144,168 +134,132 @@
             position: relative;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 0.5rem;
         }
 
-        .step-dot {
+        .step-marker {
             position: absolute;
             left: -1.78rem;
             top: 50%;
             transform: translateY(-50%);
-            width: 10px;
-            height: 10px;
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
             background: #cbd5e1;
-            border: 2px solid #ffffff;
+            transition: all 0.2s ease;
         }
 
-        .step-current .step-dot {
+        .step-current .step-marker {
             background: #ea580c;
-            box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.2);
         }
 
         .role-title {
             font-size: 1.05rem;
+            font-weight: 600;
+            color: #334155;
+            margin: 0;
+            letter-spacing: -0.01em;
+        }
+
+        .step-current .role-title {
             font-weight: 700;
+            color: #0f172a;
+        }
+
+        /* Right Column Stack */
+        .right-column-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        /* Education Details */
+        .edu-block {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .edu-institution {
+            font-family: var(--font-heading);
+            font-size: 1.55rem;
+            font-weight: 700;
+            margin: 0 0 0.25rem 0;
+            color: #0f172a;
+        }
+
+        .edu-degree {
+            font-size: 0.98rem;
+            font-weight: 600;
             color: #1e293b;
             margin: 0;
         }
 
-        .step-current .role-title {
-            color: #ea580c;
-        }
-
-        .role-level-tag {
-            font-size: 0.78rem;
+        .edu-minor {
+            font-size: 0.88rem;
             color: #64748b;
-            font-weight: 600;
-            background: #f8fafc;
-            padding: 0.2rem 0.7rem;
-            border-radius: 12px;
-            border: 1px solid #e2e8f0;
+            margin: 0 0 0.5rem 0;
         }
 
-        .step-current .role-level-tag {
-            background: #fff7ed;
-            color: #c2410c;
-            border-color: #ffedd5;
-        }
-
-        /* "Before" Background Note Section */
-        .before-section {
-            margin-top: 2.2rem;
-            padding-top: 1.4rem;
-            border-top: 1px dashed #cbd5e1;
-            position: relative;
-            z-index: 2;
-        }
-
-        .before-title {
-            font-size: 0.82rem;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: #64748b;
-            margin: 0 0 0.4rem 0;
-            font-weight: 700;
-        }
-
-        .before-desc {
+        .edu-athletics {
+            font-size: 0.86rem;
             color: #475569;
-            font-size: 0.95rem;
-            line-height: 1.6;
             margin: 0;
+            padding-top: 0.75rem;
+            border-top: 1px solid #f1f5f9;
+            line-height: 1.5;
         }
 
-        /* Direct Skill Categories */
-        .skill-category {
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 2;
+        /* Skills Matrix */
+        .skill-group {
+            margin-bottom: 1.4rem;
         }
 
-        .skill-category:last-child {
+        .skill-group:last-child {
             margin-bottom: 0;
         }
 
-        .skill-category h4 {
-            font-size: 0.82rem;
+        .skill-category-title {
+            font-size: 0.76rem;
             text-transform: uppercase;
-            letter-spacing: 0.06em;
+            letter-spacing: 0.08em;
             color: #64748b;
             margin: 0 0 0.6rem 0;
             font-weight: 700;
         }
 
-        .chip-group {
+        .tag-cloud {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.4rem;
+            gap: 0.45rem;
         }
 
-        .chip {
-            padding: 0.35rem 0.85rem;
+        .skill-chip {
+            padding: 0.35rem 0.75rem;
             border-radius: 8px;
-            font-size: 0.85rem;
+            font-size: 0.84rem;
             font-weight: 500;
             background: #f8fafc;
-            color: #1e293b;
+            color: #334155;
             border: 1px solid #e2e8f0;
             transition: all 0.2s ease;
         }
 
-        .chip:hover {
-            border-color: #ea580c;
-            color: #ea580c;
-            transform: translateY(-1px);
+        .skill-chip:hover {
+            border-color: #cbd5e1;
+            background: #ffffff;
+            color: #0f172a;
         }
 
-        .chip-pop {
-            background: #fff7ed;
-            color: #c2410c;
-            border-color: #ffedd5;
-            font-weight: 600;
-        }
-
-        /* Minimalist Education */
-        .edu-card-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .edu-card-content h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin: 0 0 0.25rem 0;
-            color: var(--text-color);
-        }
-
-        .edu-degree {
-            color: #1e293b;
-            font-size: 0.95rem;
-            font-weight: 600;
-            margin: 0 0 0.25rem 0;
-        }
-
-        .edu-sub {
-            color: #64748b;
-            font-size: 0.9rem;
-            margin: 0;
-        }
-
+        /* Responsive Breakpoints */
         @media (max-width: 900px) {
             .resume-grid {
                 grid-template-columns: 1fr;
             }
-            .profile-card {
-                padding: 1.8rem;
+            .resume-header-card {
+                padding: 2rem 1.8rem;
             }
-            .grid-card {
-                padding: 1.6rem;
-            }
-            .tile-stream-window {
-                width: 100%;
+            .resume-panel {
+                padding: 2rem 1.8rem;
             }
         }
 	</style>
@@ -321,136 +275,135 @@
 			</button>
 			<nav id="navMenu">
 				<a class="nav-item" href="index.html">Home</a>
-				<!-- <a class="nav-item active" href="resume.html" rel="nofollow">Resume</a> -->
+				<a class="nav-item active" href="resume.html" rel="nofollow">Resume</a>
 				<a class="nav-item" href="photography.html">Photography</a>
 				<a class="nav-item" href="nyc.html">NYC</a>
-				<a class="nav-item" href="giftguide/">Gift Guide</a>
-				<a class="nav-item nav-item-linkedin" href="https://www.linkedin.com/in/jordanbroihier/" target="_blank" rel="noopener">LinkedIn</a>
+				<a class="nav-item" href="giftguide/index.html">Gift Guide</a>
+				<a class="nav-item nav-item-linkedin" href="https://www.linkedin.com/in/jordanbroihier/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+					<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg>
+				</a>
 			</nav>
 		</header>
 
 		<main id="resume-stage" itemscope itemtype="http://schema.org/Person">
-            <!-- Header Profile Section -->
-            <article class="profile-card">
-                <div class="profile-info">
-                    <h1 itemprop="name">Resume: Jordan Broihier</h1>
-                </div>
-            </article>
+            <!-- Header Card -->
+            <header class="resume-header-card">
+                <h1 class="hero-title" itemprop="name">Jordan Broihier</h1>
+                <p class="hero-subtitle" itemprop="jobTitle">Junior Partner &amp; Growth Strategist</p>
+                <div class="hero-location" itemprop="addressLocality">New York, NY</div>
+            </header>
 
-            <!-- Core 2-Column Grid -->
+            <!-- Core 2-Column Content Grid -->
             <div class="resume-grid">
-                <!-- Left: Rapid Role Progression Timeline -->
-                <section class="grid-card has-dotwack">
-                    <h2 class="section-title">Professional Experience</h2>
+                <!-- Left Column: Professional Experience -->
+                <section class="resume-panel" aria-labelledby="experience-heading">
+                    <h2 class="section-title" id="experience-heading">Professional Experience</h2>
 
-                    <!-- Role Item 1: Junction37 Agency -->
-                    <div class="role-item">
-                        <div class="role-header-row">
-                            <h3 class="company-name">Junction37 Agency</h3>
-                        </div>
-                        
+                    <!-- Role Group 1: Junction37 Agency -->
+                    <article class="company-group" itemscope itemtype="http://schema.org/Organization">
+                        <h3 class="company-name" itemprop="name">Junction37 Agency</h3>
+
                         <div class="progression-timeline">
                             <div class="progression-step step-current">
-                                <span class="step-dot"></span>
+                                <span class="step-marker" aria-hidden="true"></span>
                                 <h4 class="role-title">Junior Partner</h4>
                             </div>
                             <div class="progression-step">
-                                <span class="step-dot"></span>
+                                <span class="step-marker" aria-hidden="true"></span>
                                 <h4 class="role-title">Associate Partner</h4>
                             </div>
                         </div>
-                    </div>
+                    </article>
 
-                    <!-- Role Item 2: HYPE10 Agency -->
-                    <div class="role-item">
-                        <div class="role-header-row">
-                            <h3 class="company-name">HYPE10 Agency</h3>
-                        </div>
-                        
+                    <!-- Role Group 2: HYPE10 Agency -->
+                    <article class="company-group" itemscope itemtype="http://schema.org/Organization">
+                        <h3 class="company-name" itemprop="name">HYPE10 Agency</h3>
+
                         <div class="progression-timeline">
-                            <div class="progression-step step-current">
-                                <span class="step-dot"></span>
+                            <div class="progression-step">
+                                <span class="step-marker" aria-hidden="true"></span>
                                 <h4 class="role-title">Senior Paid Media Manager</h4>
                             </div>
                             <div class="progression-step">
-                                <span class="step-dot"></span>
+                                <span class="step-marker" aria-hidden="true"></span>
                                 <h4 class="role-title">Paid Media Manager</h4>
                             </div>
                             <div class="progression-step">
-                                <span class="step-dot"></span>
+                                <span class="step-marker" aria-hidden="true"></span>
                                 <h4 class="role-title">Associate Digital Specialist</h4>
                             </div>
                         </div>
-                    </div>
+                    </article>
                 </section>
 
-                <!-- Right Sidebar: Education & Categorized Skills -->
-                <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+                <!-- Right Column: Education & Skills -->
+                <div class="right-column-stack">
                     <!-- Education Card -->
-                    <section class="grid-card" itemprop="alumniOf" itemscope itemtype="http://schema.org/EducationalOrganization">
-                        <h2 class="section-title">Education</h2>
-                        <div class="edu-card-content">
-                            <h3 itemprop="name">Cornell University</h3>
-                            <p class="edu-degree">B.A. Political Science</p>
-                            <p class="edu-sub">D1 Men’s Heavyweight Rowing</p>
+                    <section class="resume-panel" aria-labelledby="education-heading" itemprop="alumniOf" itemscope itemtype="http://schema.org/EducationalOrganization">
+                        <h2 class="section-title" id="education-heading">Education</h2>
+
+                        <div class="edu-block">
+                            <h3 class="edu-institution" itemprop="name">Cornell University</h3>
+                            <p class="edu-degree">B.A. in Political Science (Government)</p>
+                            <p class="edu-minor">Minor in Business • S.C. Johnson College of Business</p>
+                            <p class="edu-athletics">D1 Men’s Heavyweight Rowing • 4-Year Varsity Athlete &amp; Letterman</p>
                         </div>
                     </section>
 
-                    <!-- Skill Chips Card -->
-                    <section class="grid-card has-dotwack">
-                        <h2 class="section-title">Skills & Stack</h2>
+                    <!-- Skills & Stack Card -->
+                    <section class="resume-panel" aria-labelledby="skills-heading">
+                        <h2 class="section-title" id="skills-heading">Skills &amp; Stack</h2>
 
-                        <div class="skill-category">
-                            <h4>AI & Automation</h4>
-                            <div class="chip-group">
-                                <span class="chip chip-pop" itemprop="knowsAbout">Google Antigravity</span>
-                                <span class="chip chip-pop" itemprop="knowsAbout">Claude Code</span>
-                                <span class="chip chip-pop" itemprop="knowsAbout">Prompt Engineering</span>
-                                <span class="chip" itemprop="knowsAbout">Microsoft Copilot</span>
-                                <span class="chip" itemprop="knowsAbout">Gemini</span>
-                                <span class="chip" itemprop="knowsAbout">ChatGPT</span>
+                        <div class="skill-group">
+                            <h4 class="skill-category-title">AI &amp; Automation</h4>
+                            <div class="tag-cloud">
+                                <span class="skill-chip" itemprop="knowsAbout">Google Antigravity</span>
+                                <span class="skill-chip" itemprop="knowsAbout">Claude Code</span>
+                                <span class="skill-chip" itemprop="knowsAbout">Prompt Engineering</span>
+                                <span class="skill-chip" itemprop="knowsAbout">Microsoft Copilot</span>
+                                <span class="skill-chip" itemprop="knowsAbout">Gemini</span>
+                                <span class="skill-chip" itemprop="knowsAbout">ChatGPT</span>
                             </div>
                         </div>
 
-                        <div class="skill-category">
-                            <h4>AEO & Analytics</h4>
-                            <div class="chip-group">
-                                <span class="chip chip-pop" itemprop="knowsAbout">Profound AEO</span>
-                                <span class="chip" itemprop="knowsAbout">SEMrush</span>
-                                <span class="chip" itemprop="knowsAbout">ScreamingFrog</span>
-                                <span class="chip" itemprop="knowsAbout">Google Analytics</span>
-                                <span class="chip" itemprop="knowsAbout">Looker Studio</span>
-                                <span class="chip" itemprop="knowsAbout">Triple Whale</span>
+                        <div class="skill-group">
+                            <h4 class="skill-category-title">AEO &amp; Analytics</h4>
+                            <div class="tag-cloud">
+                                <span class="skill-chip" itemprop="knowsAbout">Profound AEO</span>
+                                <span class="skill-chip" itemprop="knowsAbout">SEMrush</span>
+                                <span class="skill-chip" itemprop="knowsAbout">ScreamingFrog</span>
+                                <span class="skill-chip" itemprop="knowsAbout">Google Analytics</span>
+                                <span class="skill-chip" itemprop="knowsAbout">Looker Studio</span>
+                                <span class="skill-chip" itemprop="knowsAbout">Triple Whale</span>
                             </div>
                         </div>
 
-                        <div class="skill-category">
-                            <h4>Paid Media & Growth</h4>
-                            <div class="chip-group">
-                                <span class="chip" itemprop="knowsAbout">Meta Media Buying</span>
-                                <span class="chip" itemprop="knowsAbout">Amazon Ads</span>
-                                <span class="chip" itemprop="knowsAbout">TikTok Ads</span>
-                                <span class="chip" itemprop="knowsAbout">Jira</span>
-                                <span class="chip" itemprop="knowsAbout">HubSpot</span>
-                                <span class="chip" itemprop="knowsAbout">HTML/CSS/JS</span>
+                        <div class="skill-group">
+                            <h4 class="skill-category-title">Paid Media &amp; Growth</h4>
+                            <div class="tag-cloud">
+                                <span class="skill-chip" itemprop="knowsAbout">Meta Media Buying</span>
+                                <span class="skill-chip" itemprop="knowsAbout">Amazon Ads</span>
+                                <span class="skill-chip" itemprop="knowsAbout">TikTok Ads</span>
+                                <span class="skill-chip" itemprop="knowsAbout">Jira</span>
+                                <span class="skill-chip" itemprop="knowsAbout">HubSpot</span>
+                                <span class="skill-chip" itemprop="knowsAbout">HTML/CSS/JS</span>
                             </div>
                         </div>
 
-                        <div class="skill-category">
-                            <h4>Creative & Productivity</h4>
-                            <div class="chip-group">
-                                <span class="chip" itemprop="knowsAbout">Adobe Photoshop</span>
-                                <span class="chip" itemprop="knowsAbout">DaVinci Resolve</span>
-                                <span class="chip" itemprop="knowsAbout">Higgsfield</span>
-                                <span class="chip" itemprop="knowsAbout">Asana</span>
-                                <span class="chip" itemprop="knowsAbout">Monday.com</span>
+                        <div class="skill-group">
+                            <h4 class="skill-category-title">Creative &amp; Productivity</h4>
+                            <div class="tag-cloud">
+                                <span class="skill-chip" itemprop="knowsAbout">Adobe Photoshop</span>
+                                <span class="skill-chip" itemprop="knowsAbout">DaVinci Resolve</span>
+                                <span class="skill-chip" itemprop="knowsAbout">Higgsfield</span>
+                                <span class="skill-chip" itemprop="knowsAbout">Asana</span>
+                                <span class="skill-chip" itemprop="knowsAbout">Monday.com</span>
                             </div>
                         </div>
                     </section>
                 </div>
             </div>
         </main>
-	</div>
 
 		<footer class="site-footer">
 			&copy; 2026 Jordan Broihier. All Rights Reserved.<span class="footer-sep">|</span><a href="privacy.html">Privacy Policy</a><span class="footer-sep">|</span><a href="terms.html">Terms of Use</a>
@@ -471,7 +424,7 @@
 	<script src="consent.js"></script>
 	<script>
 		document.addEventListener('DOMContentLoaded', () => {
-			// Hamburger Toggle
+			// Mobile Hamburger Toggle
 			const hamburger = document.getElementById('hamburgerBtn');
 			const navMenu = document.getElementById('navMenu');
 			if (hamburger && navMenu) {

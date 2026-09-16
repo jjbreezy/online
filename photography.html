@@ -19,30 +19,41 @@
 	<link rel="stylesheet" href="consent.css">
 	
 	<style type="text/css">
-        body {
-            background: #f8fafc !important;
+        :root {
+            --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+            --accent-color: #00a86b !important;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+        }
+
+        body, button, input, select, textarea {
             color: var(--text-color);
+            font-family: var(--font-body) !important;
         }
 
-        #stage-3d {
-            background: #f8fafc !important;
+        h1, h2, h3, h4, h5, h6,
+        .photo-section-title,
+        .about-content h3,
+        .photo-showcase-title,
+        .rate-card h3,
+        .faq-item h3,
+        .faq-question {
+            font-family: var(--font-body) !important;
         }
 
-        #stage-3d::before {
-            display: none !important;
-        }
-
-        /* -------------------------------------------------------------
-           Non-Sticky Transparent Navigation (No Background)
-        ------------------------------------------------------------- */
-        #top-nav {
-            position: relative !important;
-            background: transparent !important;
-            backdrop-filter: none !important;
-            -webkit-backdrop-filter: none !important;
-            border: none !important;
-            box-shadow: none !important;
-            padding-top: 1.5rem;
+        .nav-item:hover,
+        .nav-item.active {
+            color: #00a86b !important;
+            border-color: rgba(0, 168, 107, 0.45) !important;
+            box-shadow: 0 4px 14px rgba(0, 168, 107, 0.15) !important;
         }
 
         /* -------------------------------------------------------------
@@ -52,13 +63,13 @@
             position: relative;
             z-index: 1;
             width: min(1180px, 94vw);
-            margin: 2rem auto 4rem auto;
+            margin: 8rem auto 4rem auto;
         }
 
         /* Massive Dominant NYC Green Street Sign Hero Element */
         .street-sign-hero-wrapper {
             text-align: center;
-            margin-top: 2.5rem;
+            margin-top: 4rem;
             margin-bottom: 4rem;
         }
 
@@ -95,50 +106,63 @@
         .hero-action-row {
             display: flex;
             justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
             gap: 1rem;
             margin-bottom: 5.5rem;
         }
 
-        .btn-photo-primary {
-            background: #ea580c;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 0.85rem 2.4rem;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            box-shadow: 0 4px 14px rgba(234, 88, 12, 0.25);
-            transition: all 0.2s ease;
-        }
-
-        .btn-photo-primary:hover {
-            background: #c2410c;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(234, 88, 12, 0.35);
-        }
-
+        .btn-photo-primary,
         .btn-photo-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.55rem;
             background: #ffffff;
             color: #334155;
             text-decoration: none;
-            padding: 0.85rem 2.4rem;
+            padding: 0.85rem 2.2rem;
             border-radius: 30px;
             font-weight: 600;
             font-size: 0.95rem;
             border: 1px solid #cbd5e1;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
             transition: all 0.2s ease;
         }
 
+        .btn-photo-primary:hover,
         .btn-photo-secondary:hover {
-            background: #f8fafc;
-            border-color: #94a3b8;
+            background: #ffffff;
+            border-color: #00a86b;
+            color: #007a4d;
             transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0, 168, 107, 0.12);
+        }
+
+        .btn-arrow {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            flex-shrink: 0;
+            color: #64748b;
+            pointer-events: none;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        .btn-photo-primary:hover .btn-arrow,
+        .btn-photo-secondary:hover .btn-arrow {
+            transform: translateY(2px);
+            color: #00a86b;
+        }
+
+        #work, #rates {
+            scroll-margin-top: 2rem;
         }
 
         /* Section Titles */
         .photo-section-title {
-            font-family: var(--font-heading);
-            font-size: 2.8rem;
+            font-family: var(--font-body) !important;
+            font-size: 2.5rem;
             font-weight: 700;
             text-align: center;
             color: var(--text-color);
@@ -162,14 +186,14 @@
             border: 1px solid #e2e8f0;
             overflow: hidden;
             box-shadow: 0 4px 16px rgba(0,0,0,0.03);
-            transition: transform 0.25s ease, border-color 0.25s ease;
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
             position: relative;
         }
 
         .photo-showcase-card:hover {
             transform: translateY(-4px);
-            border-color: rgba(234, 88, 12, 0.4);
-            box-shadow: 0 12px 26px rgba(0,0,0,0.07);
+            border-color: rgba(0, 168, 107, 0.45);
+            box-shadow: 0 12px 26px rgba(0, 168, 107, 0.08);
         }
 
         .photo-showcase-card img {
@@ -194,9 +218,9 @@
 
         .photo-showcase-count {
             font-size: 0.8rem;
-            color: #ea580c;
+            color: #007a4d;
             font-weight: 600;
-            background: #fff3eb;
+            background: #e6f7f0;
             padding: 0.25rem 0.65rem;
             border-radius: 12px;
         }
@@ -217,13 +241,13 @@
             box-shadow: 0 4px 16px rgba(0,0,0,0.03);
             display: flex;
             overflow: hidden;
-            transition: transform 0.25s ease, border-color 0.25s ease;
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
         }
 
         .about-card:hover {
             transform: translateY(-3px);
-            border-color: rgba(234, 88, 12, 0.4);
-            box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+            border-color: rgba(0, 168, 107, 0.45);
+            box-shadow: 0 10px 24px rgba(0, 168, 107, 0.08);
         }
 
         .about-img {
@@ -241,8 +265,9 @@
         }
 
         .about-content h3 {
-            font-family: var(--font-heading);
-            font-size: 2rem;
+            font-family: var(--font-body) !important;
+            font-size: 1.85rem;
+            font-weight: 700;
             margin: 0 0 0.8rem 0;
             color: var(--text-color);
         }
@@ -254,27 +279,11 @@
             margin: 0 0 0.8rem 0;
         }
 
-        .photo-showcase-info {
-            padding: 1.3rem 1.6rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
         .photo-showcase-title {
-            font-family: var(--font-heading);
-            font-size: 1.4rem;
+            font-family: var(--font-body) !important;
+            font-size: 1.25rem;
             font-weight: 700;
             color: var(--text-color);
-        }
-
-        .photo-showcase-count {
-            font-size: 0.8rem;
-            color: #64748b;
-            font-weight: 600;
-            background: #f1f5f9;
-            padding: 0.2rem 0.65rem;
-            border-radius: 12px;
         }
 
         /* -------------------------------------------------------------
@@ -317,17 +326,18 @@
             flex-direction: column;
             justify-content: space-between;
             box-sizing: border-box;
-            transition: transform 0.25s ease, border-color 0.25s ease;
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
         }
 
         .testimonial-card:hover {
-            border-color: #ea580c;
+            border-color: #00a86b;
             transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(0, 168, 107, 0.08);
         }
 
         .quote-icon {
             font-size: 2rem;
-            color: #ea580c;
+            color: #00a86b;
             margin-bottom: 0.6rem;
         }
 
@@ -359,13 +369,13 @@
         }
 
         .package-badge {
-            background: #fff3eb;
-            color: #ea580c;
+            background: #e6f7f0;
+            color: #007a4d;
             padding: 0.25rem 0.75rem;
             border-radius: 16px;
             font-size: 0.78rem;
             font-weight: 600;
-            border: 1px solid #ffedd5;
+            border: 1px solid #cbf3dd;
             text-decoration: none;
         }
 
@@ -392,9 +402,9 @@
         }
 
         .carousel-btn:hover {
-            background: #ea580c;
+            background: #00a86b;
             color: #ffffff;
-            border-color: #ea580c;
+            border-color: #00a86b;
         }
 
         /* -------------------------------------------------------------
@@ -411,6 +421,7 @@
         }
 
         .rate-card {
+            font-family: var(--font-body) !important;
             background: #ffffff;
             border-radius: 20px;
             border: 1px solid #e2e8f0;
@@ -425,8 +436,8 @@
 
         .rate-card:hover {
             transform: translateY(-4px);
-            border-color: #ea580c;
-            box-shadow: 0 14px 30px rgba(0,0,0,0.08);
+            border-color: #00a86b;
+            box-shadow: 0 14px 30px rgba(0, 168, 107, 0.1);
         }
 
         .rate-card-headshots .package-tag { background: #eff6ff; color: #2563eb; border: 1px solid #bfdbfe; }
@@ -436,10 +447,14 @@
 
         .rate-card-special {
             grid-column: span 2;
-            background: linear-gradient(135deg, #ffffff 0%, #fff7ed 100%);
-            border: 1px solid #fed7aa;
+            background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+            border: 1px solid #bbf7d0;
         }
-        .rate-card-special .package-tag { background: #ffedd5; color: #ea580c; border: 1px solid #fed7aa; }
+        .rate-card-special:hover {
+            border-color: #00a86b;
+            box-shadow: 0 14px 30px rgba(0, 168, 107, 0.12);
+        }
+        .rate-card-special .package-tag { background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
 
         .package-header-row {
             display: flex;
@@ -458,17 +473,25 @@
         }
 
         .rate-card h3 {
-            font-family: var(--font-heading);
-            font-size: 1.75rem;
+            font-family: var(--font-body) !important;
+            font-size: 1.55rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
             margin: 0;
             color: var(--text-color);
+        }
+
+        .rate-card .price,
+        .rate-card .rate-desc,
+        .rate-card .features li {
+            font-family: var(--font-body) !important;
         }
 
         .price,
         .rate-card .price {
             font-size: 2.2rem;
             font-weight: 700;
-            color: #16a34a !important;
+            color: #00a86b !important;
             margin-bottom: 0.8rem;
         }
 
@@ -487,66 +510,213 @@
 
         .features li {
             display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            align-items: baseline;
+            gap: 0.6rem;
             color: #334155;
             font-size: 0.92rem;
             margin-bottom: 0.6rem;
+            line-height: 1.5;
         }
 
-        .features li .material-symbols-outlined {
-            color: #ea580c;
-            font-size: 1.15rem;
+        .features li::before {
+            content: "—";
+            color: #334155;
+            font-weight: 400;
+            flex-shrink: 0;
         }
 
-        .features-2col {
+        /* Custom Projects Options Grid */
+        .custom-options-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 0.5rem 1rem;
+            gap: 0.75rem;
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.2rem 0;
         }
 
-        /* FAQ Grid */
+        .custom-option-card {
+            background: linear-gradient(135deg, #008754 0%, #006b42 100%);
+            border: 1px solid #00965e;
+            border-radius: 12px;
+            padding: 0.85rem 1.15rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: #ffffff;
+            font-size: 0.92rem;
+            font-weight: 600;
+            box-shadow: 0 4px 14px rgba(0, 107, 66, 0.18);
+        }
+
+        .custom-option-card::before {
+            display: none !important;
+            content: none !important;
+        }
+
+        .custom-plus {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+            flex-shrink: 0;
+            line-height: 0;
+            user-select: none;
+        }
+
+        .custom-plus svg {
+            display: block;
+        }
+
+        /* FAQ Grid & Interactive Q/A Cards */
         .faq-section {
-            margin-bottom: 4rem;
+            margin-bottom: 5.5rem;
         }
 
         .faq-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1.25rem;
+            gap: 1.5rem;
         }
 
-        .faq-item {
+        .faq-card {
             background: #ffffff;
-            border-radius: 16px;
-            border: 1px solid #e2e8f0;
             border-radius: 20px;
             border: 1px solid #e2e8f0;
             padding: 1.8rem 2rem;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.03);
-            transition: transform 0.25s ease, border-color 0.25s ease;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
         }
 
-        .faq-item:hover {
-            transform: translateY(-2px);
-            border-color: rgba(234, 88, 12, 0.4);
+        .faq-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(0, 168, 107, 0.45);
+            box-shadow: 0 12px 28px rgba(0, 168, 107, 0.08);
         }
 
-        .faq-item h3 {
-            font-family: var(--font-heading);
-            font-size: 1.45rem;
-            margin: 0 0 0.6rem 0;
-            color: var(--text-color);
+        .faq-q-block {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1.1rem;
         }
 
-        .faq-item p {
+        .faq-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            font-weight: 800;
+            font-size: 0.8rem;
+            line-height: 1;
+            flex-shrink: 0;
+            margin-top: 0.15rem;
+            user-select: none;
+        }
+
+        .faq-badge-q {
+            background: #e6f7f0;
+            color: #007a4d;
+        }
+
+        .faq-question {
+            font-family: var(--font-body) !important;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #0f172a;
+            line-height: 1.4;
+            margin: 0;
+            letter-spacing: -0.01em;
+        }
+
+        .faq-a-block {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 1.1rem;
+            background: #fafcfb;
+            margin: 0 -0.8rem -0.6rem -0.8rem;
+            padding-left: 0.8rem;
+            padding-right: 0.8rem;
+            padding-bottom: 0.6rem;
+            border-radius: 0 0 14px 14px;
+        }
+
+        .faq-badge-a {
+            background: #f1f5f9;
             color: #64748b;
+        }
+
+        .faq-answer {
+            color: #475569;
             font-size: 0.95rem;
             line-height: 1.6;
             margin: 0;
         }
 
+        /* Contact CTA Section */
+        .photo-contact-section {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 5.5rem auto;
+            padding: 0 1rem;
+        }
+
+        .photo-contact-subtitle {
+            color: #475569;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin: 0 auto 2rem auto;
+        }
+
+        .btn-contact-linkedin {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.65rem;
+            background: #0077b5;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.95rem 2.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: 0 4px 14px rgba(0, 119, 181, 0.25);
+            transition: all 0.2s ease;
+        }
+
+        .btn-contact-linkedin:hover {
+            background: #005f93;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 22px rgba(0, 119, 181, 0.35);
+        }
+
+        .btn-contact-linkedin svg {
+            flex-shrink: 0;
+        }
+
+        .site-footer a:hover {
+            color: #00a86b;
+        }
+
         @media (max-width: 960px) {
+            #photo-stage {
+                margin-top: 6.5rem;
+            }
+            .street-sign-hero-wrapper {
+                margin-top: 2.5rem;
+            }
             .street-sign {
                 padding: 1.6rem 2.8rem;
                 font-size: 2.2rem;
@@ -566,6 +736,9 @@
             }
             .rate-card-special {
                 grid-column: span 1;
+            }
+            .custom-options-grid {
+                grid-template-columns: 1fr;
             }
             .testimonial-card {
                 min-width: 100%;
@@ -589,11 +762,13 @@
 			</button>
 			<nav id="navMenu">
 				<a class="nav-item" href="index.html">Home</a>
-				<!-- <a class="nav-item" href="resume.html" rel="nofollow">Resume</a> -->
+				<a class="nav-item" href="resume.html" rel="nofollow">Resume</a>
 				<a class="nav-item active" href="photography.html">Photography</a>
 				<a class="nav-item" href="nyc.html">NYC</a>
-				<a class="nav-item" href="giftguide/">Gift Guide</a>
-				<a class="nav-item nav-item-linkedin" href="https://www.linkedin.com/in/jordanbroihier/" target="_blank" rel="noopener">LinkedIn</a>
+				<a class="nav-item" href="giftguide/index.html">Gift Guide</a>
+				<a class="nav-item nav-item-linkedin" href="https://www.linkedin.com/in/jordanbroihier/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+					<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg>
+				</a>
 			</nav>
 		</header>
 
@@ -608,8 +783,14 @@
             </p>
 
             <div class="hero-action-row">
-                <a href="#rates" class="btn-photo-primary">View Packages & Rates</a>
-                <a href="#work" class="btn-photo-secondary">Explore Featured Work</a>
+                <a href="#rates" class="btn-photo-secondary">
+                    <span>View Packages & Rates</span>
+                    <svg class="btn-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+                </a>
+                <a href="#work" class="btn-photo-secondary">
+                    <span>Explore Featured Work</span>
+                    <svg class="btn-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+                </a>
             </div>
 
             <!-- Featured Work Section -->
@@ -721,9 +902,9 @@
                             <div class="price">$99</div>
                             <p class="rate-desc">Professional headshots, perfect for LinkedIn and personal branding.</p>
                             <ul class="features">
-                                <li><span class="material-symbols-outlined">check_circle</span> 1 Outfit</li>
-                                <li><span class="material-symbols-outlined">check_circle</span> 1 Location</li>
-                                <li><span class="material-symbols-outlined">check_circle</span> 5 Edited High-Res Images</li>
+                                <li>1 Outfit</li>
+                                <li>1 Location</li>
+                                <li>5 Edited High-Res Images</li>
                             </ul>
                         </div>
                     </div>
@@ -737,9 +918,9 @@
                             <div class="price">$165</div>
                             <p class="rate-desc">Capture your milestone achievement with memorable portraits.</p>
                             <ul class="features">
-                                <li><span class="material-symbols-outlined">check_circle</span> 1 Hour Session</li>
-                                <li><span class="material-symbols-outlined">check_circle</span> Campus Locations</li>
-                                <li><span class="material-symbols-outlined">check_circle</span> 15 Edited High-Res Images</li>
+                                <li>1 Hour Session</li>
+                                <li>Campus Locations</li>
+                                <li>15 Edited High-Res Images</li>
                             </ul>
                         </div>
                     </div>
@@ -753,9 +934,9 @@
                             <div class="price">$385</div>
                             <p class="rate-desc">Celebrate your love story with a comprehensive shoot.</p>
                             <ul class="features">
-                                <li><span class="material-symbols-outlined">check_circle</span> 2 Hour Session</li>
-                                <li><span class="material-symbols-outlined">check_circle</span> Location Scout Included</li>
-                                <li><span class="material-symbols-outlined">check_circle</span> 35 Edited High-Res Images</li>
+                                <li>2 Hour Session</li>
+                                <li>Location Scout Included</li>
+                                <li>35 Edited High-Res Images</li>
                             </ul>
                         </div>
                     </div>
@@ -769,9 +950,9 @@
                             <div class="price">$605</div>
                             <p class="rate-desc">Intimate coverage for your special NYC wedding day.</p>
                             <ul class="features">
-                                <li><span class="material-symbols-outlined">check_circle</span> Ceremony & Portrait Coverage</li>
-                                <li><span class="material-symbols-outlined">check_circle</span> Creative Direction</li>
-                                <li><span class="material-symbols-outlined">check_circle</span> 75 Edited High-Res Images</li>
+                                <li>Ceremony & Portrait Coverage</li>
+                                <li>Creative Direction</li>
+                                <li>75 Edited High-Res Images</li>
                             </ul>
                         </div>
                     </div>
@@ -784,11 +965,43 @@
                             </div>
                             <div class="price">Custom Projects</div>
                             <p class="rate-desc">Have a unique vision? We cover custom editorial, commercial, and creative concepts.</p>
-                            <ul class="features features-2col">
-                                <li><span class="material-symbols-outlined">check_circle</span> Custom Concepts</li>
-                                <li><span class="material-symbols-outlined">check_circle</span> Brand & Commercial Shoots</li>
-                                <li><span class="material-symbols-outlined">check_circle</span> Editorial Photography</li>
-                                <li><span class="material-symbols-outlined">check_circle</span> Album & Cover Art</li>
+                            <ul class="custom-options-grid">
+                                <li class="custom-option-card">
+                                    <span class="custom-plus" aria-hidden="true">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        </svg>
+                                    </span>
+                                    <span>Custom Concepts</span>
+                                </li>
+                                <li class="custom-option-card">
+                                    <span class="custom-plus" aria-hidden="true">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        </svg>
+                                    </span>
+                                    <span>Brand &amp; Commercial Shoots</span>
+                                </li>
+                                <li class="custom-option-card">
+                                    <span class="custom-plus" aria-hidden="true">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        </svg>
+                                    </span>
+                                    <span>Editorial Photography</span>
+                                </li>
+                                <li class="custom-option-card">
+                                    <span class="custom-plus" aria-hidden="true">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        </svg>
+                                    </span>
+                                    <span>Album &amp; Cover Art</span>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -813,22 +1026,65 @@
             <section id="faq" class="faq-section">
                 <h2 class="photo-section-title">Frequently Asked Questions</h2>
                 <div class="faq-grid">
-                    <div class="faq-item">
-                        <h3>What is your turnaround time?</h3>
-                        <p>2 weeks or sooner with secure digital delivery.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3>Do you travel for shoots?</h3>
-                        <p>Yes, across all five NYC boroughs and surrounding metro areas.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3>How do we receive our photos?</h3>
-                        <p>High-resolution download link via secure digital gallery.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3>What happens if it rains?</h3>
-                        <p>We can reschedule or embrace the weather with transparent rain umbrellas for unique atmospheric shots!</p>
-                    </div>
+                    <article class="faq-card">
+                        <div class="faq-q-block">
+                            <span class="faq-badge faq-badge-q" aria-hidden="true">Q</span>
+                            <h3 class="faq-question">What is your turnaround time?</h3>
+                        </div>
+                        <div class="faq-a-block">
+                            <span class="faq-badge faq-badge-a" aria-hidden="true">A</span>
+                            <p class="faq-answer">2 weeks or sooner with secure digital delivery.</p>
+                        </div>
+                    </article>
+
+                    <article class="faq-card">
+                        <div class="faq-q-block">
+                            <span class="faq-badge faq-badge-q" aria-hidden="true">Q</span>
+                            <h3 class="faq-question">Do you travel for shoots?</h3>
+                        </div>
+                        <div class="faq-a-block">
+                            <span class="faq-badge faq-badge-a" aria-hidden="true">A</span>
+                            <p class="faq-answer">Yes, across all five NYC boroughs and surrounding metro areas.</p>
+                        </div>
+                    </article>
+
+                    <article class="faq-card">
+                        <div class="faq-q-block">
+                            <span class="faq-badge faq-badge-q" aria-hidden="true">Q</span>
+                            <h3 class="faq-question">How do we receive our photos?</h3>
+                        </div>
+                        <div class="faq-a-block">
+                            <span class="faq-badge faq-badge-a" aria-hidden="true">A</span>
+                            <p class="faq-answer">High-resolution download link via secure digital gallery.</p>
+                        </div>
+                    </article>
+
+                    <article class="faq-card">
+                        <div class="faq-q-block">
+                            <span class="faq-badge faq-badge-q" aria-hidden="true">Q</span>
+                            <h3 class="faq-question">What happens if it rains?</h3>
+                        </div>
+                        <div class="faq-a-block">
+                            <span class="faq-badge faq-badge-a" aria-hidden="true">A</span>
+                            <p class="faq-answer">We can reschedule or embrace the weather with transparent rain umbrellas for unique atmospheric shots!</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Contact CTA Section -->
+            <section class="photo-contact-section" id="contact">
+                <h2 class="photo-section-title">Ready to Shoot?</h2>
+                <p class="photo-contact-subtitle">
+                    Have a project in mind, want to check dates, or ready to book your NYC session? Reach out directly to connect.
+                </p>
+                <div class="photo-contact-action">
+                    <a href="https://www.linkedin.com/in/jordanbroihier/" target="_blank" rel="noopener" class="btn-contact-linkedin">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64c-.88 0-1.6.72-1.6 1.6 0 .88.72 1.6 1.6 1.6.88 0 1.6-.72 1.6-1.6 0-.88-.72-1.6-1.6-1.6Z"/>
+                        </svg>
+                        <span>Connect on LinkedIn</span>
+                    </a>
                 </div>
             </section>
         </main>
