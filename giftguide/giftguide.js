@@ -116,11 +116,13 @@
             if (passInput) passInput.focus();
         }
 
+        const allowedRedirects = ['2026.html', 'birthday26.html', '2025.html', '2024.html'];
+
         if (isAuthenticated()) {
             // Check if there was a redirect query parameter
             const params = new URLSearchParams(window.location.search);
             const redirect = params.get('redirect');
-            if (redirect && (redirect === '2025.html' || redirect === '2024.html')) {
+            if (redirect && allowedRedirects.includes(redirect)) {
                 window.location.replace(redirect);
                 return;
             }
@@ -142,7 +144,7 @@
 
                     const params = new URLSearchParams(window.location.search);
                     const redirect = params.get('redirect');
-                    if (redirect && (redirect === '2025.html' || redirect === '2024.html')) {
+                    if (redirect && allowedRedirects.includes(redirect)) {
                         window.location.replace(redirect);
                     } else {
                         showUnlocked(false);

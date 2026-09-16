@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Security Headers -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com;">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <title>Jordan’s Christmas List 2026 🎄</title>
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
+  <meta name="description" content="Jordan’s 2026 holiday gift guide with sizes, categorized wishlists, and curated ideas." />
+
+  <!-- Immediate Auth Check -->
+  <script>
+    if (sessionStorage.getItem('jjb_giftguide_auth') !== 'authenticated') {
+      window.location.replace('index.html?redirect=2026.html');
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* === 2026 Refined Holiday Design Tokens === */
+    :root {
+      --bg: #030805;
+      --bg-gradient: radial-gradient(ellipse at 50% 0%, #0d2817 0%, #06150c 55%, #020704 100%);
+      --panel: rgba(14, 38, 22, 0.65);
+      --card: rgba(18, 48, 28, 0.5);
+      --card-hover: rgba(24, 62, 36, 0.7);
+      --border: rgba(154, 230, 180, 0.12);
+      --border-bright: rgba(251, 191, 36, 0.3);
+      --text: #f8faf8;
+      --muted: #cbd5cb;
+      --subtle: #879989;
+      --ruby: #e11d48;
+      --ruby-glow: rgba(225, 29, 72, 0.35);
+      --gold: #fbbf24;
+      --gold-champagne: #fef08a;
+      --mint: #9ae6b4;
+      --emerald-glow: rgba(34, 197, 94, 0.25);
+      --shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+      --radius: 18px;
+      --radius-sm: 10px;
+      --maxw: 960px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body.protected-hidden { display: none !important; }
+
+    html, body {
+      min-height: 100%;
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg);
+      background-image: var(--bg-gradient);
+      background-attachment: fixed;
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Ambient Festive Radial Glows */
+    .ambient-glow-1 {
+      position: fixed;
+      top: -150px;
+      left: 10%;
+      width: 500px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(225, 29, 72, 0.09), transparent 65%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .ambient-glow-2 {
+      position: fixed;
+      top: 100px;
+      right: 5%;
+      width: 600px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(251, 191, 36, 0.08), transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Subtle Elegant Snowflake Drift */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.07;
+      z-index: 0;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60'><text x='30' y='36' text-anchor='middle' font-size='20' fill='%23ffffff'>❄️</text></svg>");
+      background-size: 60px 60px;
+      animation: gentle-snow 60s linear infinite;
+    }
+
+    @keyframes gentle-snow {
+      from { transform: translateY(0); }
+      to { transform: translateY(60px); }
+    }
+
+    /* Subpage Header Banner */
+    .subpage-banner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(3, 8, 5, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      padding: 14px 28px;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .subpage-banner a {
+      color: var(--mint);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.15s ease;
+    }
+
+    .subpage-banner a:hover {
+      text-decoration: underline;
+      color: #ffffff;
+    }
+
+    .banner-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .subpage-lock-btn {
+      background: rgba(225, 29, 72, 0.16);
+      border: 1px solid rgba(225, 29, 72, 0.35);
+      color: #ffb4c2;
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s ease;
+    }
+
+    .subpage-lock-btn:hover {
+      background: rgba(225, 29, 72, 0.35);
+      color: #ffffff;
+    }
+
+    /* Container */
+    .container {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 36px 24px 80px 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Hero Card */
+    header.hero-card {
+      background: var(--panel);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: clamp(32px, 6vw, 54px);
+      box-shadow: var(--shadow);
+      margin-bottom: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header.hero-card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--ruby), var(--gold), #22c55e);
+    }
+
+    .holiday-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(251, 191, 36, 0.12);
+      border: 1px solid rgba(251, 191, 36, 0.28);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold-champagne);
+      margin-bottom: 18px;
+    }
+
+    .holiday-badge .glow-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--gold);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--gold);
+    }
+
+    /* Elegant Twinkling Title */
+    h1.hero-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2.4rem, 6vw, 3.8rem);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin: 0 0 14px 0;
+      line-height: 1.1;
+      color: #ffffff;
+    }
+
+    h1.hero-title span:nth-child(3n+1) {
+      color: #ffd9e0;
+      text-shadow: 0 0 12px rgba(225, 29, 72, 0.75);
+    }
+    h1.hero-title span:nth-child(3n+2) {
+      color: #fff2cb;
+      text-shadow: 0 0 12px rgba(251, 191, 36, 0.75);
+    }
+    h1.hero-title span:nth-child(3n) {
+      color: #e2fbe8;
+      text-shadow: 0 0 12px rgba(34, 197, 94, 0.75);
+    }
+
+    header.hero-card p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.65;
+      margin: 0;
+      max-width: 720px;
+    }
+
+    .draft-banner {
+      margin-top: 22px;
+      padding: 12px 18px;
+      background: rgba(18, 48, 28, 0.7);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .draft-banner strong {
+      color: var(--gold);
+    }
+
+    /* Quick Info / Specs Strip */
+    .quick-specs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .spec-item {
+      background: var(--panel);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+    }
+
+    .spec-item .label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--subtle);
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .spec-item .val {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    /* Accordion Category Sections */
+    .category-accordion {
+      background: var(--panel);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 18px;
+      overflow: hidden;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .category-accordion:hover {
+      border-color: rgba(154, 230, 180, 0.25);
+    }
+
+    .category-accordion[open] {
+      border-color: var(--border-bright);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+    }
+
+    summary.category-header {
+      padding: 20px 26px;
+      font-size: 1.25rem;
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      color: #ffffff;
+    }
+
+    summary.category-header::-webkit-details-marker { display: none; }
+
+    .category-title-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .price-pill {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--gold);
+    }
+
+    .chevron-icon {
+      font-size: 0.9rem;
+      color: var(--subtle);
+      transition: transform 0.25s ease;
+    }
+
+    .category-accordion[open] .chevron-icon {
+      transform: rotate(180deg);
+      color: var(--gold);
+    }
+
+    .category-body {
+      padding: 6px 26px 26px 26px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    /* Item Cards inside Accordion */
+    .items-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .item-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .item-card:hover {
+      background: var(--card-hover);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .item-card.is-placeholder {
+      border-style: dashed;
+      background: rgba(18, 48, 28, 0.35);
+    }
+
+    .item-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin: 0 0 6px 0;
+    }
+
+    .item-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.5;
+      margin: 0 0 16px 0;
+    }
+
+    .item-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--mint);
+      text-decoration: none;
+      padding: 6px 12px;
+      background: rgba(154, 230, 180, 0.1);
+      border: 1px solid rgba(154, 230, 180, 0.2);
+      border-radius: 6px;
+      width: fit-content;
+      transition: all 0.15s ease;
+    }
+
+    .item-link:hover {
+      background: rgba(154, 230, 180, 0.2);
+      color: #ffffff;
+    }
+
+    /* Naughty List Warning Section */
+    .naughty-list-card {
+      background: rgba(30, 10, 16, 0.5);
+      border: 1px solid rgba(225, 29, 72, 0.3);
+      border-radius: var(--radius);
+      padding: 26px 30px;
+      margin-top: 32px;
+      backdrop-filter: blur(12px);
+    }
+
+    .naughty-list-card h3 {
+      font-size: 1.25rem;
+      color: #fda4af;
+      margin: 0 0 10px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .naughty-list-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin: 0 0 14px 0;
+    }
+
+    .naughty-list-card ul {
+      margin: 0;
+      padding-left: 20px;
+      color: #e2e8f0;
+      line-height: 1.65;
+    }
+
+    .naughty-list-card li {
+      margin-bottom: 6px;
+    }
+
+    /* Footer */
+    footer.page-footer {
+      text-align: center;
+      margin-top: 60px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--subtle);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body class="protected-hidden">
+
+  <div class="ambient-glow-1" aria-hidden="true"></div>
+  <div class="ambient-glow-2" aria-hidden="true"></div>
+
+  <!-- Top Banner Navigation -->
+  <div class="subpage-banner">
+    <a href="index.html">← Back to Gift Guides</a>
+    <div class="banner-actions">
+      <a href="birthday26.html">Birthday 2026</a>
+      <a href="2025.html" style="color: var(--subtle);">2025 Archive</a>
+      <button type="button" class="subpage-lock-btn" onclick="window.lockGiftGuideSession()">🔒 Lock</button>
+    </div>
+  </div>
+
+  <main class="container">
+
+    <!-- Hero Card -->
+    <header class="hero-card">
+      <div class="holiday-badge">
+        <span class="glow-dot"></span>
+        <span>Holiday 2026 Wishlist</span>
+      </div>
+
+      <h1 class="hero-title">
+        <span>Jordan’s</span> <span>Christmas</span> <span>List</span> <span>2026</span> <span>🎄</span>
+      </h1>
+
+      <p>A refined collection of gift ideas, everyday staples, clothing sizes, and stocking stuffers for the 2026 holiday season.</p>
+
+      <div class="draft-banner">
+        <span>🎁</span>
+        <span><strong>Holiday 2026 Preview:</strong> This wishlist is currently being curated for the upcoming holiday season. Sizing details and preferred retailers are up-to-date!</span>
+      </div>
+    </header>
+
+    <!-- Quick Sizing Strip -->
+    <div class="quick-specs">
+      <div class="spec-item">
+        <div class="label">Shirt / Outerwear</div>
+        <div class="val">Medium (Slim)</div>
+      </div>
+      <div class="spec-item">
+        <div class="label">Pants / Waist</div>
+        <div class="val">31 × 32</div>
+      </div>
+      <div class="spec-item">
+        <div class="label">Shoes / Boots</div>
+        <div class="val">US 10.5 / 11</div>
+      </div>
+      <div class="spec-item">
+        <div class="label">Preferred Styles</div>
+        <div class="val">Neutrals & Evergreen</div>
+      </div>
+    </div>
+
+    <!-- Tier 1: Over $100 -->
+    <details class="category-accordion" open>
+      <summary class="category-header">
+        <div class="category-title-group">
+          <span>Big Ticket Items</span>
+          <span class="price-pill">$100+</span>
+        </div>
+        <span class="chevron-icon">▼</span>
+      </summary>
+      <div class="category-body">
+        <div class="items-list">
+          <div class="item-card is-placeholder">
+            <div>
+              <h4 class="item-title">Selected Design or Tech Item</h4>
+              <p class="item-desc">High-quality lifestyle, tech, or studio item for long-term daily use.</p>
+            </div>
+            <span class="item-link" style="opacity: 0.6; pointer-events: none;">Coming Soon</span>
+          </div>
+
+          <div class="item-card is-placeholder">
+            <div>
+              <h4 class="item-title">Home & Living Upgrade</h4>
+              <p class="item-desc">Durable, design-forward cookware, home goods, or minimalist furniture accent.</p>
+            </div>
+            <span class="item-link" style="opacity: 0.6; pointer-events: none;">Coming Soon</span>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- Tier 2: $50 - $100 -->
+    <details class="category-accordion" open>
+      <summary class="category-header">
+        <div class="category-title-group">
+          <span>Seasonal Standouts</span>
+          <span class="price-pill">$50 – $100</span>
+        </div>
+        <span class="chevron-icon">▼</span>
+      </summary>
+      <div class="category-body">
+        <div class="items-list">
+          <div class="item-card is-placeholder">
+            <div>
+              <h4 class="item-title">Apparel & Layering Essentials</h4>
+              <p class="item-desc">Quality knitwear, technical base layer, or everyday outerwear piece in dark neutral palette.</p>
+            </div>
+            <span class="item-link" style="opacity: 0.6; pointer-events: none;">Coming Soon</span>
+          </div>
+
+          <div class="item-card is-placeholder">
+            <div>
+              <h4 class="item-title">Everyday Carry / EDC</h4>
+              <p class="item-desc">Compact weather-resistant sling, pocket knife, or desk organizer.</p>
+            </div>
+            <span class="item-link" style="opacity: 0.6; pointer-events: none;">Coming Soon</span>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- Tier 3: Under $50 -->
+    <details class="category-accordion">
+      <summary class="category-header">
+        <div class="category-title-group">
+          <span>Everyday Essentials</span>
+          <span class="price-pill">Under $50</span>
+        </div>
+        <span class="chevron-icon">▼</span>
+      </summary>
+      <div class="category-body">
+        <div class="items-list">
+          <div class="item-card is-placeholder">
+            <div>
+              <h4 class="item-title">Coffee & Kitchen Tools</h4>
+              <p class="item-desc">Specialty coffee beans (whole bean), borosilicate glassware, or barista accessories.</p>
+            </div>
+            <span class="item-link" style="opacity: 0.6; pointer-events: none;">Coming Soon</span>
+          </div>
+
+          <div class="item-card is-placeholder">
+            <div>
+              <h4 class="item-title">Photography Accessories</h4>
+              <p class="item-desc">Sensor blowers, lens cloths, or portable camera wrist straps.</p>
+            </div>
+            <span class="item-link" style="opacity: 0.6; pointer-events: none;">Coming Soon</span>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- Tier 4: Stocking Stuffers -->
+    <details class="category-accordion">
+      <summary class="category-header">
+        <div class="category-title-group">
+          <span>Stocking Stuffers</span>
+          <span class="price-pill">Joyful & Small</span>
+        </div>
+        <span class="chevron-icon">▼</span>
+      </summary>
+      <div class="category-body">
+        <div class="items-list">
+          <div class="item-card">
+            <div>
+              <h4 class="item-title">Reese’s & Dark Chocolate</h4>
+              <p class="item-desc">Classic holiday sweets or Terry's chocolate oranges.</p>
+            </div>
+            <span class="item-link" style="pointer-events: none;">Always Welcome</span>
+          </div>
+
+          <div class="item-card">
+            <div>
+              <h4 class="item-title">Creatine Gummies & Fitness Snacks</h4>
+              <p class="item-desc">Everyday workout fuel and high-protein pantry staples.</p>
+            </div>
+            <span class="item-link" style="pointer-events: none;">Always Welcome</span>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- The 2026 Naughty List -->
+    <div class="naughty-list-card">
+      <h3>🚫 The Naughty List: Things Not to Get in 2026</h3>
+      <p>To keep things zero-waste and avoid duplicates, here are items I already have in abundance:</p>
+      <ul>
+        <li><strong>Physical Books:</strong> I read exclusively on Kindle now. My digital queue is already full!</li>
+        <li><strong>Standard Clothes:</strong> T-shirts, baseball caps, gloves, basic sweaters — closets are at max capacity. (Gift cards or specific wishlist pieces only!)</li>
+        <li><strong>Wall Art & Poster Prints:</strong> Wall space in NYC is finite and fully decorated.</li>
+        <li><strong>Random Tech & Cables:</strong> Chargers, generic earbuds, desk gadgets — looking to minimize e-waste.</li>
+        <li><strong>Lotions & Skincare:</strong> Very sensitive skin, I source my own products.</li>
+      </ul>
+    </div>
+
+    <footer class="page-footer">
+      <p>Jordan Broihier · Christmas 2026 Wishlist · Private Link</p>
+    </footer>
+
+  </main>
+
+  <script src="giftguide.js"></script>
+</body>
+</html>

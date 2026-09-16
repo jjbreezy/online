@@ -336,6 +336,30 @@ body.protected-hidden {
   line-height: 1.6;
 }
 
+.section-subheading {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 36px 0 18px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-subheading::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.tag-birthday {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
 /* Year Cards Grid */
 .guide-cards-grid {
   display: grid;

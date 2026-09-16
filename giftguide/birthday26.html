@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Security Headers -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com;">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <title>Jordan’s Birthday Wishlist 2026</title>
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
+  <meta name="description" content="Monochrome birthday wishlist with sizes, preferences, and placeholder ideas." />
+
+  <!-- Auth Check (Immediate Redirect if Locked) -->
+  <script>
+    if (sessionStorage.getItem('jjb_giftguide_auth') !== 'authenticated') {
+      window.location.replace('index.html?redirect=birthday26.html');
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* === Monochrome Design Tokens === */
+    :root {
+      --bg: #09090b;
+      --panel: #121216;
+      --card: #18181c;
+      --card-hover: #222228;
+      --text: #f4f4f5;
+      --muted: #a1a1aa;
+      --subtle: #71717a;
+      --border: rgba(255, 255, 255, 0.12);
+      --border-bright: rgba(255, 255, 255, 0.28);
+      --pure-white: #ffffff;
+      --radius: 16px;
+      --radius-sm: 8px;
+      --maxw: 920px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body.protected-hidden { display: none !important; }
+
+    html, body {
+      min-height: 100%;
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Subtle Minimal Monochrome Grain / Grid */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.03;
+      z-index: 0;
+      background-image: radial-gradient(var(--pure-white) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    /* Subpage Header Banner */
+    .subpage-banner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(9, 9, 11, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 14px 28px;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .subpage-banner a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.15s ease;
+    }
+
+    .subpage-banner a:hover {
+      color: var(--pure-white);
+      text-decoration: underline;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .subpage-lock-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s ease;
+    }
+
+    .subpage-lock-btn:hover {
+      border-color: var(--pure-white);
+      color: var(--pure-white);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* Content Container */
+    .container {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 40px 24px 80px 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Editorial Hero */
+    header.hero {
+      margin-bottom: 40px;
+      padding: clamp(32px, 6vw, 56px);
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .badge-monochrome {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .badge-monochrome .dot {
+      width: 6px;
+      height: 6px;
+      background: var(--pure-white);
+      border-radius: 50%;
+    }
+
+    header.hero h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2.4rem, 6vw, 3.8rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin: 0 0 12px 0;
+      color: var(--pure-white);
+    }
+
+    header.hero p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin: 0;
+      max-width: 680px;
+    }
+
+    .status-notice {
+      margin-top: 24px;
+      padding: 12px 18px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px dashed var(--border-bright);
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Section Headings */
+    h2.section-heading {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin: 40px 0 16px 0;
+      color: var(--pure-white);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    h2.section-heading::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* Sizing & Spec Grid */
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+      margin-bottom: 30px;
+    }
+
+    .spec-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 18px 20px;
+      transition: border-color 0.2s ease;
+    }
+
+    .spec-card:hover {
+      border-color: var(--border-bright);
+    }
+
+    .spec-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--subtle);
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .spec-value {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--pure-white);
+    }
+
+    /* Wishlist Items Cards */
+    .items-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+    }
+
+    .wish-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .wish-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-bright);
+    }
+
+    .wish-card.placeholder-card {
+      border-style: dashed;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .wish-tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--subtle);
+      margin-bottom: 12px;
+    }
+
+    .wish-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--pure-white);
+      margin: 0 0 8px 0;
+    }
+
+    .wish-desc {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin: 0 0 18px 0;
+    }
+
+    .wish-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--pure-white);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      width: fit-content;
+      transition: all 0.2s ease;
+    }
+
+    .wish-action:hover {
+      background: var(--pure-white);
+      color: var(--bg);
+    }
+
+    /* Anti-Wishlist / Notes */
+    .notes-box {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      margin-top: 32px;
+    }
+
+    .notes-box h3 {
+      margin: 0 0 12px 0;
+      font-size: 1.1rem;
+      color: var(--pure-white);
+    }
+
+    .notes-box p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin: 0 0 14px 0;
+    }
+
+    .notes-box ul {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .notes-box li {
+      margin-bottom: 6px;
+    }
+
+    /* Footer */
+    footer.page-footer {
+      text-align: center;
+      margin-top: 60px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--subtle);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body class="protected-hidden">
+
+  <!-- Top Banner Navigation -->
+  <div class="subpage-banner">
+    <a href="index.html">← Back to Gift Guides</a>
+    <div class="nav-actions">
+      <a href="2026.html">Holiday 2026</a>
+      <a href="2025.html" style="color: var(--subtle);">2025 Archive</a>
+      <button type="button" class="subpage-lock-btn" onclick="window.lockGiftGuideSession()">🔒 Lock</button>
+    </div>
+  </div>
+
+  <main class="container">
+
+    <!-- Header Hero -->
+    <header class="hero">
+      <div class="badge-monochrome">
+        <span class="dot"></span>
+        <span>Birthday 2026 · Monochrome Edition</span>
+      </div>
+      <h1>Jordan’s Birthday Wishlist</h1>
+      <p>A focused, minimalist reference list for birthday gifting ideas, sizes, and personal preferences.</p>
+
+      <div class="status-notice">
+        <span>🕯️</span>
+        <span><strong>Draft in progress:</strong> Specific items and additions are being updated ahead of my birthday. Sizing and guidelines below are accurate!</span>
+      </div>
+    </header>
+
+    <!-- Sizes Reference -->
+    <h2 class="section-heading">Sizes & Preferences</h2>
+    <div class="specs-grid">
+      <div class="spec-card">
+        <div class="spec-label">Shirt / Top</div>
+        <div class="spec-value">Medium (Slim)</div>
+      </div>
+      <div class="spec-card">
+        <div class="spec-label">Waist / Pants</div>
+        <div class="spec-value">31 × 32</div>
+      </div>
+      <div class="spec-card">
+        <div class="spec-label">Footwear</div>
+        <div class="spec-value">US 10.5 / 11</div>
+      </div>
+      <div class="spec-card">
+        <div class="spec-label">Jacket / Coat</div>
+        <div class="spec-value">38R / Medium</div>
+      </div>
+    </div>
+
+    <!-- Wishlist Placeholders -->
+    <h2 class="section-heading">Wishlist Ideas</h2>
+    <div class="items-grid">
+      <div class="wish-card placeholder-card">
+        <div>
+          <span class="wish-tag">Apparel & Gear</span>
+          <h3 class="wish-title">Minimalist Everyday Carry / Bag</h3>
+          <p class="wish-desc">Compact, weather-resistant crossbody or sling bag in matte black or charcoal.</p>
+        </div>
+        <span class="wish-action" style="opacity: 0.6; pointer-events: none;">Coming Soon</span>
+      </div>
+
+      <div class="wish-card placeholder-card">
+        <div>
+          <span class="wish-tag">Home & Studio</span>
+          <h3 class="wish-title">Studio Lighting / Desk Series</h3>
+          <p class="wish-desc">Subtle warm ambient lighting or desk accessories to improve evening creative workspace flow.</p>
+        </div>
+        <span class="wish-action" style="opacity: 0.6; pointer-events: none;">Coming Soon</span>
+      </div>
+
+      <div class="wish-card placeholder-card">
+        <div>
+          <span class="wish-tag">Experience</span>
+          <h3 class="wish-title">Coffee & Culinary Experiences</h3>
+          <p class="wish-desc">Tasting experiences, coffee subscriptions, or shared meals around New York City.</p>
+        </div>
+        <span class="wish-action" style="opacity: 0.6; pointer-events: none;">Coming Soon</span>
+      </div>
+    </div>
+
+    <!-- Preferences & What Not To Get -->
+    <div class="notes-box">
+      <h3>Guidelines & Gifting Notes</h3>
+      <p>A few quick guidelines to keep gifts joyful, minimal, and clutter-free:</p>
+      <ul>
+        <li><strong>Color palette:</strong> I heavily lean toward neutrals, black, olive, slate, and charcoal.</li>
+        <li><strong>Gift Cards:</strong> Always appreciated and zero-waste (Aesop, Buck Mason, Amazon, local NYC spots).</li>
+        <li><strong>Please avoid:</strong> Random knick-knacks, printed wall posters, scented lotions, and physical books (I read exclusively on Kindle).</li>
+      </ul>
+    </div>
+
+    <footer class="page-footer">
+      <p>Jordan Broihier · Birthday 2026 Wishlist · Private Link</p>
+    </footer>
+
+  </main>
+
+  <script src="giftguide.js"></script>
+</body>
+</html>
