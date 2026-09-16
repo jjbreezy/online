@@ -49,6 +49,28 @@ body.protected-hidden {
   z-index: 100;
 }
 
+.subpage-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.subpage-logo {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+.subpage-divider {
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 0.85rem;
+  user-select: none;
+}
+
 .subpage-banner a {
   color: #a7f3d0 !important;
   text-decoration: none;

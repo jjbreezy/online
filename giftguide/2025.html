@@ -42,6 +42,25 @@
       top: 0;
       z-index: 1000;
     }
+    .subpage-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+    .subpage-logo {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: #ffffff !important;
+      text-decoration: none !important;
+    }
+    .subpage-divider {
+      color: rgba(255, 255, 255, 0.25);
+      font-size: 0.85rem;
+      user-select: none;
+    }
     .subpage-banner a {
       color: var(--link);
       text-decoration: none;
@@ -646,7 +665,11 @@
 
 <body class="protected-hidden">
   <div class="subpage-banner">
-    <a href="index.html">← Back to Gift Guides</a>
+    <div class="subpage-brand">
+      <a class="subpage-logo" href="../index.html">JJB.</a>
+      <span class="subpage-divider">/</span>
+      <a href="index.html">← Back to Gift Guides</a>
+    </div>
     <div style="display: flex; align-items: center; gap: 14px;">
       <a href="2026.html" style="font-weight: 500; font-size: 0.85rem; color: var(--link);">Holiday 2026</a>
       <a href="birthday26.html" style="font-weight: 500; font-size: 0.85rem; color: var(--muted);">Birthday 2026</a>
