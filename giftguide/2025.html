@@ -29,63 +29,105 @@
     /* Prevent content flash */
     body.protected-hidden { display: none !important; }
 
-    .subpage-banner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(8, 19, 11, 0.95);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      padding: 12px 24px;
-      border-bottom: 1px solid var(--border);
+    /* Top Navigation Header (Standard Site Nav) */
+    .guide-nav-header {
       position: sticky;
       top: 0;
       z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 28px;
+      background: rgba(8, 19, 11, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
     }
-    .subpage-brand {
+
+    .guide-nav-brand {
       display: flex;
       align-items: center;
       gap: 12px;
       flex-shrink: 0;
     }
-    .subpage-logo {
+
+    .guide-nav-logo {
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      font-size: 1.35rem;
+      font-size: 1.4rem;
       font-weight: 800;
       letter-spacing: -0.04em;
       color: #ffffff !important;
       text-decoration: none !important;
+      flex-shrink: 0;
     }
-    .subpage-divider {
-      color: rgba(255, 255, 255, 0.25);
-      font-size: 0.85rem;
-      user-select: none;
-    }
-    .subpage-banner a {
-      color: var(--link);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
+
+    .guide-nav-back {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-    }
-    .subpage-banner a:hover {
-      text-decoration: underline;
-    }
-    .subpage-lock-btn {
-      background: rgba(225, 29, 72, 0.18);
-      border: 1px solid rgba(225, 29, 72, 0.35);
-      color: #ffb4c2;
+      gap: 5px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--link) !important;
+      text-decoration: none !important;
       padding: 5px 12px;
       border-radius: 999px;
-      font-size: 0.85rem;
-      cursor: pointer;
-      font-family: inherit;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.2s ease;
+      white-space: nowrap;
     }
-    .subpage-lock-btn:hover {
-      background: rgba(225, 29, 72, 0.35);
-      color: #ffffff;
+
+    .guide-nav-back:hover {
+      color: #ffffff !important;
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.22);
+    }
+
+    .guide-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .guide-nav-item {
+      color: #cbd5e1 !important;
+      text-decoration: none !important;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .guide-nav-item:hover,
+    .guide-nav-item.active {
+      color: #ffffff !important;
+      background: rgba(255, 255, 255, 0.14);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    @media (max-width: 768px) {
+      .guide-nav-header {
+        padding: 10px 16px;
+        gap: 10px;
+      }
+      .guide-nav-links {
+        overflow-x: auto;
+        padding-bottom: 2px;
+        gap: 6px;
+        -webkit-overflow-scrolling: touch;
+      }
+      .guide-nav-item {
+        padding: 5px 10px;
+        font-size: 0.82rem;
+      }
+      .guide-nav-back {
+        font-size: 0.78rem;
+        padding: 4px 8px;
+      }
     }
   </style>
   <style>
@@ -664,18 +706,20 @@
 </head>
 
 <body class="protected-hidden">
-  <div class="subpage-banner">
-    <div class="subpage-brand">
-      <a class="subpage-logo" href="../index.html">JJB.</a>
-      <span class="subpage-divider">/</span>
-      <a href="index.html">← Back to Gift Guides</a>
+  <!-- Top Navigation Header -->
+  <header class="guide-nav-header">
+    <div class="guide-nav-brand">
+      <a class="guide-nav-logo" href="../index.html">JJB.</a>
+      <a class="guide-nav-back" href="index.html">← Back to Gift Guides</a>
     </div>
-    <div style="display: flex; align-items: center; gap: 14px;">
-      <a href="2026.html" style="font-weight: 500; font-size: 0.85rem; color: var(--link);">Holiday 2026</a>
-      <a href="birthday26.html" style="font-weight: 500; font-size: 0.85rem; color: var(--muted);">Birthday 2026</a>
-      <button type="button" class="subpage-lock-btn" onclick="window.lockGiftGuideSession()">🔒 Lock</button>
-    </div>
-  </div>
+    <nav class="guide-nav-links">
+      <a class="guide-nav-item" href="../index.html">Home</a>
+      <a class="guide-nav-item" href="../photography.html">Photography</a>
+      <a class="guide-nav-item" href="../nyc.html">NYC</a>
+      <a class="guide-nav-item active" href="index.html">Gift Guide</a>
+      <a class="guide-nav-item" href="https://www.linkedin.com/in/jordanbroihier/" target="_blank" rel="noopener">LinkedIn</a>
+    </nav>
+  </header>
   <div class="bg-glow" aria-hidden="true"></div>
   <header class="hero container" role="banner">
     <div class="badge" style="margin-bottom: 12px; margin-top: 0;">
